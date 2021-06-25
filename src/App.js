@@ -60,11 +60,13 @@ class App extends Component {
 
             <input
               type="text"
+              tabindex="1"
               placeholder="Type your item here"
               value={this.state.newPrompt}
               onChange={e => this.updateInput("newPrompt", e.target.value)}
             />
             <button
+              tabindex="3"
               onClick={() => this.addItem()}
             >
               Add
@@ -72,6 +74,7 @@ class App extends Component {
             <br />
             <textarea
               type="text"
+              tabindex="2"
               placeholder="Type the answer to the prompt here"
               value={this.state.newAnswer}
               onChange={e => this.updateInput("newAnswer", e.target.value)}
