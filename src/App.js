@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 
-class App extends Component{
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       newItem: "",
       list: []
     }
   }
 
-  updateInput(key, value){
+  updateInput(key, value) {
     //update react state
     this.setState({
       [key]: value
     });
   }
 
-  addItem(){
+  addItem() {
     //create item, assign unique ID
     const newItem = {
       id: 1 + Math.random(),
@@ -37,24 +37,24 @@ class App extends Component{
     })
   }
 
-  deleteItem(id){
+  deleteItem(id) {
     //copy current list of items
     const list = [...this.state.list];
 
     //filter out item being deleted
     const updatedList = list.filter(item => item.id !== id); //ooh, triple equals
 
-    this.setState({list: updatedList});
+    this.setState({ list: updatedList });
   }
 
-  render(){
+  render() {
     return (
       <div className="App">
         <header className="App-header">
           <div>
             Add an item:
-            <br/>
-            <input 
+            <br />
+            <input
               type="text"
               placeholder="Type your item here"
               value={this.state.newItem}
@@ -69,7 +69,7 @@ class App extends Component{
 
             <ul>
               {this.state.list.map(item => {
-                return(
+                return (
                   <li key={item.id}>
                     {item.value}
                     <button
