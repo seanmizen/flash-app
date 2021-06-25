@@ -82,7 +82,7 @@ class App extends Component{
           </div>
         </header>
       </div>
-    );  
+    );
   }
 }
 
