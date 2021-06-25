@@ -3,6 +3,8 @@ import Nav from "./Nav";
 //import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+//Adapted from Tiff In Tech's React tutorial (Todo List)
+
 class DeckEditor extends Component {
   constructor(props) {
     super(props);
