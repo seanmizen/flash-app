@@ -33,7 +33,9 @@ class App extends Component {
     //update state with new list and reset newItem input
     this.setState({
       list,
-      newItem: ""
+      newItem: "Default Value"
+      //interesting: if you add "Default Value" in here it doesn't appear in the textbox until you add a value.
+      //makes sense though - this is the function to reset the state. duh!
     })
   }
 
