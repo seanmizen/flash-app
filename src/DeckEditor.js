@@ -134,7 +134,7 @@ class ItemList extends React.Component {
       {this.props.list.map(item => {
         return (
           <li key={item.id}>
-            <div className="item-prompt">{item.prompt}</div>
+            <div className="item-prompt"><b>{item.prompt}</b></div>
             <div className="item-answer">{item.answer}</div>
             <button
               onClick={() => this.props.onDeleted(item.id)}
