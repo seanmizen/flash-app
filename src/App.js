@@ -5,7 +5,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      newItem: "",
+      newPrompt: "",
+      newAnswer: "",
       list: []
     }
   }
@@ -21,7 +22,8 @@ class App extends Component {
     //create item, assign unique ID
     const newItem = {
       id: 1 + Math.random(),
-      value: this.state.newItem.slice()
+      prompt: this.state.newPrompt,
+      answer: this.state.newAnswer
     }
 
     //copy current list of items
@@ -33,7 +35,8 @@ class App extends Component {
     //update state with new list and reset newItem input
     this.setState({
       list,
-      newItem: ""
+      newPrompt: "",
+      newAnswer: "",
     })
   }
 
@@ -54,24 +57,31 @@ class App extends Component {
           <div>
             Add an item:
             <br />
+
             <input
               type="text"
               placeholder="Type your item here"
-              value={this.state.newItem}
-              onChange={e => this.updateInput("newItem", e.target.value)}
+              value={this.state.newPrompt}
+              onChange={e => this.updateInput("newPrompt", e.target.value)}
             />
-
             <button
               onClick={() => this.addItem()}
             >
               Add
             </button>
+            <br />
+            <textarea
+              type="text"
+              placeholder="Type the answer to the prompt here"
+              value={this.state.newAnswer}
+              onChange={e => this.updateInput("newAnswer", e.target.value)}
+            />
 
             <ul>
               {this.state.list.map(item => {
                 return (
                   <li key={item.id}>
-                    {item.value}
+                    {item.prompt} : {item.answer}
                     <button
                       onClick={() => this.deleteItem(item.id)}
                     >X</button>
