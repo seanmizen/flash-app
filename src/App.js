@@ -4,11 +4,17 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    //const initList = localStorage.getItem("storageList");
+
     this.state = {
       newPrompt: "",
       newAnswer: "",
       list: []
     }
+  }
+
+  setLocalStorageState() {
+    localStorage.setItem("storageList", this.state.list)
   }
 
   updateInput(key, value) {
@@ -38,6 +44,7 @@ class App extends Component {
       newPrompt: "",
       newAnswer: "",
     })
+    //this.setLocalStorageState();
   }
 
   deleteItem(id) {
@@ -48,6 +55,7 @@ class App extends Component {
     const updatedList = list.filter(item => item.id !== id); //ooh, triple equals
 
     this.setState({ list: updatedList });
+    //this.setLocalStorageState();
   }
 
   render() {
@@ -80,22 +88,51 @@ class App extends Component {
               onChange={e => this.updateInput("newAnswer", e.target.value)}
             />
 
-            <ul>
+            {/* <ul>
               {this.state.list.map(item => {
                 return (
                   <li key={item.id}>
-                    {item.prompt} : {item.answer}
+                    <div className="item-prompt">{item.prompt}</div>
+                    <div className="item-answer">{item.answer}</div>
                     <button
                       onClick={() => this.deleteItem(item.id)}
                     >X</button>
                   </li>
                 )
               })}
-            </ul>
+            </ul> */}
+
+            <ItemList
+              list={this.state.list}
+              onDeleted={id => this.deleteItem(id)}
+            />
+
           </div>
         </header>
       </div>
     );
+  }
+};
+
+class ItemList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <ul>
+      {this.props.list.map(item => {
+        return (
+          <li key={item.id}>
+            <div className="item-prompt">{item.prompt}</div>
+            <div className="item-answer">{item.answer}</div>
+            <button
+              onClick={() => this.props.onDeleted(item.id)}
+            >X</button>
+          </li>
+        )
+      })}
+    </ul>
   }
 }
 
