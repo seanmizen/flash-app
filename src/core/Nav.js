@@ -11,10 +11,10 @@ class Nav extends Component {
                     <li>
                         <Link to="/">Home</Link>
                     </li>
-                    <li>Deck Editor
+                    <li>
                         <Link to="/DeckEditor">Deck Editor</Link>
                     </li>
-                    <li>About
+                    <li>
                         <Link to="/About">About</Link>
                     </li>
                 </ul>

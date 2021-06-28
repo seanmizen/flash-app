@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ItemList from "./components/ItemList";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
+import LoadDeckFromFile from "./components/LoadDeckFromFile";
 import DeckName from "./components/DeckName";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
@@ -20,9 +21,17 @@ class DeckEditor extends Component {
     }
   }
 
-  setDeckName(e) {
+  loadDeck(deck) {
     this.setState({
-      deckName: e
+      deckName: deck.deckName,
+      list: deck.list
+    })
+
+  }
+
+  setDeckName(name) {
+    this.setState({
+      deckName: name
     });
   }
 
@@ -64,6 +73,7 @@ class DeckEditor extends Component {
               setDeckName={(e) => this.setDeckName(e)}
             />
           </div>
+
           <div className="deck-editor-edit-area">
             <h3>Add an item:</h3>
             <AddItemForm
@@ -86,7 +96,9 @@ class DeckEditor extends Component {
                 list: this.state.list
               }}
             />
-            <button>Load a deck</button>
+            <LoadDeckFromFile
+              onDeckLoad={e => this.loadDeck(e)}
+            />
           </div>
 
         </div>
