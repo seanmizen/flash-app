@@ -19,7 +19,7 @@ function AddItemForm({ onAdd }) {
     }
 
     const submitIfEnter = (e) => {
-        if (e.keyCode == 13 && e.shiftKey == false) {
+        if (e.keyCode === 13 && e.shiftKey === false) {
             submitForm(e);
         }
     }

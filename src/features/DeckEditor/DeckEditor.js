@@ -13,7 +13,7 @@ class DeckEditor extends Component {
 
     //const initList = localStorage.getItem("storageList");
 
-    console.log('home rendering');
+    console.log('DeckEditor rendering');
 
     this.state = {
       deckName: "",
@@ -26,7 +26,6 @@ class DeckEditor extends Component {
       deckName: deck.deckName,
       list: deck.list
     })
-
   }
 
   setDeckName(name) {
