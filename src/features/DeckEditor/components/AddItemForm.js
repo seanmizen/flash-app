@@ -7,7 +7,8 @@ function AddItemForm({ onAdd }) {
     const [prompt, setPrompt] = useState(""); //pass in our default val
     const [answer, setAnswer] = useState("");
     const inputRef = useRef();  //default thingy
-    const formRef = useRef();  //default thingy
+    const formRef = useRef();
+    const submitRef = useRef();
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ function AddItemForm({ onAdd }) {
 
     const submitIfEnter = (e) => {
         if (e.keyCode === 13 && e.shiftKey === false) {
-            submitForm(e);
+            submitRef.current.click();
         }
     }
 
@@ -48,6 +49,7 @@ function AddItemForm({ onAdd }) {
             />
             <button
                 type="submit"
+                ref={submitRef}
             >
                 Add
             </button>
