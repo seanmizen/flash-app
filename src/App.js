@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Home from "./Home";
-import Nav from "./Nav";
-import DeckEditor from "./DeckEditor";
-import About from "./About";
+import Home from "./features/Home/Home";
+import Nav from "./core/Nav";
+import DeckEditor from "./features/DeckEditor.txt/DeckEditor";
+import About from "./features/About/About";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import './App.css';
 
