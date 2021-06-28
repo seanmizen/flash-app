@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Nav from "./Nav";
-//import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
@@ -10,6 +7,8 @@ class DeckEditor extends Component {
     super(props);
 
     //const initList = localStorage.getItem("storageList");
+
+    console.log('home re-rendering');
 
     this.state = {
       newPrompt: "",
@@ -65,8 +64,8 @@ class DeckEditor extends Component {
 
   render() {
     return (
-      <root>
-        <Nav />
+      <div>
+        <span>test</span>
         <div className="deck-editor">
           <h2>Deck Editor</h2>
           <div className="deck-editor-edit-area">
@@ -93,20 +92,6 @@ class DeckEditor extends Component {
               onChange={e => this.updateInput("newAnswer", e.target.value)}
             />
 
-            {/* <ul>
-              {this.state.list.map(item => {
-                return (
-                  <li key={item.id}>
-                    <div className="item-prompt">{item.prompt}</div>
-                    <div className="item-answer">{item.answer}</div>
-                    <button
-                      onClick={() => this.deleteItem(item.id)}
-                    >X</button>
-                  </li>
-                )
-              })}
-            </ul> */}
-
           </div>
           <div className="deck-editor-item-list">
             <h3>Current Deck:</h3>
@@ -119,18 +104,13 @@ class DeckEditor extends Component {
             <button>Save this deck</button>
             <button>Load a deck</button>
           </div>
-
         </div>
-      </root>
+      </div >
     );
   }
 };
 
 class ItemList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return <ul>
       {this.props.list.map(item => {
