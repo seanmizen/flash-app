@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ItemList from "./components/ItemList";
+import AddItemForm from "./components/AddItemForm";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
@@ -65,34 +67,13 @@ class DeckEditor extends Component {
   render() {
     return (
       <div>
-        <span>test</span>
         <div className="deck-editor">
           <h2>Deck Editor</h2>
           <div className="deck-editor-edit-area">
             <h3>Add an item:</h3>
-            <input
-              type="text"
-              tabindex="1"
-              placeholder="Type your prompt here"
-              value={this.state.newPrompt}
-              onChange={e => this.updateInput("newPrompt", e.target.value)}
-            />
-            <button
-              tabindex="3"
-              onClick={() => this.addItem()}
-            >
-              Add
-            </button>
-            <br />
-            <textarea
-              type="text"
-              tabindex="2"
-              placeholder="Type the answer to the prompt here"
-              value={this.state.newAnswer}
-              onChange={e => this.updateInput("newAnswer", e.target.value)}
-            />
-
+            <AddItemForm />
           </div>
+
           <div className="deck-editor-item-list">
             <h3>Current Deck:</h3>
             <ItemList
@@ -100,32 +81,16 @@ class DeckEditor extends Component {
               onDeleted={id => this.deleteItem(id)}
             />
           </div>
+
           <div className="deck-editor-save-area">
             <button>Save this deck</button>
             <button>Load a deck</button>
           </div>
+
         </div>
       </div >
     );
   }
 };
-
-class ItemList extends React.Component {
-  render() {
-    return <ul>
-      {this.props.list.map(item => {
-        return (
-          <li key={item.id}>
-            <div className="item-prompt"><b>{item.prompt}</b></div>
-            <div className="item-answer">{item.answer}</div>
-            <button
-              onClick={() => this.props.onDeleted(item.id)}
-            >X</button>
-          </li>
-        )
-      })}
-    </ul>
-  }
-}
 
 export default DeckEditor;
