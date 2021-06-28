@@ -1,0 +1,35 @@
+:root{
+    background: #fefefe;
+    font-size: 16px;
+    padding: 1px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    color: #323232;
+    line-height: 1.25;
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+    /*padding: 0.2rem;
+    outline: 1px solid #323232;*/
+}
+
+/*
+    below settings are Mark settings
+    trust them
+    centre div is in here somehow
+*/
+.container{
+    max-width: 100%;
+    width: 36rem;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+/*
+    rem = fraction of font-size in the root element
+    has nothing to do with "Root EleMent" - but it sounds close enough
+*/

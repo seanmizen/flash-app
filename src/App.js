@@ -12,20 +12,22 @@ class App extends Component {
         return (
             <Router>
                 <Nav />
-                <Switch>
-                    <Route path="/DeckEditor">
-                        <DeckEditor />
-                    </Route>
-                    <Route path="/Challenge">
-                        <Challenge />
-                    </Route>
-                    <Route path="/About">
-                        <About />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                </Switch>
+                <div className="container">
+                    <Switch>
+                        <Route path="/DeckEditor">
+                            <DeckEditor />
+                        </Route>
+                        <Route path="/Challenge">
+                            <Challenge />
+                        </Route>
+                        <Route path="/About">
+                            <About />
+                        </Route>
+                        <Route path="/">
+                            <Home />
+                        </Route>
+                    </Switch>
+                </div>
             </Router>
         );
     }

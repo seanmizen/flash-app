@@ -1,28 +1,31 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import styles from "./Nav.module.css";
 
 class Nav extends Component {
     render() {
         return (
-            <nav className="nav">
-                <h3>Pages</h3>
-
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/DeckEditor">Deck Editor</Link>
-                    </li>
-                    <li>
-                        <Link to="/Challenge">Challenge</Link>
-                    </li>
-                    <li>
-                        <Link to="/About">About</Link>
-                    </li>
-                </ul>
-
-            </nav>
+            <nav className={styles["nav"]}>
+                <div className="container">
+                    <ul className={styles["nav-list"]}>
+                        <li className={styles["nav-list-item"]}>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li className={styles["nav-list-spacer"]} />
+                        <li className={styles["nav-list-item"]}>
+                            <Link to="/DeckEditor">Deck Editor</Link>
+                        </li>
+                        <li className={styles["nav-list-spacer"]} />
+                        <li className={styles["nav-list-item"]}>
+                            <Link to="/Challenge">Challenge</Link>
+                        </li>
+                        <li className={styles["nav-list-spacer"]} />
+                        <li className={styles["nav-list-item"]}>
+                            <Link to="/About">About</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav >
         );
     }
 };

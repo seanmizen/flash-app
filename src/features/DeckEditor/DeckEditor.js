@@ -4,6 +4,7 @@ import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
 import DeckName from "./components/DeckName";
+import styles from "./DeckEditor.module.css";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
@@ -64,7 +65,7 @@ class DeckEditor extends Component {
   render() {
     return (
       <div>
-        <div className="deck-editor">
+        <div className={styles['deck-editor']}>
           <h2>Deck Editor</h2>
           <div className="deck-editor-deck-name">
             <DeckName
