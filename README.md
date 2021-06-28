@@ -11,4 +11,4 @@ Start the app with `npm start`.
 
 ### H3
 
-Nothing here either
+Nothing here really
