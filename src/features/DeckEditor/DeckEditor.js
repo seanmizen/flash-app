@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ItemList from "./components/ItemList";
 import AddItemForm from "./components/AddItemForm";
+import SaveDeckToFile from "./components/SaveDeckToFile";
+import DeckName from "./components/DeckName";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
@@ -13,8 +15,15 @@ class DeckEditor extends Component {
     console.log('home rendering');
 
     this.state = {
+      deckName: "",
       list: []
     }
+  }
+
+  setDeckName(e) {
+    this.setState({
+      deckName: e
+    });
   }
 
   setLocalStorageState() {
@@ -49,6 +58,12 @@ class DeckEditor extends Component {
       <div>
         <div className="deck-editor">
           <h2>Deck Editor</h2>
+          <div className="deck-editor-deck-name">
+            <DeckName
+              deckName={this.state.deckName}
+              setDeckName={(e) => this.setDeckName(e)}
+            />
+          </div>
           <div className="deck-editor-edit-area">
             <h3>Add an item:</h3>
             <AddItemForm
@@ -65,7 +80,12 @@ class DeckEditor extends Component {
           </div>
 
           <div className="deck-editor-save-area">
-            <button>Save this deck</button>
+            <SaveDeckToFile
+              deck={{
+                deckName: this.state.deckName,
+                list: this.state.list
+              }}
+            />
             <button>Load a deck</button>
           </div>
 

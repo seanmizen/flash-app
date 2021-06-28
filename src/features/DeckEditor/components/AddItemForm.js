@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function AddItemForm({ onAdd }) {
     // {} instead of props just allows us to not do props. everywhere
@@ -6,12 +6,15 @@ function AddItemForm({ onAdd }) {
 
     const [prompt, setPrompt] = useState(""); //pass in our default val
     const [answer, setAnswer] = useState("");
+    const inputRef = useRef();  //default thingy
 
     const submitForm = (e) => {
         e.preventDefault();
         onAdd({ prompt, answer })
         setPrompt("");
         setAnswer("");
+        console.log(inputRef.current);
+        inputRef.current.focus();
     }
 
     return (
@@ -24,6 +27,7 @@ function AddItemForm({ onAdd }) {
                 placeholder="Type your prompt here"
                 value={prompt}
                 onChange={e => setPrompt(e.target.value)}
+                ref={inputRef}
             />
             <br />
             <textarea
