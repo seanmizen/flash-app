@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 function AddItemForm({ onAdd }) {
     // {} instead of props just allows us to not do props. everywhere
@@ -6,30 +7,38 @@ function AddItemForm({ onAdd }) {
     const [prompt, setPrompt] = useState(""); //pass in our default val
     const [answer, setAnswer] = useState("");
 
+    const submitForm = (e) => {
+        e.preventDefault();
+        onAdd({ prompt, answer })
+        setPrompt("");
+        setAnswer("");
+    }
+
     return (
-        <>
+        <form
+            onSubmit={submitForm}
+        >
             <input
                 type="text"
-                tabindex="1"
+                required={true}
                 placeholder="Type your prompt here"
-                value={this.state.newPrompt}
-                onChange={e => this.updateInput("newPrompt", e.target.value)}
+                value={prompt}
+                onChange={e => setPrompt(e.target.value)}
             />
-            <button
-                tabindex="3"
-                onClick={() => this.addItem()}
-            >
-                Add
-            </button>
             <br />
             <textarea
                 type="text"
-                tabindex="2"
+                required={false}
                 placeholder="Type the answer to the prompt here"
-                value={this.state.newAnswer}
-                onChange={e => this.updateInput("newAnswer", e.target.value)}
+                value={answer}
+                onChange={e => setAnswer(e.target.value)}
             />
-        </>
+            <button
+                type="submit"
+            >
+                Add
+            </button>
+        </form>
     )
 }
 

@@ -10,11 +10,9 @@ class DeckEditor extends Component {
 
     //const initList = localStorage.getItem("storageList");
 
-    console.log('home re-rendering');
+    console.log('home rendering');
 
     this.state = {
-      newPrompt: "",
-      newAnswer: "",
       list: []
     }
   }
@@ -23,42 +21,24 @@ class DeckEditor extends Component {
     localStorage.setItem("storageList", this.state.list)
   }
 
-  updateInput(key, value) {
-    //update react state
-    this.setState({
-      [key]: value
-    });
-  }
-
-  addItem() {
+  addItem({ prompt, answer }) {
     //create item, assign unique ID
     const newItem = {
       id: 1 + Math.random(),
-      prompt: this.state.newPrompt,
-      answer: this.state.newAnswer
+      prompt,
+      answer
     }
-
-    //copy current list of items
-    const list = [...this.state.list];
-
-    //add new item to list
-    list.push(newItem);
 
     //update state with new list and reset newItem input
     this.setState({
-      list,
-      newPrompt: "",
-      newAnswer: "",
+      list: [...this.state.list, newItem]
     })
     //this.setLocalStorageState();
   }
 
   deleteItem(id) {
-    //copy current list of items
-    const list = [...this.state.list];
-
     //filter out item being deleted
-    const updatedList = list.filter(item => item.id !== id); //ooh, triple equals
+    const updatedList = this.state.list.filter(item => item.id !== id); //ooh, triple equals
 
     this.setState({ list: updatedList });
     //this.setLocalStorageState();
@@ -71,7 +51,9 @@ class DeckEditor extends Component {
           <h2>Deck Editor</h2>
           <div className="deck-editor-edit-area">
             <h3>Add an item:</h3>
-            <AddItemForm />
+            <AddItemForm
+              onAdd={e => this.addItem(e)}
+            />
           </div>
 
           <div className="deck-editor-item-list">
