@@ -7,6 +7,7 @@ function AddItemForm({ onAdd }) {
     const [prompt, setPrompt] = useState(""); //pass in our default val
     const [answer, setAnswer] = useState("");
     const inputRef = useRef();  //default thingy
+    const formRef = useRef();  //default thingy
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -17,9 +18,16 @@ function AddItemForm({ onAdd }) {
         inputRef.current.focus();
     }
 
+    const submitIfEnter = (e) => {
+        if (e.keyCode == 13 && e.shiftKey == false) {
+            submitForm(e);
+        }
+    }
+
     return (
         <form
             onSubmit={submitForm}
+            ref={formRef}
         >
             <input
                 type="text"
@@ -36,6 +44,7 @@ function AddItemForm({ onAdd }) {
                 placeholder="Type the answer to the prompt here"
                 value={answer}
                 onChange={e => setAnswer(e.target.value)}
+                onKeyDown={e => submitIfEnter(e)}
             />
             <button
                 type="submit"

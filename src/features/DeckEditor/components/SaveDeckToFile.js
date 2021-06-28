@@ -1,24 +1,29 @@
+import { useState, useRef } from "react";
 
 function SaveDeckToFile({ deck }) {
+
+    const failedToSaveRef = useRef();
+    const [saveErrorMessage, setSaveErrorMessage] = useState();
 
     const saveToFile = () => {
         //Open a file save prompt
         //If location selected, save the file
 
-        //TODO check for deck name, deck items
-
-        console.log(deck.deckName);
-        console.log(deck.list.length);
+        if (saveErrorMessage == null) {
+            setSaveErrorMessage("");
+        }
 
         if (deck.deckName === "") {
-            console.log("Deck name blank. Cancelling export.");
+            setSaveErrorMessage("Deck name blank.");
             return;
         }
 
         if (deck.list.length === 0) {
-            console.log("No items in deck. Cancelling export.");
+            setSaveErrorMessage("No items in deck.");
             return;
         }
+
+        setSaveErrorMessage("");
 
         var json = JSON.stringify(deck);
         var blob = new Blob([json], { type: "application/json" });
@@ -34,11 +39,18 @@ function SaveDeckToFile({ deck }) {
     }
 
     return (
-        <button
-            onClick={saveToFile}
-        >
-            Save this deck
-        </button>
+        <>
+            <button
+                onClick={saveToFile}
+            >
+                Save this deck
+            </button>
+            <label
+                ref={failedToSaveRef}>
+                {saveErrorMessage}
+            </label>
+
+        </>
     )
 }
 
