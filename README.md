@@ -12,3 +12,7 @@ Start the app with `npm start`.
 ### H3
 
 Nothing here really
+
+## Bugs and todo
+DeckEditor/components/AddItemForm:    Validation does not trigger when pressing enter on the textArea
+TODO: add react hook form: https://react-hook-form.com/api/useform/trigger

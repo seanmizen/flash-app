@@ -15,6 +15,9 @@ class Nav extends Component {
                         <Link to="/DeckEditor">Deck Editor</Link>
                     </li>
                     <li>
+                        <Link to="/Challenge">Challenge</Link>
+                    </li>
+                    <li>
                         <Link to="/About">About</Link>
                     </li>
                 </ul>
