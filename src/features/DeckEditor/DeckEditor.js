@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import ItemList from "./components/ItemList";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
@@ -8,104 +8,82 @@ import styles from "./DeckEditor.module.css";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
-class DeckEditor extends Component {
-  constructor(props) {
-    super(props);
+function DeckEditor() {
 
-    //const initList = localStorage.getItem("storageList");
+  const [deckName, setDeckName] = useState("");
+  const [list, setList] = useState([]);
 
-    console.log('DeckEditor rendering');
+  //TODO how to log "DeckEditor rendering"?
 
-    this.state = {
-      deckName: "",
-      list: []
-    }
+  function loadDeck(deck) {
+    setDeckName(deck.deckName);
+    setList(deck.list);
   }
 
-  loadDeck(deck) {
-    this.setState({
-      deckName: deck.deckName,
-      list: deck.list
-    })
-  }
-
-  setDeckName(name) {
-    this.setState({
-      deckName: name
-    });
-  }
-
-  setLocalStorageState() {
+  /*function setLocalStorageState() {
     localStorage.setItem("storageList", this.state.list)
-  }
+  }*/
 
-  addItem({ prompt, answer }) {
+  function addItem({ prompt = "", answer = "" }) {
     //create item, assign unique ID
+
     const newItem = {
       id: 1 + Math.random(),
       prompt,
       answer
     }
 
-    //update state with new list and reset newItem input
-    this.setState({
-      list: [...this.state.list, newItem]
-    })
-    //this.setLocalStorageState();
+    setList([...list, newItem]);
+    //setLocalStorageState();
   }
 
-  deleteItem(id) {
-    //filter out item being deleted
-    const updatedList = this.state.list.filter(item => item.id !== id); //ooh, triple equals
-
-    this.setState({ list: updatedList });
-    //this.setLocalStorageState();
+  function deleteItem(id) {
+    setList(list.filter(item => item.id !== id));
+    //setLocalStorageState();
   }
 
-  render() {
-    return (
-      <div>
-        <div className={styles['deck-editor']}>
-          <h2>Deck Editor</h2>
-          <div className="deck-editor-deck-name">
-            <DeckName
-              deckName={this.state.deckName}
-              setDeckName={(e) => this.setDeckName(e)}
-            />
-          </div>
-
-          <div className="deck-editor-edit-area">
-            <h3>Add an item:</h3>
-            <AddItemForm
-              onAdd={e => this.addItem(e)}
-            />
-          </div>
-
-          <div className="deck-editor-item-list">
-            <h3>Current Deck:</h3>
-            <ItemList
-              list={this.state.list}
-              onDeleted={id => this.deleteItem(id)}
-              allowEdit={true}
-            />
-          </div>
-
-          <div className="deck-editor-save-area">
-            <SaveDeckToFile
-              deck={{
-                deckName: this.state.deckName,
-                list: this.state.list
-              }}
-            />
-            <LoadDeckFromFile
-              onDeckLoad={e => this.loadDeck(e)}
-            />
-          </div>
-
+  return (
+    <div>
+      <div className={styles['deck-editor']}>
+        <h2>Deck Editor</h2>
+        <div className="deck-editor-deck-name">
+          <DeckName
+            deckName={deckName}
+            setDeckName={(e) => setDeckName(e)}
+          />
         </div>
-      </div >
-    );
-  }
+
+        <div className="deck-editor-edit-area">
+          <h3>Add an item:</h3>
+          <AddItemForm
+            onAdd={e => addItem(e)}
+          />
+        </div>
+
+        <div className="deck-editor-item-list">
+          <h3>Current Deck:</h3>
+          <ItemList
+            list={list}
+            onDeleted={id => deleteItem(id)}
+            allowEdit={true}
+          />
+        </div>
+
+        <div className="deck-editor-save-area">
+          <SaveDeckToFile
+            deck={{
+              deckName: deckName,
+              list: list
+            }}
+          />
+          <LoadDeckFromFile
+            onDeckLoad={e => loadDeck(e)}
+          />
+        </div>
+
+      </div>
+    </div >
+  );
 };
 
 export default DeckEditor;

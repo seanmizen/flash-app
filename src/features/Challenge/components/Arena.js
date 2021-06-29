@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import ArenaAnswer from "./ArenaAnswer";
 import ArenaPrompt from "./ArenaPrompt";
-import ItemList from "../../DeckEditor/components/ItemList";
+//import ItemList from "../../DeckEditor/components/ItemList";
 
 function Arena({ deck, loadDeckCallback }) {
     // shuffledList is separate to deck
@@ -10,7 +10,7 @@ function Arena({ deck, loadDeckCallback }) {
     const [shuffledList, setShuffledList] = useState([]);
     const [currentItem, setCurrentItem] = useState(0);
     const [revealAnswer, setRevealAnswer] = useState(false);
-    const [revealButtonText, setRevealButtonText] = useState("Reveal answer")
+    const [revealButtonText, setRevealButtonText] = useState("Reveal answer");
     const revealButton = useRef();
     const nextItemButton = useRef();
     const prevItemButton = useRef();
@@ -43,6 +43,7 @@ function Arena({ deck, loadDeckCallback }) {
     }
 
     function shuffleDeck() {
+        console.log("Shuffling deck");
         setShuffledList(shuffleArray([...shuffledList]));
         setCurrentItem(0)
         manSetRevealAnswer(false);
@@ -78,10 +79,11 @@ function Arena({ deck, loadDeckCallback }) {
                     prompt={shuffledList[currentItem]?.prompt}
                     onClickCallback={toggleRevealAnswer}
                 />
-                {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer} />}
-
                 <br />
-
+                {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer} />}
+                <br />
+                <span>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</span>
+                <br />
                 <button
                     onClick={toggleRevealAnswer}
                     ref={revealButton}
@@ -107,9 +109,9 @@ function Arena({ deck, loadDeckCallback }) {
                 Shuffle Deck
             </button>
 
-            <ItemList
+            {/*<ItemList     RE INCLUDE ME IF YOU WANT TO SEE THE WHOLE DECK
                 list={shuffledList}
-            />
+            />*/}
 
         </div>
     )
