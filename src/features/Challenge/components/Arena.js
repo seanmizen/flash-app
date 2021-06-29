@@ -54,8 +54,7 @@ function Arena({ deck, loadDeckCallback }) {
     }
 
     function prevItem() {
-        console.log(currentItem);
-        setCurrentItem((currentItem - 1 + shuffledList.length) % shuffledList.length)
+        setCurrentItem((currentItem - 1 + shuffledList.length) % shuffledList.length || 0)
         manSetRevealAnswer(false);
     }
 
@@ -80,16 +79,16 @@ function Arena({ deck, loadDeckCallback }) {
                     onClickCallback={toggleRevealAnswer}
                 />
                 {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer} />}
+
+                <br />
+
+                <button
+                    onClick={toggleRevealAnswer}
+                    ref={revealButton}
+                >
+                    {revealButtonText}
+                </button>
             </div>
-
-            <br />
-
-            <button
-                onClick={toggleRevealAnswer}
-                ref={revealButton}
-            >
-                {revealButtonText}
-            </button>
 
             <br />
 
