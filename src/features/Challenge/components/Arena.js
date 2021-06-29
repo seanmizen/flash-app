@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import ArenaAnswer from "./ArenaAnswer";
 import ArenaPrompt from "./ArenaPrompt";
+import ItemList from "../../DeckEditor/components/ItemList";
 
 function Arena({ deck, loadDeckCallback }) {
     // shuffledList is separate to deck
@@ -9,6 +10,10 @@ function Arena({ deck, loadDeckCallback }) {
     const [shuffledList, setShuffledList] = useState([]);
     const [currentItem, setCurrentItem] = useState(0);
     const [revealAnswer, setRevealAnswer] = useState(false);
+    const [revealButtonText, setRevealButtonText] = useState("Reveal answer")
+    const revealButton = useRef();
+    const nextItemButton = useRef();
+    const prevItemButton = useRef();
 
     // magic goes here
     // This line sets the setShuffledList on first instance
@@ -16,10 +21,13 @@ function Arena({ deck, loadDeckCallback }) {
     // TODO look at a tutorial for useEf
     useEffect(() => { setShuffledList(deck.list || []) }, [setShuffledList, deck]);
 
-    console.log(shuffledList);
+    function manSetRevealAnswer(bool) {
+        bool ? setRevealButtonText("Hide answer") : setRevealButtonText("Reveal answer")
+        setRevealAnswer(bool);
+    }
 
     function toggleRevealAnswer() { // Expand this as necessary
-        setRevealAnswer(!revealAnswer);
+        manSetRevealAnswer(!revealAnswer);
     }
 
     /* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
@@ -36,7 +44,19 @@ function Arena({ deck, loadDeckCallback }) {
 
     function shuffleDeck() {
         setShuffledList(shuffleArray([...shuffledList]));
-        console.log(shuffledList);
+        setCurrentItem(0)
+        manSetRevealAnswer(false);
+    }
+
+    function nextItem() {
+        setCurrentItem((currentItem + 1 + shuffledList.length) % shuffledList.length)
+        manSetRevealAnswer(false);
+    }
+
+    function prevItem() {
+        console.log(currentItem);
+        setCurrentItem((currentItem - 1 + shuffledList.length) % shuffledList.length)
+        manSetRevealAnswer(false);
     }
 
     // {statement ? ifTrue : ifFalse}
@@ -45,11 +65,40 @@ function Arena({ deck, loadDeckCallback }) {
 
     return (
         <div>
-            <ArenaPrompt
-                prompt="Example Prompt"
-                onClickCallback={toggleRevealAnswer}
-            />
-            {revealAnswer && <ArenaAnswer answer="Example Answer" />}
+            <button
+                onClick={prevItem}
+                ref={prevItemButton}
+            >
+                Previous card
+            </button>
+
+            <br />
+
+            <div>
+                <ArenaPrompt
+                    prompt={shuffledList[currentItem]?.prompt}
+                    onClickCallback={toggleRevealAnswer}
+                />
+                {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer} />}
+            </div>
+
+            <br />
+
+            <button
+                onClick={toggleRevealAnswer}
+                ref={revealButton}
+            >
+                {revealButtonText}
+            </button>
+
+            <br />
+
+            <button
+                onClick={nextItem}
+                ref={nextItemButton}
+            >
+                Next card
+            </button>
 
             <br />
 
@@ -59,16 +108,10 @@ function Arena({ deck, loadDeckCallback }) {
                 Shuffle Deck
             </button>
 
-            <ul>
-                {shuffledList.map(item => {
-                    return (
-                        <li key={item.id}>
-                            <div className="item-prompt"><b>{item.prompt}</b></div>
-                            <div className="item-answer">{item.answer}</div>
-                        </li>
-                    )
-                })}
-            </ul>
+            <ItemList
+                list={shuffledList}
+            />
+
         </div>
     )
 }

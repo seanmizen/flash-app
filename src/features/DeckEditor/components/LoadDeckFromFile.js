@@ -8,20 +8,26 @@ function LoadDeckFromFile({ onDeckLoad }) {
 
     const validateDeckAndPassUp = (deck) => {
         if (deck.deckName === "" || deck.list.length === 0) {
-            return
+            console.log("Deck import failed");
+            return;
         }
+        console.log("Importing deck \"" + deck.deckName + "\"");
         onDeckLoad(deck);
     }
 
-    const changeHandler = (e) => {
+    const fileChangeHandler = (e) => {
+        if (!(e.target.files[0] instanceof Blob)) {
+            console.log("Invalid file imported - Deck import aborted");
+            return;
+        }
         setSelectedFile(e.target.files[0]);
         //if file valid, pass back to DeckEditor
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], "UTF-8");
         fileReader.onload = e => {
-            console.log("e.target.result", e.target.result);
             validateDeckAndPassUp(JSON.parse(e.target.result));
         };
+        e.target.value = null;  //reset input file value (this is so we can load the same file twice - otherwise an onChange event won't fire )
     }
 
     const loadFromFile = () => {
@@ -40,7 +46,7 @@ function LoadDeckFromFile({ onDeckLoad }) {
                 id="fileUpload"
                 type="file"
                 accept=".json"
-                onChange={changeHandler}
+                onChange={fileChangeHandler}
                 ref={loadFileRef}
             />
             <label

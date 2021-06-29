@@ -86,6 +86,7 @@ class DeckEditor extends Component {
             <ItemList
               list={this.state.list}
               onDeleted={id => this.deleteItem(id)}
+              allowEdit={true}
             />
           </div>
 
