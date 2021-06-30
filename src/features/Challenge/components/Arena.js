@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import ArenaAnswer from "./ArenaAnswer";
 import ArenaPrompt from "./ArenaPrompt";
+import styles from "../Challenge.module.css";
 //import ItemList from "../../DeckEditor/components/ItemList";
 
 function Arena({ deck, loadDeckCallback }) {
@@ -80,9 +81,9 @@ function Arena({ deck, loadDeckCallback }) {
                     onClickCallback={toggleRevealAnswer}
                 />
                 <br />
-                {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer} />}
+                {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer} /> : <span></span>}
                 <br />
-                <span>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</span>
+                <div>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</div>
                 <br />
                 <button
                     onClick={toggleRevealAnswer}

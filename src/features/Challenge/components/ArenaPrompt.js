@@ -1,3 +1,4 @@
+import styles from "../Challenge.module.css";
 
 function ArenaPrompt({ prompt, onClickCallback }) {
 

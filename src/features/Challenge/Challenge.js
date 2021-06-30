@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoadDeckFromFile from "../DeckEditor/components/LoadDeckFromFile";
 import Arena from "./components/Arena";
+import styles from "./Challenge.module.css";
 
 function Challenge() {
 
