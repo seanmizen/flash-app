@@ -21,8 +21,42 @@ function Arena({ deck, loadDeckCallback }) {
     // Every time (parent) deck changes, the change will be copied across
     // TODO look at a tutorial for useEf
     useEffect(() => { setShuffledList(deck.list || []) }, [setShuffledList, deck]);
+    useEffect(() => {
+        window.addEventListener('keydown', arenaKeyDown);
+        return () => {
+            window.removeEventListener('keydown', arenaKeyDown);
+        };
+    });
 
-    function manSetRevealAnswer(bool) {
+    const arenaKeyDown = ({ key, keyCode }) => {
+        //left key -> un-reveal (if necessary) (37)
+        //up key -> prev card (38)
+        //right key -> reveal (if necessary) (39)
+        //down key -> next card (40)
+        switch (keyCode) {
+            case 37:
+                //Left arrow
+                manSetRevealAnswer(false);
+                break;
+            case 38:
+                //Up arrow
+                prevItem();
+                break;
+            case 39:
+                //Right arrow
+                manSetRevealAnswer(true);
+                break;
+            case 40:
+                //Down arrow
+                nextItem();
+                break;
+            default:
+                //do nothing
+                break;
+        }
+    }
+
+    function manSetRevealAnswer(bool) { //Manually set revealAnswer
         bool ? setRevealButtonText("Hide answer") : setRevealButtonText("Reveal answer")
         setRevealAnswer(bool);
     }
@@ -30,6 +64,7 @@ function Arena({ deck, loadDeckCallback }) {
     function toggleRevealAnswer() { // Expand this as necessary
         manSetRevealAnswer(!revealAnswer);
     }
+
 
     /* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
     /* Randomize array in-place using Durstenfeld shuffle algorithm */
@@ -51,11 +86,13 @@ function Arena({ deck, loadDeckCallback }) {
     }
 
     function nextItem() {
-        setCurrentItem((currentItem + 1 + shuffledList.length) % shuffledList.length)
+        console.log(currentItem);
+        setCurrentItem((currentItem + 1 + shuffledList.length) % shuffledList.length || 0)
         manSetRevealAnswer(false);
     }
 
     function prevItem() {
+        console.log(currentItem);
         setCurrentItem((currentItem - 1 + shuffledList.length) % shuffledList.length || 0)
         manSetRevealAnswer(false);
     }
