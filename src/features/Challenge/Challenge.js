@@ -7,23 +7,19 @@ function Challenge() {
 
     const [deckName, setDeckName] = useState("");
     const [list, setList] = useState([]);
+    const [deckKey, setDeckKey] = useState(Math.random());
 
     //TODO how to log "Challenge Rendering"?
-
-    const logKey = (e) => {
-        console.log(e.KeyCode);
-        console.log(e.shiftKey);
-    }
 
     const loadDeck = (deck) => {
         setDeckName(deck.deckName);
         setList(deck.list);
+        setDeckKey(Math.random());  //forces Arena to fully reset when loading a new deck
     }
 
     return (
         <div
             className={styles['challenge']}
-            onKeyDown={e => logKey(e)}
         >
             <div className={styles['challenge-arena']}>
                 <Arena
@@ -31,7 +27,7 @@ function Challenge() {
                         deckName: deckName,
                         list: list
                     }}
-                    loadDeckCallback={(e) => loadDeck(e)}
+                    key={deckKey}
                 />
             </div>
             {list.length === 0 ? null :

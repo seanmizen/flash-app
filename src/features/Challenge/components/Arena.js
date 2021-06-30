@@ -4,7 +4,7 @@ import ArenaPrompt from "./ArenaPrompt";
 import styles from "../Challenge.module.css";
 //import ItemList from "../../DeckEditor/components/ItemList";
 
-function Arena({ deck, loadDeckCallback }) {
+function Arena({ deck }) {
     // shuffledList is separate to deck
     // The parent component will store the original deck.
     // The arena will shuffle, log, etc.
@@ -65,7 +65,6 @@ function Arena({ deck, loadDeckCallback }) {
         manSetRevealAnswer(!revealAnswer);
     }
 
-
     /* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
     /* Randomize array in-place using Durstenfeld shuffle algorithm */
     function shuffleArray(array) {
@@ -119,9 +118,7 @@ function Arena({ deck, loadDeckCallback }) {
                         prompt={shuffledList[currentItem]?.prompt || "\xa0"}// '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
                         onClickCallback={toggleRevealAnswer}
                     />
-                    {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer || '\xa0'} /> : <div
-                        className={styles['arena-answer-hidden'] + " " + styles['item-dark']}
-                    >&nbsp;</div>}
+                    {revealAnswer && <ArenaAnswer answer={shuffledList[currentItem]?.answer || '\xa0'} />}
                 </div>
                 <button
                     onClick={toggleRevealAnswer}

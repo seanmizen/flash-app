@@ -94,7 +94,8 @@ align-content: (stretch is the default)
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    flex: 1; /* fill all horizontal space you can find */
+    /*width: 50%;*/
 }
 
 .arena-answer-box{
@@ -102,7 +103,8 @@ align-content: (stretch is the default)
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    flex: 1; /* fill all horizontal space you can find */
+    /*width: 50%;*/
 }
 
 
