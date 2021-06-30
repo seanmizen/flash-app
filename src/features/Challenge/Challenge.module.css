@@ -55,8 +55,10 @@ align-content: (stretch is the default)
     stretch: Lines are stretched to fit the container.    
 */
 
+
+
 .challenge{
-    
+    padding: 1rem;
 }
 
 .challenge-arena{
@@ -102,7 +104,14 @@ align-content: (stretch is the default)
     align-items: center;
     width: 50%;
 }
-.arena-answer-hidden{
 
+
+.item-light{
+    background: #acabdf;
+    color: black;
 }
 
+.item-dark{
+    background: #6874b9;
+    color: white;
+}

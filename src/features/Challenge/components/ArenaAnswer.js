@@ -4,7 +4,7 @@ function ArenaAnswer({ answer }) {
 
     return (
         <div
-            className={styles['arena-answer-box']}
+            className={styles['arena-answer-box'] + " " + styles['item-light']}
         >
             <div
                 className={styles['arena-answer']}

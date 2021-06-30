@@ -4,7 +4,7 @@ function ArenaPrompt({ prompt }) {
 
     return (
         <div
-            className={styles['arena-prompt-box']}
+            className={styles['arena-prompt-box'] + " " + styles['item-light']}
         >
             <div
                 className={styles['arena-prompt']}

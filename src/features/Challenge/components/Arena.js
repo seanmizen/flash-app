@@ -119,7 +119,9 @@ function Arena({ deck, loadDeckCallback }) {
                         prompt={shuffledList[currentItem]?.prompt || "\xa0"}// '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
                         onClickCallback={toggleRevealAnswer}
                     />
-                    {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer || '\xa0'} /> : <div className={styles['arena-answer-hidden']}>&nbsp;</div>}
+                    {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer || '\xa0'} /> : <div
+                        className={styles['arena-answer-hidden'] + " " + styles['item-dark']}
+                    >&nbsp;</div>}
                 </div>
                 <button
                     onClick={toggleRevealAnswer}
