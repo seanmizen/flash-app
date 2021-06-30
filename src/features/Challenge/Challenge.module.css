@@ -55,17 +55,54 @@ align-content: (stretch is the default)
     stretch: Lines are stretched to fit the container.    
 */
 
+.challenge{
+    
+}
+
+.challenge-arena{
+
+}
 
 .arena{
-
+    /*height: 80%;*/
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-direction:column;
+    /*flex-wrap: nowrap;*/
 }
 
-.arena-prompt{
+.arena-item-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.arena-answer{
+.arena-item{
+    height: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*width: 100%;*/
+}
+
+.arena-prompt-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.arena-answer-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
 .arena-answer-hidden{
-    
+
 }
 

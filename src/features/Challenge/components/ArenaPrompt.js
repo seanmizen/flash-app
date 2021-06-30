@@ -1,13 +1,16 @@
 import styles from "../Challenge.module.css";
 
-function ArenaPrompt({ prompt, onClickCallback }) {
+function ArenaPrompt({ prompt }) {
 
     return (
         <div
-            className={styles['arena-prompt']}
-            onClick={onClickCallback}
+            className={styles['arena-prompt-box']}
         >
-            {prompt}
+            <div
+                className={styles['arena-prompt']}
+            >
+                {prompt}
+            </div>
         </div>
     )
 }

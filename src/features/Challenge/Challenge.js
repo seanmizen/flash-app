@@ -10,14 +10,22 @@ function Challenge() {
 
     //TODO how to log "Challenge Rendering"?
 
-    function loadDeck(deck) {
+    const logKey = (e) => {
+        console.log(e.KeyCode);
+        console.log(e.shiftKey);
+    }
+
+    const loadDeck = (deck) => {
         setDeckName(deck.deckName);
         setList(deck.list);
     }
 
     return (
-        <div>
-            <div className="deck-challenge-arena">
+        <div
+            className={styles['challenge']}
+            onKeyDown={e => logKey(e)}
+        >
+            <div className={styles['challenge-arena']}>
                 <Arena
                     deck={{
                         deckName: deckName,
@@ -27,7 +35,7 @@ function Challenge() {
                 />
             </div>
             {list.length === 0 ? null :
-                <div className="deck-challenge-information-area">
+                <div className="challenge-information-area">
                     <span>
                         Deck name: {deckName}
                     </span>
@@ -37,7 +45,7 @@ function Challenge() {
                     </span>
                 </div>
             }
-            <div className="deck-challenge-load-area">
+            <div className="challenge-load-area">
                 <LoadDeckFromFile
                     onDeckLoad={e => loadDeck(e)}
                 />

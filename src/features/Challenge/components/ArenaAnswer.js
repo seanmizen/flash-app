@@ -4,9 +4,11 @@ function ArenaAnswer({ answer }) {
 
     return (
         <div
-            className={styles['arena-answer']}
+            className={styles['arena-answer-box']}
         >
-            {answer}
+            <div
+                className={styles['arena-answer']}
+            >{answer}</div>
         </div>
     )
 }

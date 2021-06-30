@@ -65,23 +65,25 @@ function Arena({ deck, loadDeckCallback }) {
     // {statement && ifTrue} (disregarding ifFalse)
 
     return (
-        <div>
+        <div className={styles["arena"]}>
             <button
                 onClick={prevItem}
                 ref={prevItemButton}
             >
                 Previous card
             </button>
-
-            <br />
-
-            <div>
-                <ArenaPrompt
-                    prompt={shuffledList[currentItem]?.prompt}
-                    onClickCallback={toggleRevealAnswer}
-                />
-                {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer} /> : <div className={styles['arena-answer-hidden']}>&nbsp;</div>}
-                <div>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</div>
+            <div className={styles["arena-item-box"]}>
+                <div
+                    className={styles["arena-item"]}
+                    onClick={toggleRevealAnswer}
+                >
+                    <ArenaPrompt
+                        //prompt={shuffledList[currentItem]?.prompt}
+                        prompt={shuffledList[currentItem]?.prompt || "\xa0"}// '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
+                        onClickCallback={toggleRevealAnswer}
+                    />
+                    {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer || '\xa0'} /> : <div className={styles['arena-answer-hidden']}>&nbsp;</div>}
+                </div>
                 <button
                     onClick={toggleRevealAnswer}
                     ref={revealButton}
@@ -90,7 +92,7 @@ function Arena({ deck, loadDeckCallback }) {
                 </button>
             </div>
 
-            <br />
+            <div>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</div>
 
             <button
                 onClick={nextItem}
@@ -98,14 +100,12 @@ function Arena({ deck, loadDeckCallback }) {
             >
                 Next card
             </button>
-
-            <br />
-
             <button
                 onClick={shuffleDeck}
             >
                 Shuffle Deck
             </button>
+
 
             {/*<ItemList     RE INCLUDE ME IF YOU WANT TO SEE THE WHOLE DECK
                 list={shuffledList}
