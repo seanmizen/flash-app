@@ -19,7 +19,7 @@ function Arena({ deck }) {
     // magic goes here
     // This line sets the setShuffledList on first instance
     // Every time (parent) deck changes, the change will be copied across
-    // TODO look at a tutorial for useEf
+    // TODO look at a tutorial for useEffect
     useEffect(() => { setShuffledList(deck.list || []) }, [setShuffledList, deck]);
     useEffect(() => {
         window.addEventListener('keydown', arenaKeyDown);
