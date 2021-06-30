@@ -80,11 +80,8 @@ function Arena({ deck, loadDeckCallback }) {
                     prompt={shuffledList[currentItem]?.prompt}
                     onClickCallback={toggleRevealAnswer}
                 />
-                <br />
-                {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer} /> : <span></span>}
-                <br />
+                {revealAnswer ? <ArenaAnswer answer={shuffledList[currentItem]?.answer} /> : <div className={styles['arena-answer-hidden']}>&nbsp;</div>}
                 <div>{shuffledList.length > 0 ? currentItem + 1 + "/" + shuffledList.length : "0/0"}</div>
-                <br />
                 <button
                     onClick={toggleRevealAnswer}
                     ref={revealButton}

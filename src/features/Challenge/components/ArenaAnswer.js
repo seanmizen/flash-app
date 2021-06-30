@@ -3,9 +3,11 @@ import styles from "../Challenge.module.css";
 function ArenaAnswer({ answer }) {
 
     return (
-        <span>
+        <div
+            className={styles['arena-answer']}
+        >
             {answer}
-        </span>
+        </div>
     )
 }
 
