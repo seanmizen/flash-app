@@ -83,6 +83,7 @@ align-content: (stretch is the default)
 
 .arena-item{
     height: 20rem;
+    text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
