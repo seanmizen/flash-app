@@ -1,1 +1,1 @@
-export { default } from "./DeckEditor"
+export { default } from "./DeckEditor";

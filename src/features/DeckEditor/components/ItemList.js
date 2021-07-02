@@ -1,19 +1,22 @@
+import ItemListItem from "./ItemListItem";
+
 function ItemList(props) {
-  return <ul>
-    {props.list?.map(item => {
-      return (
-        <li key={item.id}>
-          <div className="item-prompt"><b>{item.prompt}</b></div>
-          <div className="item-answer">{item.answer}</div>
-          {props.allowEdit &&
-            <button
-              onClick={() => props.onDeleted(item.id)}
-            >X</button>
-          }
-        </li>
-      )
-    })}
-  </ul>
+  return (
+    <ul>
+      {props.list?.map((item) => {
+        return (
+          <ItemListItem
+            id={item.id}
+            allowEdit={props.allowEdit}
+            onDeleted={props.onDeleted}
+            prompt={item.prompt}
+            answer={item.answer}
+            editItemCallback={props.editItemCallback}
+          />
+        );
+      })}
+    </ul>
+  );
 }
 
 export default ItemList;

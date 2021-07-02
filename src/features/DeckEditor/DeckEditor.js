@@ -9,7 +9,6 @@ import styles from "./DeckEditor.module.css";
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
 function DeckEditor() {
-
   const [deckName, setDeckName] = useState("");
   const [list, setList] = useState([]);
 
@@ -30,42 +29,60 @@ function DeckEditor() {
     const newItem = {
       id: 1 + Math.random(),
       prompt,
-      answer
-    }
+      answer,
+    };
 
     setList([...list, newItem]);
     //setLocalStorageState();
   }
 
+  function setItem(item) {
+    var newList = list;
+    console.log("list length: " + list.length);
+    console.log("ID to find: " + item.id);
+    var index;
+    for (index in newList) {
+      console.log(newList[index].id + newList[index].prompt);
+      if (newList[index].id === item.id) {
+        break;
+      }
+    }
+    //let index = list.findIndex((listItem) => listItem.id == id);
+    console.log("list index: " + index);
+    console.log(
+      "setting prompt to " + item.prompt + " and answer to " + item.answer
+    );
+
+    newList[index].prompt = item.prompt;
+    newList[index].answer = item.answer;
+    setList(newList);
+  }
+
   function deleteItem(id) {
-    setList(list.filter(item => item.id !== id));
+    setList(list.filter((item) => item.id !== id));
     //setLocalStorageState();
   }
 
   return (
     <div>
-      <div className={styles['deck-editor']}>
+      <div className={styles["deck-editor"]}>
         <h2>Deck Editor</h2>
         <div className="deck-editor-deck-name">
-          <DeckName
-            deckName={deckName}
-            setDeckName={(e) => setDeckName(e)}
-          />
+          <DeckName deckName={deckName} setDeckName={(e) => setDeckName(e)} />
         </div>
 
         <div className="deck-editor-edit-area">
           <h3>Add an item:</h3>
-          <AddItemForm
-            onAdd={e => addItem(e)}
-          />
+          <AddItemForm onAdd={(e) => addItem(e)} />
         </div>
 
         <div className="deck-editor-item-list">
           <h3>Current Deck:</h3>
           <ItemList
             list={list}
-            onDeleted={id => deleteItem(id)}
+            onDeleted={(id) => deleteItem(id)}
             allowEdit={true}
+            editItemCallback={setItem}
           />
         </div>
 
@@ -73,17 +90,14 @@ function DeckEditor() {
           <SaveDeckToFile
             deck={{
               deckName: deckName,
-              list: list
+              list: list,
             }}
           />
-          <LoadDeckFromFile
-            onDeckLoad={e => loadDeck(e)}
-          />
+          <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
         </div>
-
       </div>
-    </div >
+    </div>
   );
-};
+}
 
 export default DeckEditor;

@@ -55,66 +55,62 @@ align-content: (stretch is the default)
     stretch: Lines are stretched to fit the container.    
 */
 
-
-
-.challenge{
-    padding: 1rem;
+.challenge {
+  padding: 1rem;
 }
 
-.challenge-arena{
-    
+.challenge-arena {
 }
 
-.arena{
-    /*height: 80%;*/
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    flex-direction:column;
-    /*flex-wrap: nowrap;*/
+.arena {
+  /*height: 80%;*/
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  /*flex-wrap: nowrap;*/
 }
 
-.arena-item-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
+.arena-item-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.arena-item{
-    height: 20rem;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /*width: 100%;*/
+.arena-item {
+  height: 20rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*width: 100%;*/
 }
 
-.arena-prompt-box{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* fill all horizontal space you can find */
-    /*width: 50%;*/
+.arena-prompt-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* fill all horizontal space you can find */
+  /*width: 50%;*/
 }
 
-.arena-answer-box{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* fill all horizontal space you can find */
-    /*width: 50%;*/
+.arena-answer-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* fill all horizontal space you can find */
+  /*width: 50%;*/
 }
 
-
-.item-light{
-    background: #acabdf;
-    color: black;
+.item-light {
+  background: #acabdf;
+  color: black;
 }
 
-.item-dark{
-    background: #6874b9;
-    color: white;
+.item-dark {
+  background: #6874b9;
+  color: white;
 }
