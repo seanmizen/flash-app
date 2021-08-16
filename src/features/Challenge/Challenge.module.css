@@ -59,9 +59,6 @@ align-content: (stretch is the default)
   padding: 1rem;
 }
 
-.challenge-arena {
-}
-
 .arena {
   /*height: 80%;*/
   display: flex;

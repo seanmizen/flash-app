@@ -143,7 +143,7 @@ function Arena({ deck }) {
       </button>
       <button onClick={shuffleDeck}>Shuffle Deck</button>
 
-      <ItemList list={shuffledList} />
+      {/* <ItemList list={shuffledList} /> */}
     </div>
   );
 }

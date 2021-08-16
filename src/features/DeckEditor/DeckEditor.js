@@ -12,16 +12,10 @@ function DeckEditor() {
   const [deckName, setDeckName] = useState("");
   const [list, setList] = useState([]);
 
-  //TODO how to log "DeckEditor rendering"?
-
   function loadDeck(deck) {
     setDeckName(deck.deckName);
     setList(deck.list);
   }
-
-  /*function setLocalStorageState() {
-    localStorage.setItem("storageList", this.state.list)
-  }*/
 
   function addItem({ prompt = "", answer = "" }) {
     //create item, assign unique ID
