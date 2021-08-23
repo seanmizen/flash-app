@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import ArenaAnswer from "./ArenaAnswer";
 import ArenaPrompt from "./ArenaPrompt";
 import styles from "../Challenge.module.css";
-import ItemList from "../../DeckEditor/components/ItemList";
 //import ItemList from "../../DeckEditor/components/ItemList";
 
 function Arena({ deck }) {
@@ -116,11 +115,13 @@ function Arena({ deck }) {
       <button onClick={prevItem} ref={prevItemButton}>
         Previous card
       </button>
-      <div className={styles["arena-item-box"]}>
+      <div
+        className={styles["arena-item-box"] + " " + styles["rounded-outline"]}
+      >
         <div className={styles["arena-item"]} onClick={toggleRevealAnswer}>
           <ArenaPrompt
-            //prompt={shuffledList[currentItem]?.prompt}
-            prompt={shuffledList[currentItem]?.prompt || "\xa0"} // '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
+            // '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
+            prompt={shuffledList[currentItem]?.prompt || "\xa0"}
             onClickCallback={toggleRevealAnswer}
           />
           {revealAnswer && (

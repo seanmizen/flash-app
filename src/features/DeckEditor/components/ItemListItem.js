@@ -1,4 +1,5 @@
-import { useState, useRef, useReducer } from "react";
+import { useState, useRef } from "react";
+import styles from "../DeckEditor.module.css";
 
 function ItemListItem({
   id,
@@ -14,27 +15,9 @@ function ItemListItem({
   const submitRef = useRef();
   const cancelRef = useRef();
   const editPromptRef = useRef();
-  //   const [innerPrompt, setInnerPrompt] = useState();
-  //   const [innerAnswer, setInnerAnswer] = useState();
-  //   useEffect(() => {
-  //     setInnerPrompt(prompt);
-  //     setInnerAnswer(answer);
-  //   });
 
   function toggleEditMode() {
     setEditActive(!editActive);
-  }
-
-  function activateEditMode() {
-    console.log("Activate");
-    if (allowEdit) {
-      setEditActive(true);
-    }
-  }
-  function deActivateEditMode() {
-    if (allowEdit) {
-      setEditActive(false);
-    }
   }
 
   const keyDown = (e) => {
@@ -59,18 +42,21 @@ function ItemListItem({
   };
 
   return (
-    <li key={id}>
+    <li
+      className={styles["rounded-outline"] + " " + styles["no-bullets"]}
+      key={id}
+    >
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
           <input
-            className="item-prompt"
+            className={styles["item-prompt"]}
             value={innerPrompt}
             required={true}
             onChange={(e) => setInnerPrompt(e.target.value)}
             ref={editPromptRef}
           />
           <input
-            className="item-answer"
+            className={styles["item-answer"]}
             value={innerAnswer}
             onChange={(e) => setInnerAnswer(e.target.value)}
           />
@@ -83,12 +69,12 @@ function ItemListItem({
         </form>
       ) : (
         <div onDoubleClick={toggleEditMode}>
-          <div className="item-prompt">
+          <div className={styles["item-prompt"]}>
             <span>
               <b>{innerPrompt}</b>
             </span>
           </div>
-          <div className="item-answer">
+          <div className={styles["item-answer"]}>
             <span>{innerAnswer}</span>
           </div>
           {allowEdit && <button onClick={() => onDeleted(id)}>X</button>}
