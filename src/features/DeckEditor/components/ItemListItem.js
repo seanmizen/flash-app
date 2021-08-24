@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "../DeckEditor.module.css";
 
 function ItemListItem({
@@ -15,6 +15,13 @@ function ItemListItem({
   const submitRef = useRef();
   const cancelRef = useRef();
   const editPromptRef = useRef();
+  const editAnswerRef = useRef();
+
+  useEffect(() => {
+    if (editActive) {
+      editPromptRef.current.focus();
+    }
+  });
 
   function toggleEditMode() {
     setEditActive(!editActive);
@@ -43,42 +50,58 @@ function ItemListItem({
 
   return (
     <li
-      className={styles["rounded-outline"] + " " + styles["no-bullets"]}
+      onDoubleClick={toggleEditMode}
+      className={
+        styles["rounded-outline"] +
+        " " +
+        styles["no-bullets"] +
+        " " +
+        styles["itemlist-item"]
+      }
       key={id}
     >
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
-          <input
-            className={styles["item-prompt"]}
-            value={innerPrompt}
-            required={true}
-            onChange={(e) => setInnerPrompt(e.target.value)}
-            ref={editPromptRef}
-          />
-          <input
-            className={styles["item-answer"]}
-            value={innerAnswer}
-            onChange={(e) => setInnerAnswer(e.target.value)}
-          />
-          <button type="submit" ref={submitRef}>
-            Submit
-          </button>
-          <button type="reset" ref={cancelRef}>
-            Cancel
-          </button>
+          <div className={styles["itemlist-item-edit-inner"]}>
+            <input
+              className={styles["item-prompt"]}
+              value={innerPrompt}
+              required={true}
+              onChange={(e) => setInnerPrompt(e.target.value)}
+              ref={editPromptRef}
+            />
+            <textarea
+              className={styles["item-answer"]}
+              value={innerAnswer}
+              onChange={(e) => setInnerAnswer(e.target.value)}
+              ref={editAnswerRef}
+            />
+          </div>
+          <div className={styles["itemlist-item-edit-buttons"]}>
+            <button type="submit" ref={submitRef}>
+              Save
+            </button>
+            <button type="reset" ref={cancelRef}>
+              Cancel
+            </button>
+          </div>
         </form>
       ) : (
-        <div onDoubleClick={toggleEditMode}>
-          <div className={styles["item-prompt"]}>
-            <span>
-              <b>{innerPrompt}</b>
-            </span>
+        <>
+          <div className={styles["itemlist-item-inner"]}>
+            <div className={styles["item-prompt"]}>
+              <span>
+                <b>{innerPrompt}</b>
+              </span>
+            </div>
+            <div className={styles["item-answer"]}>
+              <span>{innerAnswer}</span>
+            </div>
           </div>
-          <div className={styles["item-answer"]}>
-            <span>{innerAnswer}</span>
+          <div className={styles["itemlist-item-delete-button"]}>
+            {allowEdit && <button onClick={() => onDeleted(id)}>X</button>}
           </div>
-          {allowEdit && <button onClick={() => onDeleted(id)}>X</button>}
-        </div>
+        </>
       )}
     </li>
   );

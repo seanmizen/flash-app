@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import styles from "../DeckEditor.module.css";
 
 function AddItemForm({ onAdd }) {
   // {} instead of props just allows us to not do props. everywhere
@@ -26,7 +27,11 @@ function AddItemForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={submitForm} ref={formRef}>
+    <form
+      className={styles["add-item-form"]}
+      onSubmit={submitForm}
+      ref={formRef}
+    >
       <input
         type="text"
         required={true}
@@ -35,7 +40,6 @@ function AddItemForm({ onAdd }) {
         onChange={(e) => setPrompt(e.target.value)}
         ref={inputRef}
       />
-      <br />
       <textarea
         type="text"
         required={false}
