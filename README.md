@@ -1,6 +1,6 @@
 # Flash App
 
-React training project by smizzle-probably. Create, save, load decks and test yourself out on them. 
+React training project by smizzle-probably. Create, save, load decks and test yourself out on them.
 
 Bootstrapped via [Create React App](https://github.com/facebook/create-react-app).
 Tiff In Tech "todo list" video was the boilerplate.
@@ -14,5 +14,8 @@ Start the app with `npm start`.
 Nothing here really
 
 ## Bugs and todo
-DeckEditor/components/AddItemForm:    Validation does not trigger when pressing enter on the textArea
+
+DeckEditor/components/AddItemForm: Validation does not trigger when pressing enter on the textArea
 TODO: add react hook form: https://react-hook-form.com/api/useform/trigger
+
+Reading Festival 2021 Wednesday commit
