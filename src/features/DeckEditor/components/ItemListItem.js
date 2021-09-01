@@ -16,16 +16,13 @@ function ItemListItem({
   const cancelRef = useRef();
   const editPromptRef = useRef();
   const editAnswerRef = useRef();
+  const liRef = useRef();
 
   useEffect(() => {
     if (editActive) {
       editPromptRef.current.focus();
     }
   }, [editActive, prompt, answer]);
-
-  function toggleEditMode() {
-    setEditActive(!editActive);
-  }
 
   const keyDown = (e) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
@@ -48,9 +45,33 @@ function ItemListItem({
     setInnerAnswer(answer);
   };
 
+  //handle doubleclicks
+  useEffect(() => {
+    const handleDoubleClick = (e) => {
+      console.log(e.composedPath().includes(liRef.current));
+      if (e.composedPath().includes(liRef.current)) {
+        //clicked inside li
+        setEditActive(true);
+      } else {
+        //clicked outside of li
+        if (editActive) {
+          //simulate cancel click
+          cancelSubmit(e);
+        }
+      }
+    };
+
+    window.addEventListener("dblclick", handleDoubleClick);
+
+    //stop the app from generating a bajillion eventListeners:
+    return () => {
+      window.removeEventListener("dblclick", handleDoubleClick);
+    };
+  }, [setEditActive, cancelSubmit, editActive]);
+
   return (
     <li
-      onDoubleClick={toggleEditMode}
+      ref={liRef}
       className={
         styles["rounded-outline"] +
         " " +
