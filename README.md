@@ -17,9 +17,3 @@ Nothing here really
 
 DeckEditor/components/AddItemForm: Validation does not trigger when pressing enter on the textArea
 TODO: add react hook form: https://react-hook-form.com/api/useform/trigger
-
-Reading Festival 2021 Wednesday commit
-Reading Festival 2021 Thursday commit
-Reading Festival 2021 Friday commit
-Reading Festival 2021 Monday commit
-Reading Festival 2021 Tuesday commit
