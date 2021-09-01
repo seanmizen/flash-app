@@ -21,9 +21,6 @@ function ItemListItem({
     if (editActive) {
       editPromptRef.current.focus();
     }
-
-    //console.log("useEffect - ItemListItem");
-    console.log("prompt: " + prompt + " - innerPrompt: " + innerPrompt);
   }, [editActive, prompt, answer]);
 
   function toggleEditMode() {

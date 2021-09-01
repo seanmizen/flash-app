@@ -21,11 +21,8 @@ function DeckEditor() {
   function addItem({ prompt = "", answer = "" }) {
     //create item, assign unique ID
     let newID = "0";
-
-    while (
-      newID === 0 ||
-      list.filter((item) => item.id === newID).length !== 0 //todo - this is generating ESLint errors
-    ) {
+    const getID = (item) => item.id;
+    while (newID === 0 || list.map(getID).includes(newID)) {
       newID = uuidv4();
     }
 

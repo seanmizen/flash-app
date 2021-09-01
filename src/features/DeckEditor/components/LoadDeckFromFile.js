@@ -31,10 +31,8 @@ function LoadDeckFromFile({ onDeckLoad }) {
       let newID = "0";
       for (i = 0; i < deck.list.length; i++) {
         newID = "0";
-        while (
-          newID === "0" ||
-          deck.list.filter((item) => item.id === newID).length !== 0 //todo - this is generating ESLint errors
-        ) {
+        const getID = (item) => item.id;
+        while (newID === 0 || deck.list.map(getID).includes(newID)) {
           newID = uuidv4();
           console.log("generating new ID: " + newID);
         }
