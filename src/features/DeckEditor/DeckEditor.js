@@ -27,7 +27,6 @@ function DeckEditor() {
       list.filter((item) => item.id === newID).length !== 0 //todo - this is generating ESLint errors
     ) {
       newID = uuidv4();
-      console.log("generating new ID: " + newID);
     }
 
     const newItem = {
@@ -44,20 +43,13 @@ function DeckEditor() {
 
   function setItem(item) {
     var newList = list;
-    console.log("list length: " + list.length);
-    console.log("ID to find: " + item.id);
     var index;
     for (index in newList) {
-      console.log(newList[index].id + newList[index].prompt);
       if (newList[index].id === item.id) {
         break;
       }
     }
     //let index = list.findIndex((listItem) => listItem.id == id);
-    console.log("list index: " + index);
-    console.log(
-      "setting prompt to " + item.prompt + " and answer to " + item.answer
-    );
 
     newList[index].prompt = item.prompt;
     newList[index].answer = item.answer;
@@ -65,8 +57,8 @@ function DeckEditor() {
   }
 
   function deleteItem(id) {
-    console.log("Deleting " + id + " (DeckEditor)");
     setList(list.filter((item) => item.id !== id));
+    console.log("New list: \n" + list.map((item) => item.prompt));
     //setLocalStorageState();
   }
 

@@ -20,8 +20,13 @@ function ItemListItem({
   useEffect(() => {
     if (editActive) {
       editPromptRef.current.focus();
+    } else {
+      //setInnerPrompt(prompt);
+      //setInnerAnswer(answer);
     }
-  });
+    console.log("useEffect - ItemListItem");
+    console.log("prompt: " + prompt + " - innerPrompt: " + innerPrompt);
+  }, [editActive, innerPrompt, innerAnswer]);
 
   function toggleEditMode() {
     setEditActive(!editActive);
