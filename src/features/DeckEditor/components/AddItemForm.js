@@ -16,7 +16,6 @@ function AddItemForm({ onAdd }) {
     onAdd({ prompt, answer });
     setPrompt("");
     setAnswer("");
-    console.log(inputRef.current);
     inputRef.current.focus();
   };
 

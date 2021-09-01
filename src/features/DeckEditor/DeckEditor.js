@@ -5,6 +5,7 @@ import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
 import DeckName from "./components/DeckName";
 import styles from "./DeckEditor.module.css";
+import { v4 as uuidv4 } from "uuid";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
@@ -19,12 +20,23 @@ function DeckEditor() {
 
   function addItem({ prompt = "", answer = "" }) {
     //create item, assign unique ID
+    let newID = "0";
+
+    while (
+      newID === 0 ||
+      list.filter((item) => item.id === newID).length !== 0 //todo - this is generating ESLint errors
+    ) {
+      newID = uuidv4();
+      console.log("generating new ID: " + newID);
+    }
 
     const newItem = {
-      id: 1 + Math.random(),
+      id: newID,
       prompt,
       answer,
     };
+
+    console.log("adding item with ID of " + newID + " to list");
 
     setList([...list, newItem]);
     //setLocalStorageState();
