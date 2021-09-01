@@ -65,6 +65,7 @@ function DeckEditor() {
   }
 
   function deleteItem(id) {
+    console.log("Deleting " + id + " (DeckEditor)");
     setList(list.filter((item) => item.id !== id));
     //setLocalStorageState();
   }

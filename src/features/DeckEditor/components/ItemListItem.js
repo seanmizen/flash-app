@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styles from "../DeckEditor.module.css";
 
 function ItemListItem({
-  id,
+  itemID,
   allowEdit,
   onDeleted,
   prompt,
@@ -38,7 +38,7 @@ function ItemListItem({
 
   const submitForm = (e) => {
     e.preventDefault();
-    editItemCallback({ id: id, prompt: innerPrompt, answer: innerAnswer });
+    editItemCallback({ id: itemID, prompt: innerPrompt, answer: innerAnswer });
     setEditActive(false);
   };
   const cancelSubmit = (e) => {
@@ -58,7 +58,7 @@ function ItemListItem({
         " " +
         styles["itemlist-item"]
       }
-      key={id}
+      key={itemID}
     >
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
@@ -99,7 +99,16 @@ function ItemListItem({
             </div>
           </div>
           <div className={styles["itemlist-item-delete-button"]}>
-            {allowEdit && <button onClick={() => onDeleted(id)}>X</button>}
+            {allowEdit && (
+              <button
+                onClick={() => {
+                  console.log("Deleting " + itemID);
+                  onDeleted(itemID);
+                }}
+              >
+                X
+              </button>
+            )}
           </div>
         </>
       )}
