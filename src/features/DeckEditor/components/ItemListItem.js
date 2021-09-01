@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styles from "../DeckEditor.module.css";
 
 function ItemListItem({
-  itemID,
+  id,
   allowEdit,
   onDeleted,
   prompt,
@@ -20,13 +20,11 @@ function ItemListItem({
   useEffect(() => {
     if (editActive) {
       editPromptRef.current.focus();
-    } else {
-      //setInnerPrompt(prompt);
-      //setInnerAnswer(answer);
     }
-    console.log("useEffect - ItemListItem");
+
+    //console.log("useEffect - ItemListItem");
     console.log("prompt: " + prompt + " - innerPrompt: " + innerPrompt);
-  }, [editActive, innerPrompt, innerAnswer]);
+  }, [editActive, prompt, answer]);
 
   function toggleEditMode() {
     setEditActive(!editActive);
@@ -43,7 +41,7 @@ function ItemListItem({
 
   const submitForm = (e) => {
     e.preventDefault();
-    editItemCallback({ id: itemID, prompt: innerPrompt, answer: innerAnswer });
+    editItemCallback({ id: id, prompt: innerPrompt, answer: innerAnswer });
     setEditActive(false);
   };
   const cancelSubmit = (e) => {
@@ -63,7 +61,6 @@ function ItemListItem({
         " " +
         styles["itemlist-item"]
       }
-      key={itemID}
     >
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
@@ -107,8 +104,8 @@ function ItemListItem({
             {allowEdit && (
               <button
                 onClick={() => {
-                  console.log("Deleting " + itemID);
-                  onDeleted(itemID);
+                  console.log("Deleting " + id);
+                  onDeleted(id);
                 }}
               >
                 X

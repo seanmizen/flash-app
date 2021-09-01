@@ -42,17 +42,16 @@ function DeckEditor() {
   }
 
   function setItem(item) {
-    var newList = list;
-    var index;
-    for (index in newList) {
-      if (newList[index].id === item.id) {
-        break;
-      }
-    }
-    //let index = list.findIndex((listItem) => listItem.id == id);
+    const newList = [...list];
+    const index = list.findIndex((listItem) => listItem.id === item.id);
 
-    newList[index].prompt = item.prompt;
-    newList[index].answer = item.answer;
+    //this next bit is cool -
+    //destructure your newlist[item] and your item and then re-merge them.
+    //because "item" is later than "newList[item]"", it's values will take priority.
+    newList[index] = {
+      ...newList[index],
+      ...item,
+    };
     setList(newList);
   }
 

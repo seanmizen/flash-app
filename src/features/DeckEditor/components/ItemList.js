@@ -7,7 +7,8 @@ function ItemList(props) {
       {props.list?.map((item) => {
         return (
           <ItemListItem
-            itemID={item.id}
+            key={item.id}
+            id={item.id}
             allowEdit={props.allowEdit}
             onDeleted={props.onDeleted}
             prompt={item.prompt}
