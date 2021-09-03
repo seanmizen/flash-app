@@ -7,7 +7,7 @@ function AddItemForm({ onAdd }) {
 
   const [prompt, setPrompt] = useState(""); //pass in our default val
   const [answer, setAnswer] = useState("");
-  const inputRef = useRef(); //default thingy
+  const inputPromptRef = useRef();
   const formRef = useRef();
   const submitRef = useRef();
 
@@ -16,7 +16,7 @@ function AddItemForm({ onAdd }) {
     onAdd({ prompt, answer });
     setPrompt("");
     setAnswer("");
-    inputRef.current.focus();
+    inputPromptRef.current.focus();
   };
 
   const keyDown = (e) => {
@@ -31,22 +31,28 @@ function AddItemForm({ onAdd }) {
       onSubmit={submitForm}
       ref={formRef}
     >
-      <input
-        type="text"
-        required={true}
-        placeholder="Type your prompt here"
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        ref={inputRef}
-      />
-      <textarea
-        type="text"
-        required={false}
-        placeholder="Type the answer to the prompt here"
-        value={answer}
-        onChange={(e) => setAnswer(e.target.value)}
-        onKeyDown={(e) => keyDown(e)}
-      />
+      <div>test</div>
+      <div className={styles["itemlist-item-edit-inner"]}>
+        <input
+          className={styles["item-form-prompt"]}
+          type="text"
+          required={true}
+          placeholder="Type your prompt here"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          ref={inputPromptRef}
+        />
+        <textarea
+          className={styles["item-form-answer"]}
+          type="text"
+          required={false}
+          placeholder="Type the answer to the prompt here"
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+          onKeyDown={(e) => keyDown(e)}
+        />
+      </div>
+
       <button type="submit" ref={submitRef}>
         Add
       </button>
