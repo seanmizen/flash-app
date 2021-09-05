@@ -110,7 +110,9 @@ function Arena({ deck }) {
 
   // {statement ? ifTrue : ifFalse}
   // can also be written as
-  // {statement && ifTrue} (disregarding ifFalse)
+  // {statement && ifTrue}
+  // or
+  // {statement && ifTrue || ifFalse}
 
   return (
     <div className={styles["arena"]}>
@@ -127,7 +129,7 @@ function Arena({ deck }) {
               prompt={shuffledList[currentItem]?.prompt || "\xa0"}
             />
           ) || <ArenaPrompt
-              prompt="No deck has been loaded"
+              prompt="Nothing here !??!!!1?"
             />}
           {revealAnswer && (
             <ArenaAnswer answer={shuffledList[currentItem]?.answer || "\xa0"} />
