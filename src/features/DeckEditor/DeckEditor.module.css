@@ -10,7 +10,7 @@ li.rounded-outline {
   height: 150px;*/
 }
 
-textarea {
+textarea.item-answer {
   resize: vertical;
   overflow: auto;
   min-height: 5;
@@ -42,9 +42,21 @@ form {
 
 .item-form-prompt {
   margin: 0.2rem;
+  display: flex;
 }
 .item-form-answer {
   margin: 0.2rem;
+}
+
+.prompt-text-input{
+  margin: 0.2rem;
+}
+.prompt-image-input{
+  margin: 0.2rem;
+}
+.answer-text-input{
+  margin: 0.2rem;
+  flex: 1;
 }
 
 .itemlist-item {
@@ -66,11 +78,16 @@ form {
 }
 
 .item-prompt {
-  margin: 0 0 0.1rem 0;
+  margin: 0 0 0.1rem 0.1rem;
 }
 .item-answer {
   margin: 0 0 0.1rem 0;
+  padding: 0.4rem;
+  background: #acabdf;
+  color: black;
+  border-radius: 0px 6px 0px 6px;
 }
+
 
 .itemlist-item-edit-inner {
   margin: 0.2rem;

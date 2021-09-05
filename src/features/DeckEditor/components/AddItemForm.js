@@ -31,32 +31,40 @@ function AddItemForm({ onAdd }) {
       onSubmit={submitForm}
       ref={formRef}
     >
-      <div>test</div>
       <div className={styles["itemlist-item-edit-inner"]}>
-        <input
-          className={styles["item-form-prompt"]}
-          type="text"
-          required={true}
-          placeholder="Type your prompt here"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          ref={inputPromptRef}
-        />
-        <textarea
-          className={styles["item-form-answer"]}
-          type="text"
-          required={false}
-          placeholder="Type the answer to the prompt here"
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          onKeyDown={(e) => keyDown(e)}
-        />
+        <div className={styles["item-form-prompt"]}>
+          {/*<div>Add a text prompt:</div>*/}
+          <input
+            className={styles["prompt-text-input"]}
+            type="text"
+            required={true}
+            placeholder="Type your prompt here"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            ref={inputPromptRef}
+          />
+          {/*<div>Or an image prompt:</div>*/}
+          {/*<input className={styles["prompt-image-input"]} type="file" id="img" name="img" accept="image/*" />*/}
+          {/*<div>(you can do both)</div>*/}
+        </div>
+        <div className={styles["item-form-answer"]}>
+          {/*<div>Add the answer for the prompt:</div>*/}
+          <textarea
+            className={styles["answer-text-input"]}
+            type="text"
+            required={false}
+            placeholder="Type the answer to the prompt here"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            onKeyDown={(e) => keyDown(e)}
+          />
+        </div>
       </div>
 
       <button type="submit" ref={submitRef}>
-        Add
+        Add to deck
       </button>
-    </form>
+    </form >
   );
 }
 

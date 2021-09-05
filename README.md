@@ -18,6 +18,8 @@ Nothing here really
 TODO:
 -Allow pictures for prompts as well as text
  -Add "or use a picture" section to "add item" area
+  -desktop res: side-by-side prompt / picture
+  -mobile res: top/bottom
  -handle images in JSON parsing
  -add picture handling in Challenge area
 -Carry the current deck between Deck Editor and Challenge when changing screens

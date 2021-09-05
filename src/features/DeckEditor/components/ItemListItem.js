@@ -84,14 +84,14 @@ function ItemListItem({
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
           <div className={styles["itemlist-item-edit-inner"]}>
             <input
-              className={styles["item-prompt"]}
+              className={styles["item-prompt-edit"]}
               value={innerPrompt}
               required={true}
               onChange={(e) => setInnerPrompt(e.target.value)}
               ref={editPromptRef}
             />
             <textarea
-              className={styles["item-answer"]}
+              className={styles["item-answer-edit"]}
               value={innerAnswer}
               onChange={(e) => setInnerAnswer(e.target.value)}
               ref={editAnswerRef}
