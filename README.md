@@ -15,5 +15,17 @@ Nothing here really
 
 ## Bugs and todo
 
-DeckEditor/components/AddItemForm: Validation does not trigger when pressing enter on the textArea
-TODO: add react hook form: https://react-hook-form.com/api/useform/trigger
+TODO:
+-Allow pictures for prompts as well as text
+ -Add "or use a picture" section to "add item" area
+ -handle images in JSON parsing
+ -add picture handling in Challenge area
+-Carry the current deck between Deck Editor and Challenge when changing screens
+
+-CSS / UI enhancements:
+ -Deck Editor Add Item area - make it make sense
+ -Deck Editor page structure
+ -Challenge "Load Deck" area - make it pretty
+ -remove "rounded-corners" css class
+ 
+ 
