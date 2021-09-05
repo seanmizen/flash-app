@@ -127,17 +127,18 @@ function Arena({ deck }) {
             <ArenaAnswer answer={shuffledList[currentItem]?.answer || "\xa0"} />
           )}
         </div>
+        <div className={styles["item-counter"]}>
+          {shuffledList.length > 0
+            ? currentItem + 1 + "/" + shuffledList.length
+            : "0/0"}
+        </div>
       </div>
 
       <button onClick={toggleRevealAnswer} ref={revealButton}>
         {revealButtonText}
       </button>
 
-      <div>
-        {shuffledList.length > 0
-          ? currentItem + 1 + "/" + shuffledList.length
-          : "0/0"}
-      </div>
+
 
       <button onClick={nextItem} ref={nextItemButton}>
         Next card

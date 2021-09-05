@@ -76,6 +76,11 @@ align-content: (stretch is the default)
   margin: 0.5rem 0 0.5rem 0;
 }
 
+/*
+ position: 
+ static|absolute|fixed|relative|sticky|initial|inherit;
+*/
+
 .arena-item {
   height: 20rem;
   text-align: center;
@@ -83,6 +88,15 @@ align-content: (stretch is the default)
   flex-direction: row;
   justify-content: space-between;
   /*width: 100%;*/
+}
+
+.item-counter{
+  position: absolute;
+  z-index: 1;
+  padding: 0.4rem;
+  color: white;
+  background-color: rgba(255,255,255, 0.2);
+  border-radius: 0 0 6px 0;
 }
 
 .arena-prompt-box {
@@ -120,6 +134,7 @@ align-content: (stretch is the default)
   background: #6874b9;
   color: white;
 }
+
 
 .rounded-outline {
   box-shadow: 4px 4px 4px #353b5e;
