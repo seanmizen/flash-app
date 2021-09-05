@@ -60,6 +60,9 @@ function Arena({ deck }) {
 
   function manSetRevealAnswer(bool) {
     //Manually set revealAnswer
+    if (shuffledList.length === 0) {
+      bool = false;
+    }
     bool
       ? setRevealButtonText("Hide answer")
       : setRevealButtonText("Reveal answer");
@@ -118,11 +121,14 @@ function Arena({ deck }) {
         className={styles["arena-item-box"] + " " + styles["rounded-outline"]}
       >
         <div className={styles["arena-item"]} onClick={toggleRevealAnswer}>
-          <ArenaPrompt
-            // '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
-            prompt={shuffledList[currentItem]?.prompt || "\xa0"}
-            onClickCallback={toggleRevealAnswer}
-          />
+          {shuffledList.length > 0 && (
+            <ArenaPrompt
+              // '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
+              prompt={shuffledList[currentItem]?.prompt || "\xa0"}
+            />
+          ) || <ArenaPrompt
+              prompt="No deck has been loaded"
+            />}
           {revealAnswer && (
             <ArenaAnswer answer={shuffledList[currentItem]?.answer || "\xa0"} />
           )}
@@ -137,8 +143,6 @@ function Arena({ deck }) {
       <button onClick={toggleRevealAnswer} ref={revealButton}>
         {revealButtonText}
       </button>
-
-
 
       <button onClick={nextItem} ref={nextItemButton}>
         Next card
