@@ -127,10 +127,11 @@ function Arena({ deck }) {
             <ArenaAnswer answer={shuffledList[currentItem]?.answer || "\xa0"} />
           )}
         </div>
-        <button onClick={toggleRevealAnswer} ref={revealButton}>
-          {revealButtonText}
-        </button>
       </div>
+
+      <button onClick={toggleRevealAnswer} ref={revealButton}>
+        {revealButtonText}
+      </button>
 
       <div>
         {shuffledList.length > 0
@@ -149,8 +150,3 @@ function Arena({ deck }) {
 }
 
 export default Arena;
-
-/*
-            <ArenaPrompt prompt={deck.list(currentItem).prompt} />
-            <ArenaAnswer answer={deck.list(currentItem).answer} />
-*/

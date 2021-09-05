@@ -73,6 +73,7 @@ align-content: (stretch is the default)
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .arena-item {
@@ -100,6 +101,14 @@ align-content: (stretch is the default)
   align-items: center;
   flex: 1; /* fill all horizontal space you can find */
   /*width: 50%;*/
+}
+
+.arena-prompt{
+  padding: 0.5rem;
+}
+
+.arena-answer{
+  padding: 0.5rem;
 }
 
 .item-light {
