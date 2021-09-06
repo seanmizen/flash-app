@@ -72,13 +72,7 @@ function ItemListItem({
   return (
     <li
       ref={liRef}
-      className={
-        styles["rounded-outline"] +
-        " " +
-        styles["no-bullets"] +
-        " " +
-        styles["itemlist-item"]
-      }
+      className={styles["no-bullets"] + " " + styles["itemlist-item"]}
     >
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
@@ -118,18 +112,17 @@ function ItemListItem({
               <span>{innerAnswer}</span>
             </div>
           </div>
-          <div className={styles["itemlist-item-delete-button"]}>
-            {allowEdit && (
-              <button
-                onClick={() => {
-                  console.log("Deleting " + id);
-                  onDeleted(id);
-                }}
-              >
-                X
-              </button>
-            )}
-          </div>
+          {allowEdit && (
+            <div
+              className={styles["itemlist-item-delete-button"]}
+              onClick={() => {
+                console.log("Deleting " + id);
+                onDeleted(id);
+              }}
+            >
+              X
+            </div>
+          )}
         </>
       )}
     </li>
