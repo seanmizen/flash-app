@@ -59,20 +59,37 @@ function DeckEditor() {
   }
 
   return (
-    <div>
-      <div className={styles["deck-editor"]}>
-        <h2>Deck Editor</h2>
-        <div className="deck-editor-deck-name">
+    <div className={styles["deck-editor"]}>
+      <h2>Deck Editor</h2>
+      <div className={styles["title-button-holder"]}>
+        <div className={styles["title-item"]}>
+          <h3>Deck name:</h3>
           <DeckName deckName={deckName} setDeckName={(e) => setDeckName(e)} />
         </div>
-
-        <div className="deck-editor-edit-area">
-          <h3>Add an item:</h3>
-          <AddItemForm onAdd={(e) => addItem(e)} />
+        <div className={styles["title-item"]}>
+          <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
         </div>
+      </div>
+      <div className="deck-editor-edit-area">
+        <h3>Add an item:</h3>
+        <AddItemForm onAdd={(e) => addItem(e)} />
+      </div>
 
+      {(list.length > 0 && (
         <div className="deck-editor-item-list">
-          <h3>Current Deck:</h3>
+          <div className={styles["title-button-holder"]}>
+            <div className={styles["title-item"]}>
+              <h3>Current Deck:</h3>
+            </div>
+            <div className={styles["title-item"]}>
+              <SaveDeckToFile
+                deck={{
+                  deckName: deckName,
+                  list: list,
+                }}
+              />
+            </div>
+          </div>
           <ItemList
             list={list}
             onDeleted={(id) => deleteItem(id)}
@@ -80,17 +97,11 @@ function DeckEditor() {
             editItemCallback={setItem}
           />
         </div>
-
-        <div className="deck-editor-save-area">
-          <SaveDeckToFile
-            deck={{
-              deckName: deckName,
-              list: list,
-            }}
-          />
-          <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+      )) || (
+        <div className="deck-editor-item-list">
+          <h3>[Deck will appear here when loaded]</h3>
         </div>
-      </div>
+      )}
     </div>
   );
 }

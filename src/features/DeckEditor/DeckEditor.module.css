@@ -10,6 +10,31 @@ li.rounded-outline {
   height: 150px;*/
 }
 
+button {
+  margin: 0.2rem;
+}
+
+.title-item {
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.title-item button {
+  flex: 1;
+  margin: 0;
+}
+
+.title-button-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex: 1; /* fill all horizontal space you can find */
+  /*width: 50%;*/
+}
+
 textarea.item-answer {
   resize: vertical;
   overflow: auto;
@@ -48,13 +73,13 @@ form {
   margin: 0.2rem;
 }
 
-.prompt-text-input{
+.prompt-text-input {
   margin: 0.2rem;
 }
-.prompt-image-input{
+.prompt-image-input {
   margin: 0.2rem;
 }
-.answer-text-input{
+.answer-text-input {
   margin: 0.2rem;
   flex: 1;
 }
@@ -88,7 +113,6 @@ form {
   border-radius: 0px 6px 0px 6px;
 }
 
-
 .itemlist-item-edit-inner {
   margin: 0.2rem;
   padding: 0.1rem;
@@ -101,10 +125,6 @@ form {
 .itemlist-item-edit-buttons {
   flex: 0;
   padding: 0.1rem;
-}
-
-button {
-  margin: 0.2rem;
 }
 
 /*

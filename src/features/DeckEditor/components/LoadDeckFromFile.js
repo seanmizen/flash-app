@@ -3,8 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function LoadDeckFromFile({ onDeckLoad }) {
   const loadFileRef = useRef();
-  const labelRef = useRef();
-  const [selectedFile, setSelectedFile] = useState("");
+  const [selectedFile, setSelectedFile] = useState({});
 
   const duplicateIdsExist = (list) => {
     list = list.sort();
@@ -65,7 +64,10 @@ function LoadDeckFromFile({ onDeckLoad }) {
 
   return (
     <>
-      <button onClick={loadFromFile}>Load a deck</button>
+      <button onClick={loadFromFile}>
+        {(selectedFile.name && "Current Deck: " + selectedFile.name) ||
+          "Load a deck"}
+      </button>
       <input
         hidden
         id="fileUpload"
@@ -74,7 +76,6 @@ function LoadDeckFromFile({ onDeckLoad }) {
         onChange={fileChangeHandler}
         ref={loadFileRef}
       />
-      <label ref={labelRef}>{selectedFile.name}</label>
     </>
   );
 }
