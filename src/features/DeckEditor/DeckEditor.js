@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ItemList from "./components/ItemList";
+import { ItemList } from "../../components/";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
