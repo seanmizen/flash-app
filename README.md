@@ -16,7 +16,8 @@ Nothing here really
 ## Bugs and todo
 
 TODO:
--Carry the current deck between Deck Editor and Challenge when changing screens (redux / state management)
+-Fix deckName not being carried between pages
+-give ability to users to clear the deck from localStorage
 
 -CSS / UI enhancements:
 -desktop res: side-by-side prompt / picture
