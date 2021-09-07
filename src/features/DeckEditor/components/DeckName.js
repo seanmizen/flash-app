@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function DeckName({ deckName, setDeckName }) {
   return (
     <input
