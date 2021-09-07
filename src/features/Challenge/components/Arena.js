@@ -93,7 +93,6 @@ function Arena({ deck }) {
   }
 
   function nextItem() {
-    console.log(currentItem);
     setCurrentItem(
       (currentItem + 1 + shuffledList.length) % shuffledList.length || 0
     );
@@ -101,7 +100,6 @@ function Arena({ deck }) {
   }
 
   function prevItem() {
-    console.log(currentItem);
     setCurrentItem(
       (currentItem - 1 + shuffledList.length) % shuffledList.length || 0
     );

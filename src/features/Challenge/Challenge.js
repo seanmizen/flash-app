@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoadDeckFromFile from "../DeckEditor/components/LoadDeckFromFile";
 import Arena from "./components/Arena";
 import styles from "./Challenge.module.css";
 
 function Challenge() {
-  const [deckName, setDeckName] = useState("");
-  const [list, setList] = useState([]);
+  const [deckName, setDeckName] = useState(
+    localStorage.getItem("deckName") || []
+  );
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
   const [deckKey, setDeckKey] = useState(Math.random());
-
-  //TODO how to log "Challenge Rendering"?
 
   const loadDeck = (deck) => {
     setDeckName(deck.deckName);
     setList(deck.list);
+    localStorage.removeItem("deckName");
+    localStorage.removeItem("list");
+    localStorage.setItem("deckName", deck.deckName);
+    localStorage.setItem("list", JSON.stringify(deck.list));
     setDeckKey(Math.random()); //forces Arena to fully reset when loading a new deck
   };
+
+  useEffect(() => {
+    console.log(localStorage.getItem("deckName"));
+  }, [list]);
 
   return (
     <div className={styles["challenge"]}>

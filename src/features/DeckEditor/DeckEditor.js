@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ItemList } from "../../components/";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
-import DeckName from "./components/DeckName";
 import styles from "./DeckEditor.module.css";
 import { v4 as uuidv4 } from "uuid";
+
+/*
+localStorage.setItem('myData', data);
+localStorage.getItem('myData');
+localStorage.removeItem('myData');
+localStorage.clear();
+*/
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
 function DeckEditor() {
-  const [deckName, setDeckName] = useState("");
-  const [list, setList] = useState([]);
+  const [deckName, setDeckName] = useState(
+    localStorage.getItem("deckName") || []
+  );
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
   const ghostItemList = [
     { prompt: "Spooky ghost item", answer: "From an empty deck" },
     { prompt: "ANOTHER spooky ghost item", answer: "From the same deck" },
@@ -20,6 +30,10 @@ function DeckEditor() {
   function loadDeck(deck) {
     setDeckName(deck.deckName);
     setList(deck.list);
+    localStorage.removeItem("deckName");
+    localStorage.removeItem("list");
+    localStorage.setItem("deckName", deck.deckName);
+    localStorage.setItem("list", JSON.stringify(deck.list));
   }
 
   function addItem({ prompt = "", answer = "", image = "" }) {
@@ -64,6 +78,14 @@ function DeckEditor() {
     //setLocalStorageState();
   }
 
+  useEffect(() => {
+    localStorage.removeItem("deckName");
+    localStorage.removeItem("list");
+    localStorage.setItem("deckName(", deckName);
+    localStorage.setItem("list", JSON.stringify(list));
+    console.log(localStorage.getItem("deckName"));
+  }, [list]);
+
   return (
     <div className={styles["deck-editor"]}>
       <h2>Deck Editor</h2>
@@ -73,7 +95,13 @@ function DeckEditor() {
       <div className={styles["title-button-holder"]}>
         <div className={styles["title-item"]}>
           <h3>Deck name:</h3>
-          <DeckName deckName={deckName} setDeckName={(e) => setDeckName(e)} />
+          <input
+            type="text"
+            required={true}
+            placeholder="Deck Name"
+            value={deckName}
+            onChange={(e) => setDeckName(e.target.value)}
+          />
         </div>
         <div className={styles["title-item"]}>
           <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
