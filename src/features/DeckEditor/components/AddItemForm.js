@@ -85,10 +85,12 @@ function AddItemForm({ onAdd }) {
               onChange={photoUpload}
             />
           </div>
-          {image === "" ? (
-            <div />
+          {image ? (
+            <div className={styles["limited-image-container"]}>
+              <img alt="Prompt Preview" src={image} />
+            </div>
           ) : (
-            <img width="10rem" alt="Prompt preview" src={image} />
+            <></>
           )}
         </div>
 

@@ -158,6 +158,7 @@ form {
 }
 
 .limited-image-container {
+  display: flex;
   max-width: 12rem;
   max-height: auto;
 }
