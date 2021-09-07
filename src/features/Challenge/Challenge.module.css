@@ -112,7 +112,6 @@ align-content: (stretch is the default)
 -Move prompt text to the bottom and turn into a caption */
 .arena-prompt-box-image {
   text-align: center;
-  display: flex;
   flex-direction: column;
   justify-content: end;
 }
