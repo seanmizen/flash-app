@@ -65,6 +65,9 @@ function DeckEditor() {
   return (
     <div className={styles["deck-editor"]}>
       <h2>Deck Editor</h2>
+
+      <div className={styles["spacer"]} />
+
       <div className={styles["title-button-holder"]}>
         <div className={styles["title-item"]}>
           <h3>Deck name:</h3>
@@ -74,16 +77,25 @@ function DeckEditor() {
           <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
         </div>
       </div>
+
+      <div className={styles["spacer"]} />
+
       <div className="deck-editor-edit-area">
-        <h3>Add an item:</h3>
+        <h3>
+          {list.length === 0
+            ? "Start building a deck by adding an item:"
+            : "Add an item:"}
+        </h3>
         <AddItemForm onAdd={(e) => addItem(e)} />
       </div>
+
+      <div className={styles["spacer"]} />
 
       {(list.length > 0 && (
         <div className="deck-editor-item-list">
           <div className={styles["title-button-holder"]}>
             <div className={styles["title-item"]}>
-              <h3>Current Deck:</h3>
+              <h3>Current Deck: ({list.length} cards)</h3>
             </div>
             <div className={styles["title-item"]}>
               <SaveDeckToFile
@@ -94,6 +106,7 @@ function DeckEditor() {
               />
             </div>
           </div>
+          <div className={styles["spacer"]} />
           <ItemList
             ghost={false}
             list={list}
@@ -104,7 +117,8 @@ function DeckEditor() {
         </div>
       )) || (
         <div className="deck-editor-item-list">
-          <h3>[Deck will appear here when loaded]</h3>
+          <h3>Deck will appear here when loaded:</h3>
+          <div className={styles["spacer"]} />
           <ItemList
             ghost={true}
             list={ghostItemList}

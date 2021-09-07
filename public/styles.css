@@ -28,6 +28,14 @@ body {
   padding: 0 1rem;
 }
 
+h2 {
+  margin: 1rem;
+}
+
+h3 {
+  margin: 0.5rem;
+}
+
 /*
     rem = fraction of font-size in the root element
     has nothing to do with "Root EleMent" - but it sounds close enough

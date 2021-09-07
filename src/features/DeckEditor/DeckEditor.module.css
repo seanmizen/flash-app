@@ -138,6 +138,14 @@ form {
   padding: 0.1rem;
 }
 
+/*vertical spacing on app pages*/
+.spacer {
+  margin: 1rem;
+  padding: 0.1rem 0 0.1rem 0;
+  background-color: #6874b9;
+  opacity: 0.2;
+}
+
 /*
 display flex
  flex: 1 1 auto

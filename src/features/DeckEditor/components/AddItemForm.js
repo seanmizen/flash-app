@@ -17,6 +17,7 @@ function AddItemForm({ onAdd }) {
     setPrompt("");
     setAnswer("");
     inputPromptRef.current.focus();
+    e.preventDefault();
   };
 
   const keyDown = (e) => {
@@ -64,7 +65,7 @@ function AddItemForm({ onAdd }) {
       <button type="submit" ref={submitRef}>
         Add to deck
       </button>
-    </form >
+    </form>
   );
 }
 
