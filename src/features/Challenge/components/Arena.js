@@ -123,14 +123,13 @@ function Arena({ deck }) {
         className={styles["arena-item-box"] + " " + styles["rounded-outline"]}
       >
         <div className={styles["arena-item"]} onClick={toggleRevealAnswer}>
-          {shuffledList.length > 0 && (
+          {(shuffledList.length > 0 && (
             <ArenaPrompt
               // '\xa0' / &nbsp; (non-breaking space) stops the div from collapsing when empty.
               prompt={shuffledList[currentItem]?.prompt || "\xa0"}
+              image={shuffledList[currentItem]?.image || "\xa0"}
             />
-          ) || <ArenaPrompt
-              prompt="Nothing here !??!!!1?"
-            />}
+          )) || <ArenaPrompt prompt="Nothing here !??!!!1?" />}
           {revealAnswer && (
             <ArenaAnswer answer={shuffledList[currentItem]?.answer || "\xa0"} />
           )}

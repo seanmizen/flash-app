@@ -90,22 +90,35 @@ align-content: (stretch is the default)
   /*width: 100%;*/
 }
 
-.item-counter{
+.item-counter {
   position: absolute;
   z-index: 1;
   padding: 0.4rem;
   color: white;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 0 0 6px 0;
 }
 
 .arena-prompt-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1; /* fill all horizontal space you can find */
   /*width: 50%;*/
+}
+
+/* Overwrite some rules if the prompt box needs to contain an image:
+-Move prompt text to the bottom and turn into a caption */
+.arena-prompt-box-image {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.arena-prompt-box-image img {
+  object-fit: cover;
 }
 
 .arena-answer-box {
@@ -117,11 +130,19 @@ align-content: (stretch is the default)
   /*width: 50%;*/
 }
 
-.arena-prompt{
+.arena-prompt {
   padding: 0.5rem;
 }
 
-.arena-answer{
+.arena-prompt-image-caption {
+  display: flex;
+  flex: 1;
+  z-index: 0;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.arena-answer {
   padding: 0.5rem;
 }
 
@@ -134,7 +155,6 @@ align-content: (stretch is the default)
   background: #6874b9;
   color: white;
 }
-
 
 .rounded-outline {
   box-shadow: 4px 4px 4px #353b5e;

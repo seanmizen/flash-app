@@ -132,11 +132,13 @@ form {
 }
 
 .item-answer {
-  /*margin: 0 0 0.1rem 0;*/
-  margin: 0;
-  padding: 0.4rem;
+  display: flex;
   background: #acabdf;
   color: black;
+}
+
+.item-answer span {
+  margin: 0.4rem;
 }
 
 .itemlist-item-edit-inner {
