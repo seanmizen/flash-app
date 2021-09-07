@@ -8,15 +8,16 @@ function ArenaPrompt({ prompt, image = "" }) {
         " " +
         styles["item-dark"] +
         " " +
-        (image ? styles["arena-prompt-box-image"] : "")
+        (image.trim() ? styles["arena-prompt-box-image"] : "")
       }
+      onClick={console.log(image)}
     >
-      {image ? <img alt="Prompt Preview" src={image} /> : <></>}
+      {image.trim() ? <img alt="Prompt Preview" src={image} /> : <></>}
 
       <div
         className={
           styles["arena-prompt"] +
-          (image ? " " + styles["arena-prompt-image-caption"] : "")
+          (image.trim() ? " " + styles["arena-prompt-image-caption"] : "")
         }
       >
         {prompt}
