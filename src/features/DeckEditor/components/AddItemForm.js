@@ -34,22 +34,25 @@ function AddItemForm({ onAdd }) {
     >
       <div className={styles["itemlist-item-edit-inner"]}>
         <div className={styles["item-form-prompt"]}>
-          {/*<div>Add a text prompt:</div>*/}
-          <input
-            className={styles["prompt-text-input"]}
-            type="text"
-            required={true}
-            placeholder="Type your prompt here"
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            ref={inputPromptRef}
-          />
-          {/*<div>Or an image prompt:</div>*/}
-          {/*<input className={styles["prompt-image-input"]} type="file" id="img" name="img" accept="image/*" />*/}
-          {/*<div>(you can do both)</div>*/}
+          <div className={styles["item-form-prompt-text"]}>
+            {/*<div>Add a text prompt:</div>*/}
+            <input
+              className={styles["prompt-text-input"]}
+              type="text"
+              required={true}
+              placeholder="Type your prompt here"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              ref={inputPromptRef}
+            />
+          </div>
+          <div className={styles["item-form-prompt-image"]}>
+            {/*<div>Or an image prompt:</div>*/}
+            {/*<input className={styles["prompt-image-input"]} type="file" id="img" name="img" accept="image/*" />*/}
+            {/*<div>(you can do both)</div>*/}
+          </div>
         </div>
         <div className={styles["item-form-answer"]}>
-          {/*<div>Add the answer for the prompt:</div>*/}
           <textarea
             className={styles["answer-text-input"]}
             type="text"

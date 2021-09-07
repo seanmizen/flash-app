@@ -91,7 +91,7 @@ function DeckEditor() {
 
       <div className={styles["spacer"]} />
 
-      {(list.length > 0 && (
+      {list.length > 0 ? (
         <div className="deck-editor-item-list">
           <div className={styles["title-button-holder"]}>
             <div className={styles["title-item"]}>
@@ -115,7 +115,7 @@ function DeckEditor() {
             editItemCallback={setItem}
           />
         </div>
-      )) || (
+      ) : (
         <div className="deck-editor-item-list">
           <h3>Deck will appear here when loaded:</h3>
           <div className={styles["spacer"]} />
