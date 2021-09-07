@@ -114,10 +114,16 @@ align-content: (stretch is the default)
   text-align: center;
   flex-direction: column;
   justify-content: end;
+  position: relative;
 }
 
-.arena-prompt-box-image img {
-  object-fit: cover;
+.test {
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 .arena-answer-box {
@@ -134,11 +140,16 @@ align-content: (stretch is the default)
 }
 
 .arena-prompt-image-caption {
-  display: flex;
-  flex: 1;
-  z-index: 0;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(104, 116, 185, 0.8);
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 600;
 }
 
 .arena-answer {

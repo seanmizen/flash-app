@@ -12,16 +12,24 @@ function ArenaPrompt({ prompt, image = "" }) {
       }
       onClick={console.log(image)}
     >
-      {image.trim() ? <img alt="Prompt Preview" src={image} /> : <></>}
+      {/*image.trim() ? <img alt="Prompt Preview" src={image} /> : <></>*/}
+      {image.trim() ? (
+        <div
+          className={styles["test"]}
+          style={{ backgroundImage: `url(${image})` }} //magical `template string`
+        />
+      ) : null}
 
-      <div
-        className={
-          styles["arena-prompt"] +
-          (image.trim() ? " " + styles["arena-prompt-image-caption"] : "")
-        }
-      >
-        {prompt}
-      </div>
+      {prompt.trim() ? (
+        <div
+          className={
+            styles["arena-prompt"] +
+            (image.trim() ? " " + styles["arena-prompt-image-caption"] : "")
+          }
+        >
+          {prompt}
+        </div>
+      ) : null}
     </div>
   );
 }
