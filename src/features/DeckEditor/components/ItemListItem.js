@@ -123,7 +123,7 @@ function ItemListItem({
               </span>
             </div>
             <div className={styles["item-answer"]}>
-              <span>{innerAnswer}</span>
+              <span>{innerAnswer || "\xa0"}</span>
             </div>
           </div>
           {allowEdit && (
