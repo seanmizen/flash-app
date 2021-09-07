@@ -7,22 +7,48 @@ function AddItemForm({ onAdd }) {
 
   const [prompt, setPrompt] = useState(""); //pass in our default val
   const [answer, setAnswer] = useState("");
+  const [imageObject, setImageObject] = useState(""); //image file object (including name, dimensions, etc)
+  const [image, setImage] = useState(""); //base64 encoded image
   const inputPromptRef = useRef();
+  const inputPromptImageRef = useRef();
   const formRef = useRef();
   const submitRef = useRef();
 
   const submitForm = (e) => {
+    let newItem = { prompt, answer };
+    if (image) {
+      newItem = { ...newItem, image: image };
+      if (prompt === "") {
+        setPrompt(imageObject.name);
+      }
+    }
     e.preventDefault();
-    onAdd({ prompt, answer });
+    onAdd(newItem);
     setPrompt("");
     setAnswer("");
+    setImageObject({});
+    setImage("");
+    inputPromptImageRef.current.value = "";
     inputPromptRef.current.focus();
-    e.preventDefault();
   };
 
   const keyDown = (e) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       submitRef.current.click();
+    }
+  };
+
+  //https://dev.to/guscarpim/upload-image-base64-react-4p7j
+  const photoUpload = (e) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    if (reader !== undefined && file !== undefined) {
+      reader.onloadend = () => {
+        setImageObject(file);
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -35,24 +61,39 @@ function AddItemForm({ onAdd }) {
       <div className={styles["itemlist-item-edit-inner"]}>
         <div className={styles["item-form-prompt"]}>
           <div className={styles["item-form-prompt-text"]}>
-            {/*<div>Add a text prompt:</div>*/}
+            <div>Add a text prompt:</div>
             <input
               className={styles["prompt-text-input"]}
               type="text"
-              required={true}
+              required={image === ""}
               placeholder="Type your prompt here"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               ref={inputPromptRef}
             />
           </div>
+          <div className={styles["spacer"]} />
           <div className={styles["item-form-prompt-image"]}>
-            {/*<div>Or an image prompt:</div>*/}
-            {/*<input className={styles["prompt-image-input"]} type="file" id="img" name="img" accept="image/*" />*/}
-            {/*<div>(you can do both)</div>*/}
+            <div>Or an image prompt:</div>
+            <input
+              className={styles["prompt-image-input"]}
+              type="file"
+              id="img"
+              name="img"
+              accept="image/*"
+              ref={inputPromptImageRef}
+              onChange={photoUpload}
+            />
           </div>
+          {image === "" ? (
+            <div />
+          ) : (
+            <img width="10rem" alt="Prompt preview" src={image} />
+          )}
         </div>
+
         <div className={styles["item-form-answer"]}>
+          <div>Add the answer here:</div>
           <textarea
             className={styles["answer-text-input"]}
             type="text"

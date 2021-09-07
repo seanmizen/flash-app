@@ -17,6 +17,7 @@ function ItemList(props) {
             onDeleted={props.onDeleted}
             prompt={item.prompt}
             answer={item.answer}
+            image={item.image}
             editItemCallback={props.editItemCallback}
           />
         );

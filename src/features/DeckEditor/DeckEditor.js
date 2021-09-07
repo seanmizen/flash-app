@@ -22,7 +22,7 @@ function DeckEditor() {
     setList(deck.list);
   }
 
-  function addItem({ prompt = "", answer = "" }) {
+  function addItem({ prompt = "", answer = "", image = "" }) {
     //create item, assign unique ID
     let newID = "0";
     const getID = (item) => item.id;
@@ -34,9 +34,11 @@ function DeckEditor() {
       id: newID,
       prompt,
       answer,
+      image,
     };
 
-    console.log("adding item with ID of " + newID + " to list");
+    console.log("Adding item:");
+    console.log(newItem);
 
     setList([...list, newItem]);
     //setLocalStorageState();

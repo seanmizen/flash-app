@@ -7,6 +7,7 @@ function ItemListItem({
   onDeleted,
   prompt,
   answer,
+  image,
   editItemCallback,
 }) {
   const [editActive, setEditActive] = useState(false);
@@ -77,6 +78,13 @@ function ItemListItem({
       {editActive ? (
         <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
           <div className={styles["itemlist-item-edit-inner"]}>
+            {image ? (
+              <div className={styles["limited-image-container"]}>
+                <img alt="Prompt Preview" src={image} />
+              </div>
+            ) : (
+              <></>
+            )}
             <input
               className={styles["item-prompt-edit"]}
               value={innerPrompt}
@@ -85,7 +93,6 @@ function ItemListItem({
               ref={editPromptRef}
             />
             <textarea
-              className={styles["item-answer-edit"]}
               value={innerAnswer}
               onChange={(e) => setInnerAnswer(e.target.value)}
               ref={editAnswerRef}
@@ -104,6 +111,13 @@ function ItemListItem({
         <>
           <div className={styles["itemlist-item-inner"]}>
             <div className={styles["item-prompt"]}>
+              {image ? (
+                <div className={styles["limited-image-container"]}>
+                  <img alt="Prompt Preview" src={image} />
+                </div>
+              ) : (
+                <></>
+              )}
               <span>
                 <b>{innerPrompt}</b>
               </span>
