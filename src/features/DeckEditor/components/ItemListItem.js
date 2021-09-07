@@ -49,7 +49,7 @@ function ItemListItem({
   useEffect(() => {
     const handleDoubleClick = (e) => {
       console.log(e.composedPath().includes(liRef.current));
-      if (e.composedPath().includes(liRef.current)) {
+      if (e.composedPath().includes(liRef.current) && allowEdit) {
         //clicked inside li
         setEditActive(true);
       } else {

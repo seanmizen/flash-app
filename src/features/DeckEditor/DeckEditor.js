@@ -12,6 +12,10 @@ import { v4 as uuidv4 } from "uuid";
 function DeckEditor() {
   const [deckName, setDeckName] = useState("");
   const [list, setList] = useState([]);
+  const ghostItemList = [
+    { prompt: "Spooky ghost item", answer: "From an empty deck" },
+    { prompt: "ANOTHER spooky ghost item", answer: "From the same deck" },
+  ];
 
   function loadDeck(deck) {
     setDeckName(deck.deckName);
@@ -91,6 +95,7 @@ function DeckEditor() {
             </div>
           </div>
           <ItemList
+            ghost={false}
             list={list}
             onDeleted={(id) => deleteItem(id)}
             allowEdit={true}
@@ -100,6 +105,13 @@ function DeckEditor() {
       )) || (
         <div className="deck-editor-item-list">
           <h3>[Deck will appear here when loaded]</h3>
+          <ItemList
+            ghost={true}
+            list={ghostItemList}
+            onDeleted={(id) => deleteItem(id)}
+            allowEdit={false}
+            editItemCallback={setItem}
+          />
         </div>
       )}
     </div>

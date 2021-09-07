@@ -3,7 +3,11 @@ import styles from "../DeckEditor.module.css";
 
 function ItemList(props) {
   return (
-    <ul className={styles["no-bullets"]}>
+    <ul
+      className={
+        styles["no-bullets"] + (props.ghost ? " " + styles["ghost"] : "")
+      }
+    >
       {props.list?.map((item) => {
         return (
           <ItemListItem
