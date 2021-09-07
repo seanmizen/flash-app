@@ -1,19 +1,19 @@
-:root{
-    background: #fefefe;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+:root {
+  background: #fefefe;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-    color: #323232;
-    line-height: 1.25;
-    margin: 0;
+body {
+  color: #323232;
+  line-height: 1.25;
+  margin: 0;
 }
 
-*{
-    box-sizing: border-box;
-    /*padding: 0.2rem;*/
-    /*outline: 1px solid #323232;*/
+* {
+  box-sizing: border-box;
+  /*padding: 0.2rem;*/
+  /*outline: 1px solid #323232;*/
 }
 
 /*
@@ -21,11 +21,11 @@ body{
     trust them
     centre div is in here somehow
 */
-.container{
-    max-width: 100%;
-    width: 36rem;
-    margin: auto;
-    padding: 0 1rem;
+.container {
+  max-width: 100%;
+  width: 36rem;
+  margin: auto;
+  padding: 0 1rem;
 }
 
 /*
@@ -33,6 +33,6 @@ body{
     has nothing to do with "Root EleMent" - but it sounds close enough
 */
 
-button{
-    margin: 0.2rem;
+button {
+  margin: 0.2rem;
 }
