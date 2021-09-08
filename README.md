@@ -13,22 +13,28 @@ Start the app with `npm start`.
 
 Nothing here really
 
-## Bugs and todo
+## TODO:
 
-TODO:
 -Fix deckName not being carried between pages
 
 -give ability to users to clear the deck from localStorage
 
--CSS / UI enhancements:
--desktop res: side-by-side prompt / picture
--mobile res: top/bottom
--Deck Editor page structure:
--Add mobile vs. desktop view
--Challenge "Load Deck" area - make it pretty
--Make challenge screen work for mobile (NO swipe down - this is easily confused with refresh and will break mobile websites)
--remove "rounded-corners" css class - make view modern
+# CSS / UI enhancements:
 
-Animations + funky features:
--Item Added + removed animation
--reorder deck items by clicking and dragging
+-desktop res: side-by-side prompt / picture
+
+-mobile res: top/bottom
+
+-Deck Editor page structure:
+
+-Add mobile vs. desktop view
+
+-Challenge "Load Deck" area - make it pretty
+
+-Make challenge screen work for mobile (NO swipe down - this is easily confused with refresh and will break mobile websites)
+
+# Animations + funky features:
+
+-Item added + item removed animation
+
+-ItemList: Reorder deck items by clicking and dragging
