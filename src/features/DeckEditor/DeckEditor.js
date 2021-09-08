@@ -145,6 +145,9 @@ function DeckEditor() {
             <div className="deck-editor-item-list">
               <div className={styles["title-item"]}>
                 <h3>Deck will appear here when loaded:</h3>
+              </div>
+              <div className={styles["spacer"]} />
+              <div className={styles["title-item"]}>
                 <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
               </div>
               <div className={styles["spacer"]} />

@@ -6,7 +6,7 @@ class Nav extends Component {
   render() {
     return (
       <nav className={styles["nav"]}>
-        <div className="container">
+        <div className="nav">
           <ul className={styles["nav-list"]}>
             <li className={styles["nav-list-item"]}>
               <Link to="/DeckEditor">Deck Builder</Link>

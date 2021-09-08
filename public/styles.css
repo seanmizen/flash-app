@@ -21,6 +21,13 @@ body {
     trust them
     centre div is in here somehow
 */
+.nav {
+  max-width: 100%;
+  width: 36rem;
+  margin: auto;
+  padding: 0 1rem;
+}
+
 .container {
   max-width: 100%;
   width: 36rem;
