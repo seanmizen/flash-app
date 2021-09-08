@@ -15,11 +15,7 @@ Nothing here really
 
 ## TODO:
 
--Fix deckName not being carried between pages
-
--give ability to users to clear the deck from localStorage
-
-# CSS / UI enhancements:
+### CSS / UI enhancements:
 
 -desktop res: side-by-side prompt / picture
 
@@ -33,7 +29,7 @@ Nothing here really
 
 -Make challenge screen work for mobile (NO swipe down - this is easily confused with refresh and will break mobile websites)
 
-# Animations + funky features:
+### Animations + funky features:
 
 -Item added + item removed animation
 
