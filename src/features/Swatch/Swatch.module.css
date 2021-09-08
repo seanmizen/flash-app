@@ -1,1 +1,30 @@
 /* 2A2C05 EFE0B9 E4B04A 643B0F B7521E */
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 880px) {
+  .main {
+    flex-direction: row;
+  }
+}
+
+.section {
+  margin: 0;
+  flex: 1;
+}
+
+@media only screen and (min-width: 880px) {
+  .section {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+.spacer {
+  margin: 1rem;
+  padding: 0.1rem 0 0.1rem 0;
+  background-color: #6874b9;
+  opacity: 0.2;
+}

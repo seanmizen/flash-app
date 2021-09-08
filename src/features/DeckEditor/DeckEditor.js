@@ -45,7 +45,6 @@ function DeckEditor() {
     };
 
     setList([...list, newItem]);
-    //setLocalStorageState();
   }
 
   function setItem(item) {
@@ -142,9 +141,9 @@ function DeckEditor() {
               <ItemList
                 ghost={true}
                 list={ghostItemList}
-                onDeleted={(id) => deleteItem(id)}
+                onDeleted={() => {}}
                 allowEdit={false}
-                editItemCallback={setItem}
+                editItemCallback={() => {}}
               />
             </div>
           )}
