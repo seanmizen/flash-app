@@ -23,8 +23,8 @@ function Challenge() {
   };
 
   useEffect(() => {
-    console.log(localStorage.getItem("deckName"));
-  }, [list]);
+    console.log("Ch deckName: " + localStorage.getItem("deckName"));
+  }, [list, deckName]);
 
   return (
     <div className={styles["challenge"]}>

@@ -10,7 +10,6 @@ function ArenaPrompt({ prompt, image = "" }) {
         " " +
         (image.trim() ? styles["arena-prompt-box-image"] : "")
       }
-      onClick={console.log(image)}
     >
       {/*image.trim() ? <img alt="Prompt Preview" src={image} /> : <></>*/}
       {image.trim() ? (

@@ -6,13 +6,6 @@ import LoadDeckFromFile from "./components/LoadDeckFromFile";
 import styles from "./DeckEditor.module.css";
 import { v4 as uuidv4 } from "uuid";
 
-/*
-localStorage.setItem('myData', data);
-localStorage.getItem('myData');
-localStorage.removeItem('myData');
-localStorage.clear();
-*/
-
 //Adapted from Tiff In Tech's React tutorial (Todo List)
 
 function DeckEditor() {
@@ -51,9 +44,6 @@ function DeckEditor() {
       image,
     };
 
-    console.log("Adding item:");
-    console.log(newItem);
-
     setList([...list, newItem]);
     //setLocalStorageState();
   }
@@ -72,23 +62,29 @@ function DeckEditor() {
     setList(newList);
   }
 
+  const clearLocalStorage = () => {
+    setDeckName("");
+    setList([]);
+    localStorage.clear();
+    return 0;
+  };
+
   function deleteItem(id) {
     setList(list.filter((item) => item.id !== id));
-    console.log("New list: \n" + list.map((item) => item.prompt));
     //setLocalStorageState();
   }
 
   useEffect(() => {
-    localStorage.removeItem("deckName");
-    localStorage.removeItem("list");
     localStorage.setItem("deckName(", deckName);
     localStorage.setItem("list", JSON.stringify(list));
-    console.log(localStorage.getItem("deckName"));
-  }, [list]);
+    console.log("DE deckName: " + localStorage.getItem("deckName"));
+  }, [list, deckName]);
 
   return (
     <div className={styles["deck-editor"]}>
-      <h2>Deck Editor</h2>
+      <div className={styles["page-title-container"]}>
+        <h2>Deck Editor</h2>
+      </div>
 
       <div className={styles["spacer"]} />
 
@@ -128,6 +124,8 @@ function DeckEditor() {
               <h3>Current Deck: ({list.length} cards)</h3>
             </div>
             <div className={styles["title-item"]}>
+              <button onClick={clearLocalStorage}>Clear current deck</button>
+
               <SaveDeckToFile
                 deck={{
                   deckName: deckName,

@@ -2,6 +2,15 @@ button {
   margin: 0.2rem;
 }
 
+.page-title-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.page-title-container h2 {
+  flex: 1;
+}
+
 .title-item {
   padding: 0.2rem;
   display: flex;
