@@ -36,8 +36,14 @@ button {
   padding: 0.2rem;
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: center;
+  flex: 1;
+}
+
+@media only screen and (min-width: 880px) {
+  .title-item {
+    min-height: 5rem;
+  }
 }
 
 .title-item button {
@@ -51,6 +57,9 @@ button {
   justify-content: left;
   flex: 1; /* fill all horizontal space you can find */
   /*width: 50%;*/
+}
+.title-button-holder button {
+  flex: 1;
 }
 
 @media only screen and (min-width: 880px) {
@@ -227,7 +236,7 @@ li {
 
 .limited-image-container {
   display: flex;
-  max-width: 12rem;
+  max-width: 10rem;
   max-height: auto;
 }
 

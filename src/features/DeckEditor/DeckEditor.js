@@ -118,7 +118,9 @@ function DeckEditor() {
             <div className="deck-editor-item-list">
               <div className={styles["title-button-holder"]}>
                 <div className={styles["title-item"]}>
-                  <h3>Current Deck: ({list.length} cards)</h3>
+                  <h3>
+                    {deckName}: ({list.length} cards)
+                  </h3>
                 </div>
               </div>
               <div className={styles["spacer"]} />
@@ -147,7 +149,7 @@ function DeckEditor() {
                 <h3>Deck will appear here when loaded:</h3>
               </div>
               <div className={styles["spacer"]} />
-              <div className={styles["title-item"]}>
+              <div className={styles["title-button-holder"]}>
                 <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
               </div>
               <div className={styles["spacer"]} />
