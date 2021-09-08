@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ItemList } from "../../components/";
+import ItemList from "./components/ItemList";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
@@ -81,82 +81,85 @@ function DeckEditor() {
   }, [list, deckName]);
 
   return (
-    <div className={styles["deck-editor"]}>
+    <>
       <div className={styles["page-title-container"]}>
-        <h2>Deck Editor</h2>
+        <h2>Deck Builder</h2>
       </div>
-
-      <div className={styles["spacer"]} />
-
-      <div className={styles["title-button-holder"]}>
-        <div className={styles["title-item"]}>
-          <h3>Deck name:</h3>
-          <input
-            type="text"
-            required={true}
-            placeholder="Deck Name"
-            value={deckName}
-            onChange={(e) => setDeckName(e.target.value)}
-          />
-        </div>
-        <div className={styles["title-item"]}>
-          <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
-        </div>
-      </div>
-
-      <div className={styles["spacer"]} />
-
-      <div className="deck-editor-edit-area">
-        <h3>
-          {list.length === 0
-            ? "Start building a deck by adding an item:"
-            : "Add an item:"}
-        </h3>
-        <AddItemForm onAdd={(e) => addItem(e)} />
-      </div>
-
-      <div className={styles["spacer"]} />
-
-      {list.length > 0 ? (
-        <div className="deck-editor-item-list">
+      <div className={styles["deck-editor"]}>
+        <div className={styles["section"]}>
           <div className={styles["title-button-holder"]}>
             <div className={styles["title-item"]}>
-              <h3>Current Deck: ({list.length} cards)</h3>
-            </div>
-            <div className={styles["title-item"]}>
-              <button onClick={clearLocalStorage}>Clear current deck</button>
-
-              <SaveDeckToFile
-                deck={{
-                  deckName: deckName,
-                  list: list,
-                }}
+              <h3>Deck name:</h3>
+              <input
+                type="text"
+                required={true}
+                placeholder="Deck Name"
+                value={deckName}
+                onChange={(e) => setDeckName(e.target.value)}
               />
             </div>
           </div>
+
           <div className={styles["spacer"]} />
-          <ItemList
-            ghost={false}
-            list={list}
-            onDeleted={(id) => deleteItem(id)}
-            allowEdit={true}
-            editItemCallback={setItem}
-          />
-        </div>
-      ) : (
-        <div className="deck-editor-item-list">
-          <h3>Deck will appear here when loaded:</h3>
+
+          <div className="deck-editor-edit-area">
+            <h3>
+              {list.length === 0
+                ? "Start building a deck by adding an item:"
+                : "Add an item:"}
+            </h3>
+            <AddItemForm onAdd={(e) => addItem(e)} />
+          </div>
+
           <div className={styles["spacer"]} />
-          <ItemList
-            ghost={true}
-            list={ghostItemList}
-            onDeleted={(id) => deleteItem(id)}
-            allowEdit={false}
-            editItemCallback={setItem}
-          />
         </div>
-      )}
-    </div>
+        <div className={styles["section"]}>
+          {list.length > 0 ? (
+            <div className="deck-editor-item-list">
+              <div className={styles["title-button-holder"]}>
+                <div className={styles["title-item"]}>
+                  <h3>Current Deck: ({list.length} cards)</h3>
+                </div>
+              </div>
+              <div className={styles["spacer"]} />
+              <div className={styles["title-button-holder"]}>
+                <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+                <button onClick={clearLocalStorage}>Clear this deck</button>
+                <SaveDeckToFile
+                  deck={{
+                    deckName: deckName,
+                    list: list,
+                  }}
+                />
+              </div>
+              <div className={styles["spacer"]} />
+              <ItemList
+                ghost={false}
+                list={list}
+                onDeleted={(id) => deleteItem(id)}
+                allowEdit={true}
+                editItemCallback={setItem}
+              />
+            </div>
+          ) : (
+            <div className="deck-editor-item-list">
+              <div className={styles["title-item"]}>
+                <h3>Deck will appear here when loaded:</h3>
+                <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+              </div>
+              <div className={styles["spacer"]} />
+              <ItemList
+                ghost={true}
+                list={ghostItemList}
+                onDeleted={(id) => deleteItem(id)}
+                allowEdit={false}
+                editItemCallback={setItem}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 

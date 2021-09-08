@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import styles from "./ItemList.css";
+import styles from "../DeckEditor.module.css";
 
 function ItemListItem({
   id,

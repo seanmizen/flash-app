@@ -9,7 +9,7 @@ class Nav extends Component {
         <div className="container">
           <ul className={styles["nav-list"]}>
             <li className={styles["nav-list-item"]}>
-              <Link to="/DeckEditor">Deck Editor</Link>
+              <Link to="/DeckEditor">Deck Builder</Link>
             </li>
             <li className={styles["nav-list-spacer"]} />
             <li className={styles["nav-list-item"]}>

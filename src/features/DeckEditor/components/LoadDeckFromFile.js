@@ -66,7 +66,7 @@ function LoadDeckFromFile({ onDeckLoad }) {
     <>
       <button onClick={loadFromFile}>
         {(selectedFile.name && "Current Deck: " + selectedFile.name) ||
-          "Load a deck"}
+          "Load a deck from file"}
       </button>
       <input
         hidden
