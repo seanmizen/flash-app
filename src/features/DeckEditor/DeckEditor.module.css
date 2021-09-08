@@ -64,6 +64,7 @@ button {
 
 @media only screen and (min-width: 880px) {
   .title-button-holder {
+    margin: 2rem 0 0 0;
     flex-direction: row;
   }
 }
@@ -149,7 +150,7 @@ flex-direction: (order of items)
         Notice that when the flex direction is a column, justify-content changes to the vertical and align-items to the horizontal.    
 */
 
-.no-bullets {
+.item-list {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
@@ -223,6 +224,7 @@ li {
   flex-direction: column;
   justify-content: center;
   flex: 1 1 auto;
+  width: 100%;
 }
 
 .itemlist-item-edit-inner textarea {

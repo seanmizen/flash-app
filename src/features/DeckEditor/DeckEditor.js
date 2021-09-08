@@ -87,17 +87,15 @@ function DeckEditor() {
       </div>
       <div className={styles["deck-editor"]}>
         <div className={styles["section"]}>
-          <div className={styles["title-button-holder"]}>
-            <div className={styles["title-item"]}>
-              <h3>Deck name:</h3>
-              <input
-                type="text"
-                required={true}
-                placeholder="Deck Name"
-                value={deckName}
-                onChange={(e) => setDeckName(e.target.value)}
-              />
-            </div>
+          <div className={styles["title-item"]}>
+            <h3>Deck name:</h3>
+            <input
+              type="text"
+              required={true}
+              placeholder="Deck Name"
+              value={deckName}
+              onChange={(e) => setDeckName(e.target.value)}
+            />
           </div>
 
           <div className={styles["spacer"]} />
@@ -116,14 +114,6 @@ function DeckEditor() {
         <div className={styles["section"]}>
           {list.length > 0 ? (
             <div className="deck-editor-item-list">
-              <div className={styles["title-button-holder"]}>
-                <div className={styles["title-item"]}>
-                  <h3>
-                    {deckName}: ({list.length} cards)
-                  </h3>
-                </div>
-              </div>
-              <div className={styles["spacer"]} />
               <div className={styles["title-button-holder"]}>
                 <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
                 <button onClick={clearLocalStorage}>Clear this deck</button>
@@ -145,10 +135,6 @@ function DeckEditor() {
             </div>
           ) : (
             <div className="deck-editor-item-list">
-              <div className={styles["title-item"]}>
-                <h3>Deck will appear here when loaded:</h3>
-              </div>
-              <div className={styles["spacer"]} />
               <div className={styles["title-button-holder"]}>
                 <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
               </div>

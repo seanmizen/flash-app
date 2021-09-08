@@ -5,7 +5,7 @@ function ItemList(props) {
   return (
     <ul
       className={
-        styles["no-bullets"] + (props.ghost ? " " + styles["ghost"] : "")
+        styles["item-list"] + (props.ghost ? " " + styles["ghost"] : "")
       }
     >
       {props.list?.map((item) => {
