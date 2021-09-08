@@ -17,6 +17,7 @@ Nothing here really
 
 TODO:
 -Fix deckName not being carried between pages
+
 -give ability to users to clear the deck from localStorage
 
 -CSS / UI enhancements:
