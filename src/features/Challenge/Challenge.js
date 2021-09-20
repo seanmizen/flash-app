@@ -28,15 +28,13 @@ function Challenge() {
 
   return (
     <div className={styles["challenge"]}>
-      <div className={styles["challenge-arena"]}>
-        <Arena
-          deck={{
-            deckName: deckName,
-            list: list,
-          }}
-          key={deckKey}
-        />
-      </div>
+      <Arena
+        deck={{
+          deckName: deckName,
+          list: list,
+        }}
+        key={deckKey}
+      />
       <div className="challenge-load-area">
         <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
       </div>
