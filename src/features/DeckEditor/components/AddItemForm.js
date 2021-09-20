@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import styles from "../DeckEditor.module.css";
+import { Button } from "../../../components";
 
 function AddItemForm({ onAdd }) {
   // {} instead of props just allows us to not do props. everywhere
@@ -38,6 +39,10 @@ function AddItemForm({ onAdd }) {
     }
   };
 
+  const uploadImagePromptClick = () => {
+    inputPromptImageRef.current.click();
+  };
+
   //https://dev.to/guscarpim/upload-image-base64-react-4p7j
   const photoUpload = (e) => {
     e.preventDefault();
@@ -72,10 +77,10 @@ function AddItemForm({ onAdd }) {
               ref={inputPromptRef}
             />
           </div>
-          <div className={styles["spacer"]} />
           <div className={styles["item-form-prompt-image"]}>
-            <div>Or an image prompt:</div>
+            <Button onClick={uploadImagePromptClick}>Or upload an image</Button>
             <input
+              hidden
               className={styles["prompt-image-input"]}
               type="file"
               id="img"
@@ -93,6 +98,7 @@ function AddItemForm({ onAdd }) {
             <></>
           )}
         </div>
+        <div className={styles["spacer"]} />
 
         <div className={styles["item-form-answer"]}>
           <div>Add the answer here:</div>
@@ -106,11 +112,11 @@ function AddItemForm({ onAdd }) {
             onKeyDown={(e) => keyDown(e)}
           />
         </div>
+        <div className={styles["spacer"]} />
       </div>
-
-      <button type="submit" ref={submitRef}>
+      <Button type="submit" ref={submitRef}>
         Add to deck
-      </button>
+      </Button>
     </form>
   );
 }

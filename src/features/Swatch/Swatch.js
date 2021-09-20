@@ -61,7 +61,7 @@ const Swatch = () => {
         <div className={styles["spacer"]} />
         <div className={styles["title-button-holder"]}>
           <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
-          <button onClick={clearLocalStorage}>Clear this deck</button>
+          <Button onClick={clearLocalStorage}>Clear this deck</Button>
           <SaveDeckToFile
             deck={{
               deckName: deckName,
@@ -80,6 +80,82 @@ const Swatch = () => {
           }}
           key={deckKey}
         />
+        <div className={styles["spacer"]} />
+        <div>
+          <div className={styles["color-box"] + " " + styles["color-one"]}>
+            Color 1
+          </div>
+          <div className={styles["color-box"] + " " + styles["color-two"]}>
+            Color 2
+          </div>
+          <div className={styles["color-box"] + " " + styles["color-three"]}>
+            Color 3
+          </div>
+          <div className={styles["color-box"] + " " + styles["color-four"]}>
+            Color 4
+          </div>
+          <div className={styles["color-box"] + " " + styles["color-five"]}>
+            Color 5
+          </div>
+        </div>
+        <div className={styles["spacer"]} />
+        <div>
+          <div
+            className={
+              styles["color-box"] +
+              " " +
+              styles["color-one"] +
+              " " +
+              styles["border-one"]
+            }
+          >
+            Color 1
+          </div>
+          <div
+            className={
+              styles["color-box"] +
+              " " +
+              styles["color-two"] +
+              " " +
+              styles["border-two"]
+            }
+          >
+            Color 2
+          </div>
+          <div
+            className={
+              styles["color-box"] +
+              " " +
+              styles["color-three"] +
+              " " +
+              styles["border-three"]
+            }
+          >
+            Color 3
+          </div>
+          <div
+            className={
+              styles["color-box"] +
+              " " +
+              styles["color-four"] +
+              " " +
+              styles["border-four"]
+            }
+          >
+            Color 4
+          </div>
+          <div
+            className={
+              styles["color-box"] +
+              " " +
+              styles["color-five"] +
+              " " +
+              styles["border-five"]
+            }
+          >
+            Color 5
+          </div>
+        </div>
       </div>
     </div>
   );

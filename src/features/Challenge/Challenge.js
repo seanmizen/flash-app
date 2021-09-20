@@ -37,6 +37,9 @@ function Challenge() {
           key={deckKey}
         />
       </div>
+      <div className="challenge-load-area">
+        <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+      </div>
       {list.length === 0 ? null : (
         <div className="challenge-information-area">
           <span>Deck name: {deckName}</span>
@@ -44,9 +47,6 @@ function Challenge() {
           <span>Deck Length: {list.length}</span>
         </div>
       )}
-      <div className="challenge-load-area">
-        <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
-      </div>
     </div>
   );
 }

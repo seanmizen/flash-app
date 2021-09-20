@@ -1,0 +1,14 @@
+.button-one {
+  border-radius: 99rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  /* border-color: rgba(104, 116, 185, 1); */
+  color: #6874b9;
+  border-style: double;
+  font-weight: 650;
+  color: black;
+  background-color: white;
+  border-color: black;
+  text-decoration: none;
+}
+
+/* #6874b9 */

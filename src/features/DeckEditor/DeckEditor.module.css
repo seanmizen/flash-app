@@ -2,6 +2,14 @@ button {
   margin: 0.2rem;
 }
 
+/*vertical spacing on app pages*/
+.spacer {
+  margin: 1rem;
+  padding: 0.1rem 0 0.1rem 0;
+  background-color: #6874b9;
+  opacity: 0.2;
+}
+
 .deck-editor {
   display: flex;
   flex-direction: column;
@@ -55,6 +63,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: left;
+  align-items: center;
   flex: 1; /* fill all horizontal space you can find */
   /*width: 50%;*/
 }
@@ -66,6 +75,15 @@ button {
   .title-button-holder {
     margin: 2rem 0 0 0;
     flex-direction: row;
+  }
+  .title-button-holder button {
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .title-button-holder button {
+    width: 100%;
+    max-width: 20rem;
   }
 }
 
@@ -83,21 +101,35 @@ form {
 .item-form-prompt {
   margin: 0.2rem;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  justify-content: space-between;
+}
+.item-form-prompt div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media only screen and (min-width: 880px) {
   .item-form-prompt {
     flex-direction: row;
   }
+  .item-form-prompt div + div {
+    margin-left: 2rem;
+  }
 }
+.item-form-prompt-image button {
+  margin: 0.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .item-form-answer {
   margin: 0.2rem;
 }
 
 .prompt-text-input {
-  margin: 0.2rem;
-}
-.prompt-image-input {
   margin: 0.2rem;
 }
 .answer-text-input {
@@ -112,14 +144,6 @@ form {
   resize: vertical;
   min-height: 40px;
   line-height: 20px;
-}
-
-/*vertical spacing on app pages*/
-.spacer {
-  margin: 1rem;
-  padding: 0.1rem 0 0.1rem 0;
-  background-color: #6874b9;
-  opacity: 0.2;
 }
 
 /*
@@ -154,6 +178,10 @@ flex-direction: (order of items)
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+  max-height: 350px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
 }
 
 li {
@@ -167,8 +195,6 @@ li {
   background-color: #6874b9;
   color: white;
   box-shadow: 4px 4px 4px #353b5e;
-  border: 2px solid #2c63b6;
-  border-radius: 6px;
   overflow: hidden;
   margin: 10px;
   display: flex;
@@ -195,21 +221,27 @@ li {
   padding: 0.3rem;
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 0 0 0 6px;
+  border-radius: 0 0 0 0.2rem;
 }
 
 .item-prompt {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
-.item-prompt span {
+
+.item-prompt .limited-image-container {
+  margin: 0.2rem;
+}
+
+.item-prompt div {
+  flex: 1;
   margin: 0.4rem;
 }
 
 .item-answer {
   display: flex;
-  background: #acabdf;
+  background: #d9d9f5;
   color: black;
 }
 
@@ -231,6 +263,11 @@ li {
   resize: vertical;
 }
 
+.itemlist-item-edit-inner .spacer {
+  margin: 1rem 6rem 1rem 6rem;
+  padding: 0.1rem 0 0.1rem 0;
+}
+
 .itemlist-item-edit-buttons {
   flex: 0;
   padding: 0.1rem;
@@ -246,7 +283,7 @@ li {
   width: 100%;
   height: 100%;
   margin: 0.2rem;
-  border-radius: 6px;
+  border-radius: 0.2rem;
 }
 
 .ghost {

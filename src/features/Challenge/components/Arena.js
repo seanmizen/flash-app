@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import ArenaAnswer from "./ArenaAnswer";
 import ArenaPrompt from "./ArenaPrompt";
 import styles from "../Challenge.module.css";
-//import ItemList from "../../DeckEditor/components/ItemList";
+import { Button } from "../../../components";
 
 function Arena({ deck }) {
   // shuffledList is separate to deck
@@ -38,7 +38,6 @@ function Arena({ deck }) {
     //down key -> next card (40)
 
     //prevent key use if arena is focused
-    console.log(e.keyCode);
     if (e.composedPath().includes(arenaRef.current)) {
       switch (e.keyCode) {
         case 27:
@@ -129,9 +128,9 @@ function Arena({ deck }) {
 
   return (
     <div ref={arenaRef} tabIndex={0} className={styles["arena"]}>
-      <button onClick={prevItem} ref={prevItemButton}>
+      <Button onClick={prevItem} ref={prevItemButton}>
         Previous card
-      </button>
+      </Button>
       <div
         className={styles["arena-item-box"] + " " + styles["rounded-outline"]}
       >
@@ -154,14 +153,14 @@ function Arena({ deck }) {
         </div>
       </div>
 
-      <button onClick={toggleRevealAnswer} ref={revealButton}>
+      <Button onClick={toggleRevealAnswer} ref={revealButton}>
         {revealButtonText}
-      </button>
+      </Button>
 
-      <button onClick={nextItem} ref={nextItemButton}>
+      <Button onClick={nextItem} ref={nextItemButton}>
         Next card
-      </button>
-      <button onClick={shuffleDeck}>Shuffle Deck</button>
+      </Button>
+      <Button onClick={shuffleDeck}>Shuffle Deck</Button>
 
       {/* <ItemList list={shuffledList} /> */}
     </div>

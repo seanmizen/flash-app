@@ -58,6 +58,14 @@ align-content: (stretch is the default)
 .challenge {
   padding: 1rem;
 }
+@media only screen and (max-width: 880px) {
+  .challenge {
+    padding: 0.6rem 0.1rem 0.6rem 0.1rem;
+  }
+}
+.challenge button {
+  width: 90%;
+}
 
 .arena {
   /*height: 80%;*/
@@ -76,11 +84,6 @@ align-content: (stretch is the default)
   margin: 0.5rem 0 0.5rem 0;
 }
 
-/*
- position: 
- static|absolute|fixed|relative|sticky|initial|inherit;
-*/
-
 .arena-item {
   height: 30rem;
   text-align: center;
@@ -88,6 +91,8 @@ align-content: (stretch is the default)
   flex-direction: row;
   justify-content: space-between;
   /*width: 100%;*/
+  box-shadow: 4px 4px 4px #353b5e;
+  overflow: hidden;
 }
 
 .item-counter {
@@ -96,7 +101,7 @@ align-content: (stretch is the default)
   padding: 0.4rem;
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 0 0 6px 0;
+  border-radius: 0 0 0.2rem 0;
 }
 
 .arena-prompt-box {
@@ -106,6 +111,12 @@ align-content: (stretch is the default)
   align-items: center;
   flex: 1; /* fill all horizontal space you can find */
   /*width: 50%;*/
+}
+
+.challenge-load-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Overwrite some rules if the prompt box needs to contain an image:
@@ -125,7 +136,6 @@ align-content: (stretch is the default)
   background-repeat: no-repeat;
   background-size: auto;
 }
-
 .arena-answer-box {
   display: flex;
   flex-direction: row;
@@ -157,7 +167,7 @@ align-content: (stretch is the default)
 }
 
 .item-light {
-  background: #acabdf;
+  background: #d9d9f5;
   color: black;
 }
 
@@ -167,10 +177,6 @@ align-content: (stretch is the default)
 }
 
 .rounded-outline {
-  box-shadow: 4px 4px 4px #353b5e;
-  border-radius: 6px;
-  border: 2px solid #2c63b6;
-  overflow: hidden;
   /*padding: 10px;
   margin: 10px;*/
   /*

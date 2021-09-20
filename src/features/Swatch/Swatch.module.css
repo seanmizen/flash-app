@@ -18,13 +18,55 @@
 
 @media only screen and (min-width: 880px) {
   .section {
-    margin: 0 0.5rem 0 0.5rem;
+    margin: 0 0.4rem 0 0.4rem;
   }
 }
 
 .spacer {
-  margin: 1rem;
+  margin: 1.5rem 1rem 1.5rem 1rem;
   padding: 0.1rem 0 0.1rem 0;
   background-color: #6874b9;
   opacity: 0.2;
+}
+
+.color-box {
+  margin: 0.4rem;
+  padding: 1rem;
+}
+
+.color-one {
+  color: white;
+  background-color: #2a2c05;
+}
+.color-two {
+  background-color: #efe0b9;
+}
+.color-three {
+  background-color: #e4b04a;
+}
+.color-four {
+  color: white;
+  background-color: #643b0f;
+}
+.color-five {
+  color: white;
+  background-color: #b7521e;
+}
+
+/* border one designed to match with border two */
+.border-one {
+  border: 2px outset #643b0f;
+}
+.border-two {
+  border-radius: 0.2rem;
+  border: 2px outset #e4b04a;
+}
+.border-three {
+  border: 2px outset #643b0f;
+}
+.border-four {
+  border: 2px outset #efe0b9;
+}
+.border-five {
+  border: 2px outset #efe0b9;
 }

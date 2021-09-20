@@ -118,9 +118,9 @@ function ItemListItem({
               ) : (
                 <></>
               )}
-              <span>
+              <div>
                 <b>{innerPrompt}</b>
-              </span>
+              </div>
             </div>
             <div className={styles["item-answer"]}>
               <span>{innerAnswer || "\xa0"}</span>

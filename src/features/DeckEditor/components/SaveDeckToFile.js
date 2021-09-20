@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Button } from "../../../components";
 
 function SaveDeckToFile({ deck }) {
   const failedToSaveRef = useRef();
@@ -39,7 +40,7 @@ function SaveDeckToFile({ deck }) {
 
   return (
     <>
-      <button onClick={saveToFile}>Save this deck</button>
+      <Button onClick={saveToFile}>Save this deck</Button>
       <label ref={failedToSaveRef}>{saveErrorMessage}</label>
     </>
   );
