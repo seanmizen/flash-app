@@ -1,6 +1,8 @@
 .button-one {
   border-radius: 99rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
+  box-shadow: 0px 2px 2px #353b5e;
+
   /* border-color: rgba(104, 116, 185, 1); */
   color: #6874b9;
   border-style: double;
@@ -11,4 +13,8 @@
   text-decoration: none;
 }
 
-/* #6874b9 */
+@media only screen and (max-width: 880px) {
+  .button-one {
+    font-size: small;
+  }
+}
