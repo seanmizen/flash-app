@@ -91,7 +91,7 @@ align-content: (stretch is the default)
   flex-direction: row;
   justify-content: space-between;
   /*width: 100%;*/
-  box-shadow: 4px 4px 4px #353b5e;
+  box-shadow: 0px 1px 5px #353b5e;
   overflow: hidden;
 }
 @media only screen and (max-width: 880px) {
