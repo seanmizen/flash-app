@@ -15,6 +15,7 @@ function Arena({ deck }) {
   const revealButton = useRef();
   const nextItemButton = useRef();
   const prevItemButton = useRef();
+  const arenaRef = useRef();
 
   // magic goes here
   // This line sets the setShuffledList on first instance
@@ -30,31 +31,45 @@ function Arena({ deck }) {
     };
   });
 
-  const arenaKeyDown = ({ key, keyCode }) => {
+  const arenaKeyDown = (e) => {
     //left key -> un-reveal (if necessary) (37)
     //up key -> prev card (38)
     //right key -> reveal (if necessary) (39)
     //down key -> next card (40)
-    switch (keyCode) {
-      case 37:
-        //Left arrow
-        manSetRevealAnswer(false);
-        break;
-      case 38:
-        //Up arrow
-        prevItem();
-        break;
-      case 39:
-        //Right arrow
-        manSetRevealAnswer(true);
-        break;
-      case 40:
-        //Down arrow
-        nextItem();
-        break;
-      default:
-        //do nothing
-        break;
+
+    //prevent key use if arena is focused
+    console.log(e.keyCode);
+    if (e.composedPath().includes(arenaRef.current)) {
+      switch (e.keyCode) {
+        case 27:
+          //esc
+          //lose arena focus
+          e.target.blur();
+          break;
+        case 37:
+          //Left arrow
+          e.preventDefault();
+          manSetRevealAnswer(false);
+          break;
+        case 38:
+          e.preventDefault();
+          //Up arrow
+          prevItem();
+          break;
+        case 39:
+          //Right arrow
+          e.preventDefault();
+          manSetRevealAnswer(true);
+          break;
+        case 40:
+          //Down arrow
+          e.preventDefault();
+          nextItem();
+          break;
+        default:
+          //do nothing
+          break;
+      }
     }
   };
 
@@ -113,7 +128,7 @@ function Arena({ deck }) {
   // {statement && ifTrue || ifFalse}
 
   return (
-    <div className={styles["arena"]}>
+    <div ref={arenaRef} tabIndex={0} className={styles["arena"]}>
       <button onClick={prevItem} ref={prevItemButton}>
         Previous card
       </button>
