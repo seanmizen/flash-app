@@ -4,6 +4,7 @@ import Arena from "../Challenge/components/Arena";
 import SaveDeckToFile from "../DeckEditor/components/SaveDeckToFile";
 import LoadDeckFromFile from "../DeckEditor/components/LoadDeckFromFile";
 import AddItemForm from "../DeckEditor/components/AddItemForm";
+import { Button } from "../../components";
 import styles from "./Swatch.module.css";
 
 const Swatch = () => {

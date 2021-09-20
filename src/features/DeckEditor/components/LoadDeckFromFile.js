@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Button } from "../../../components";
 
 function LoadDeckFromFile({ onDeckLoad }) {
   const loadFileRef = useRef();
@@ -64,9 +65,9 @@ function LoadDeckFromFile({ onDeckLoad }) {
 
   return (
     <>
-      <button onClick={loadFromFile}>
+      <Button onClick={loadFromFile}>
         {(selectedFile.name && selectedFile.name) || "Load a deck from file"}
-      </button>
+      </Button>
       <input
         hidden
         id="fileUpload"
