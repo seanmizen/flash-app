@@ -22,7 +22,7 @@ function App() {
             <Swatch />
           </Route>
           <Route path="/">
-            <DeckEditor />
+            <Swatch />
           </Route>
         </Switch>
       </div>

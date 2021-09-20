@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ItemList from "../DeckEditor/components/ItemList";
 import Arena from "../Challenge/components/Arena";
+import SaveDeckToFile from "../DeckEditor/components/SaveDeckToFile";
 import LoadDeckFromFile from "../DeckEditor/components/LoadDeckFromFile";
 import AddItemForm from "../DeckEditor/components/AddItemForm";
 import styles from "./Swatch.module.css";
@@ -31,6 +32,13 @@ const Swatch = () => {
     localStorage.setItem("list", JSON.stringify(deck.list));
   }
 
+  const clearLocalStorage = () => {
+    setDeckName("");
+    setList([]);
+    localStorage.clear();
+    return 0;
+  };
+
   return (
     <div className={styles["main"]}>
       <div className={styles["section"]}>
@@ -44,13 +52,22 @@ const Swatch = () => {
         <div className={styles["spacer"]} />
         <ItemList
           ghost={false}
-          list={itemList}
+          list={list.length > 0 ? list : itemList}
           onDeleted={() => {}}
           allowEdit={false}
           editItemCallback={() => {}}
         />
         <div className={styles["spacer"]} />
-        <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+        <div className={styles["title-button-holder"]}>
+          <LoadDeckFromFile onDeckLoad={(e) => loadDeck(e)} />
+          <button onClick={clearLocalStorage}>Clear this deck</button>
+          <SaveDeckToFile
+            deck={{
+              deckName: deckName,
+              list: list,
+            }}
+          />
+        </div>
         <div className={styles["spacer"]} />
         <AddItemForm onAdd={() => {}} />
       </div>
