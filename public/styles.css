@@ -5,13 +5,13 @@ light: #d9d9f5
 */
 
 :root {
-  background: #fefefe;
+  background: #323232;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
 
 body {
-  color: #323232;
+  color: white;
   line-height: 1.25;
   margin: 0;
 }

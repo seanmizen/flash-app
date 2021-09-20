@@ -1,6 +1,7 @@
 .nav {
-  background: #6874b9;
-  box-shadow: 0px 1px 3px #353b5e;
+  background: rgb(32, 32, 32);
+  box-shadow: 0px 1px 3px rgb(45, 0, 109);
+  margin: 0 0 1rem 0;
 }
 
 .nav-list {

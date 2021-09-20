@@ -91,7 +91,7 @@ align-content: (stretch is the default)
   flex-direction: row;
   justify-content: space-between;
   /*width: 100%;*/
-  box-shadow: 0px 1px 5px #353b5e;
+  box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 @media only screen and (max-width: 880px) {
@@ -160,7 +160,7 @@ align-content: (stretch is the default)
 
 .arena-prompt-image-caption {
   position: absolute;
-  background-color: rgba(104, 116, 185, 0.8);
+  background-color: rgba(32, 32, 32, 0.8);
   color: rgb(255, 255, 255);
   z-index: 1;
   bottom: 0;
@@ -176,11 +176,11 @@ align-content: (stretch is the default)
 }
 
 .item-light {
-  background: #d9d9f5;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
 }
 
 .item-dark {
-  background: #6874b9;
+  background-color: rgba(32, 32, 32, 1);
   color: white;
 }

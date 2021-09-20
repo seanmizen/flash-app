@@ -6,7 +6,7 @@ button {
 .spacer {
   margin: 1rem;
   padding: 0.1rem 0 0.1rem 0;
-  background-color: #6874b9;
+  background-color: rgb(98, 0, 238);
   opacity: 0.2;
 }
 
@@ -192,10 +192,10 @@ li {
 }
 
 .itemlist-item {
-  background-color: #6874b9;
+  background-color: rgba(255, 255, 255, 0.08);
   color: white;
   /* box-shadow: 4px 4px 4px #353b5e; */
-  box-shadow: 0px 1px 5px #353b5e;
+  box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.1);
   overflow: hidden;
   margin: 10px;
   display: flex;
@@ -221,7 +221,7 @@ li {
   position: absolute;
   padding: 0.3rem;
   color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0 0 0 0.2rem;
 }
 
@@ -242,8 +242,8 @@ li {
 
 .item-answer {
   display: flex;
-  background-color: #d9d9f5;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
 }
 
 .item-answer span {
