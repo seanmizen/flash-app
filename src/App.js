@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/flash-app">
+    <Router basename="/FlashApp">
       <Nav />
       <div className="container">
         <Switch>
@@ -20,6 +20,12 @@ function App() {
           </Route>
           <Route path="/Swatch">
             <Swatch />
+          </Route>
+          <Route path="/">
+            <DeckEditor />
+          </Route>
+          <Route path="/*">
+            <DeckEditor />
           </Route>
           {/*}
           <Route path="/">

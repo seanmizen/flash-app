@@ -15,10 +15,12 @@ class Nav extends Component {
             <li className={styles["nav-list-item"]}>
               <Link to="/Challenge">Challenge</Link>
             </li>
+            {/*}
             <li className={styles["nav-list-spacer"]} />
             <li className={styles["nav-list-item"]}>
               <Link to="/Swatch">Swatch</Link>
             </li>
+            */}
           </ul>
         </div>
       </nav>
