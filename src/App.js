@@ -21,9 +21,11 @@ function App() {
           <Route path="/Swatch">
             <Swatch />
           </Route>
+          {/*}
           <Route path="/">
-            <Swatch />
+            <DeckEditor />
           </Route>
+          */}
         </Switch>
       </div>
     </Router>
