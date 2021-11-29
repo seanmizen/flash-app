@@ -75,7 +75,7 @@ function DeckEditor() {
   }
 
   useEffect(() => {
-    localStorage.setItem("deckName(", deckName);
+    localStorage.setItem("deckName", deckName);
     localStorage.setItem("list", JSON.stringify(list));
     console.log("DE deckName: " + localStorage.getItem("deckName"));
   }, [list, deckName]);
@@ -88,7 +88,12 @@ function DeckEditor() {
       <div className={styles["deck-editor"]}>
         <div className={styles["section"]}>
           <div className={styles["title-item"]}>
-            <h3>Deck name:</h3>
+            <div className={styles["deck-name"]}>
+              <div>
+                <h3>Deck name: </h3>
+              </div>
+              <div>{deckName}</div>
+            </div>
             <input
               type="text"
               required={true}

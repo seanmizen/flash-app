@@ -54,6 +54,16 @@ h3 {
   padding: 0.5rem;
 }
 
+.deck-name {
+  display: flex;
+  align-items: center;
+}
+
+.deck-name div {
+  max-width: 20rem;
+  overflow: hidden;
+}
+
 @media only screen and (min-width: 880px) {
   .title-item {
     min-height: 5rem;
