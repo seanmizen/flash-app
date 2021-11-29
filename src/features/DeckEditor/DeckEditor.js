@@ -100,7 +100,7 @@ function DeckEditor() {
 
           <div className={styles["spacer"]} />
 
-          <div className="deck-editor-edit-area">
+          <div className={styles["deck-editor-edit-area"]}>
             <h3>
               {list.length === 0
                 ? "Start building a deck by adding an item:"

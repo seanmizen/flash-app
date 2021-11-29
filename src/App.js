@@ -8,17 +8,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/FlashApp">
+    <Router basename="/flash-app">
       <Nav />
       <div className="container">
         <Switch>
-          <Route path="/DeckEditor">
+          <Route path="/deck-editor">
             <DeckEditor />
           </Route>
-          <Route path="/Challenge">
+          <Route path="/challenge">
             <Challenge />
           </Route>
-          <Route path="/Swatch">
+          <Route path="/swatch">
             <Swatch />
           </Route>
           <Route path="/">
