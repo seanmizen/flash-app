@@ -78,7 +78,7 @@ function AddItemForm({ onAdd }) {
             />
           </div>
           <div className={styles["item-form-prompt-image"]}>
-            <Button onClick={uploadImagePromptClick}>Or upload an image</Button>
+            <Button onClick={uploadImagePromptClick}>📷</Button>
             <input
               hidden
               className={styles["prompt-image-input"]}

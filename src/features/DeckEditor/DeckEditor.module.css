@@ -125,7 +125,7 @@ form {
 }
 
 .item-form-prompt {
-  margin: 0.2rem;
+  margin: 0.5rem 0.2rem;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -142,17 +142,22 @@ form {
     flex-direction: row;
   }
   .item-form-prompt div + div {
-    margin-left: 2rem;
+    margin-left: 1rem;
+    flex: 0;
   }
 }
+.item-form-prompt-text {
+  flex: 1;
+}
 .item-form-prompt-image button {
+  font-size: large;
   margin: 0.2rem;
   justify-content: center;
   align-items: center;
 }
 
 .item-form-answer {
-  margin: 0.2rem;
+  margin: 0.5rem 0.2rem;
 }
 
 .prompt-text-input {
@@ -173,6 +178,7 @@ form {
 }
 
 .deck-editor-edit-area {
+  padding: 0.5rem 0;
   background-color: RGBA(60, 60, 60);
 }
 
@@ -296,7 +302,7 @@ li {
 }
 
 .itemlist-item-edit-inner .spacer {
-  margin: 1rem 6rem 1rem 6rem;
+  margin: 0.2rem 6rem;
   padding: 0.1rem 0 0.1rem 0;
 }
 
