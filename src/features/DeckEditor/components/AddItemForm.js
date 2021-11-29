@@ -15,6 +15,14 @@ function AddItemForm({ onAdd }) {
   const formRef = useRef();
   const submitRef = useRef();
 
+  //https://stackoverflow.com/questions/45576748/how-can-i-detect-rendering-support-for-emoji-in-javascript
+  function supportsEmoji() {
+    const ctx = document.createElement("canvas").getContext("2d");
+    ctx.canvas.width = ctx.canvas.height = 1;
+    ctx.fillText("😗", -4, 4);
+    return ctx.getImageData(0, 0, 1, 1).data[3] > 0; // Not a transparent pixel
+  }
+
   const submitForm = (e) => {
     let newItem = { prompt, answer };
     if (image) {
@@ -78,7 +86,17 @@ function AddItemForm({ onAdd }) {
             />
           </div>
           <div className={styles["item-form-prompt-image"]}>
-            <Button onClick={uploadImagePromptClick}>📷</Button>
+            <Button
+              className={
+                styles["image-upload-button"] +
+                (supportsEmoji()
+                  ? " " + styles["image-upload-button-emoji"]
+                  : "")
+              }
+              onClick={uploadImagePromptClick}
+            >
+              {supportsEmoji() ? "📷" : "Upload an image"}
+            </Button>
             <input
               hidden
               className={styles["prompt-image-input"]}

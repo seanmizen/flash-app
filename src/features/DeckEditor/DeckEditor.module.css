@@ -150,10 +150,13 @@ form {
   flex: 1;
 }
 .item-form-prompt-image button {
-  font-size: large;
   margin: 0.2rem;
   justify-content: center;
   align-items: center;
+}
+
+.image-upload-button-emoji {
+  font-size: large;
 }
 
 .item-form-answer {
