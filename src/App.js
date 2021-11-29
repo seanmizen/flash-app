@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/flash-app">
+    <Router basename="/apps/flash-app">
       <Nav />
       <div className="container">
         <Switch>
