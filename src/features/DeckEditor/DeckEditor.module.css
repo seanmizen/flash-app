@@ -41,11 +41,17 @@ button {
 }
 
 .title-item {
+  background-color: RGBA(60, 60, 60);
   padding: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
+}
+
+h3 {
+  margin: 0px;
+  padding: 0.5rem;
 }
 
 @media only screen and (min-width: 880px) {
@@ -59,7 +65,13 @@ button {
   margin: 0;
 }
 
+.title-item input {
+  margin: 0.5rem 0.2rem;
+  padding: 0.2rem 5rem;
+}
+
 .title-button-holder {
+  background-color: RGBA(60, 60, 60);
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -73,7 +85,8 @@ button {
 
 @media only screen and (min-width: 880px) {
   .title-button-holder {
-    margin: 2rem 0 0 0;
+    margin: 0 0 0 0;
+    padding: 0.2rem 0.1rem;
     flex-direction: row;
   }
   .title-button-holder button {
@@ -96,6 +109,10 @@ form {
   flex-direction: column;
   align-items: center;
   margin: 0.2rem;
+}
+
+.add-item-form button {
+  margin: 1rem 0;
 }
 
 .item-form-prompt {
@@ -146,6 +163,10 @@ form {
   line-height: 20px;
 }
 
+.deck-editor-edit-area {
+  background-color: RGBA(60, 60, 60);
+}
+
 /*
 display flex
  flex: 1 1 auto
@@ -175,6 +196,7 @@ flex-direction: (order of items)
 */
 
 .item-list {
+  background-color: RGBA(60, 60, 60);
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
