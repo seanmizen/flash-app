@@ -137,6 +137,13 @@ form {
   flex-direction: column;
   justify-content: space-between;
 }
+.item-form-answer {
+  margin: 0.5rem 0.2rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .item-form-prompt div {
   flex: 1;
   display: flex;
@@ -151,11 +158,21 @@ form {
     margin-left: 1rem;
     flex: 0;
   }
+  .item-form-answer {
+    flex-direction: row;
+  }
+  .item-form-answer div + div {
+    margin-left: 1rem;
+    flex: 0;
+  }
 }
 .item-form-prompt-text {
   flex: 1;
 }
-.item-form-prompt-image button {
+.item-form-answer-text {
+  flex: 1;
+}
+.item-form-image button {
   margin: 0.2rem;
   justify-content: center;
   align-items: center;
@@ -167,6 +184,12 @@ form {
 
 .item-form-answer {
   margin: 0.5rem 0.2rem;
+}
+.item-form-answer div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .prompt-text-input {
