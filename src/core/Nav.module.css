@@ -24,7 +24,8 @@
 
 .nav-list-spacer {
   display: block;
-  height: 1rem;
+  height: 1.5rem;
   width: 0.125rem;
+  width: 1px;
   background: white;
 }
