@@ -137,6 +137,13 @@ form {
   flex-direction: column;
   justify-content: space-between;
 }
+.item-form-answer {
+  margin: 0.5rem 0.2rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .item-form-prompt div {
   flex: 1;
   display: flex;
@@ -151,11 +158,21 @@ form {
     margin-left: 1rem;
     flex: 0;
   }
+  .item-form-answer {
+    flex-direction: row;
+  }
+  .item-form-answer div + div {
+    margin-left: 1rem;
+    flex: 0;
+  }
 }
 .item-form-prompt-text {
   flex: 1;
 }
-.item-form-prompt-image button {
+.item-form-answer-text {
+  flex: 1;
+}
+.item-form-image button {
   margin: 0.2rem;
   justify-content: center;
   align-items: center;
@@ -168,8 +185,16 @@ form {
 .item-form-answer {
   margin: 0.5rem 0.2rem;
 }
+.item-form-answer div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .prompt-text-input {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   margin: 0.2rem;
   height: 2rem;
 }
@@ -277,6 +302,8 @@ li {
 }
 
 .item-prompt {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,6 +319,8 @@ li {
 }
 
 .item-answer {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   display: flex;
   background-color: rgba(255, 255, 255, 0.12);
   color: white;
@@ -324,14 +353,13 @@ li {
 
 .limited-image-container {
   display: flex;
+  flex: 1 1;
   max-width: 10rem;
   max-height: auto;
-}
-
-.limited-image-container img {
   width: 100%;
   height: 100%;
   margin: 0.2rem;
+  margin-left: 1rem;
   border-radius: 0.2rem;
 }
 
@@ -339,4 +367,13 @@ li {
   opacity: 0.5;
   mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
   -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
+.item-prompt-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+.item-answer-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }

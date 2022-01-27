@@ -12,6 +12,10 @@ function AddItemForm({ onAdd }) {
   const [image, setImage] = useState(""); //base64 encoded image
   const inputPromptRef = useRef();
   const inputPromptImageRef = useRef();
+  const [answerImageObject, setAnswerImageObject] = useState(""); //image file object (including name, dimensions, etc)
+  const [answerImage, setAnswerImage] = useState(""); //base64 encoded image
+  const inputAnswerRef = useRef();
+  const inputAnswerImageRef = useRef();
   const formRef = useRef();
   const submitRef = useRef();
 
@@ -31,13 +35,22 @@ function AddItemForm({ onAdd }) {
         setPrompt(imageObject.name);
       }
     }
+    if (answerImage) {
+      newItem = { ...newItem, answerImage: answerImage };
+      if (answer === "") {
+        setAnswer(answerImageObject.name);
+      }
+    }
     e.preventDefault();
     onAdd(newItem);
     setPrompt("");
     setAnswer("");
     setImageObject({});
+    setAnswerImageObject({});
     setImage("");
-    inputPromptImageRef.current.value = "";
+    setAnswerImage("");
+    //inputPromptImageRef.current.value = "";
+    //inputAnswerImageRef.current.value = "";
     inputPromptRef.current.focus();
   };
 
@@ -50,9 +63,12 @@ function AddItemForm({ onAdd }) {
   const uploadImagePromptClick = () => {
     inputPromptImageRef.current.click();
   };
+  const uploadImageAnswerClick = () => {
+    inputAnswerImageRef.current.click();
+  };
 
   //https://dev.to/guscarpim/upload-image-base64-react-4p7j
-  const photoUpload = (e) => {
+  const promptPhotoUpload = (e) => {
     e.preventDefault();
     const reader = new FileReader();
     const file = e.target.files[0];
@@ -60,6 +76,18 @@ function AddItemForm({ onAdd }) {
       reader.onloadend = () => {
         setImageObject(file);
         setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const answerPhotoUpload = (e) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    if (reader !== undefined && file !== undefined) {
+      reader.onloadend = () => {
+        setAnswerImageObject(file);
+        setAnswerImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -85,50 +113,87 @@ function AddItemForm({ onAdd }) {
               ref={inputPromptRef}
             />
           </div>
-          <div className={styles["item-form-prompt-image"]}>
-            <Button
-              className={
-                styles["image-upload-button"] +
-                (supportsEmoji()
-                  ? " " + styles["image-upload-button-emoji"]
-                  : "")
-              }
-              onClick={uploadImagePromptClick}
-            >
-              {supportsEmoji() ? "📷" : "Upload an image"}
-            </Button>
-            <input
-              hidden
-              className={styles["prompt-image-input"]}
-              type="file"
-              id="img"
-              name="img"
-              accept="image/*"
-              ref={inputPromptImageRef}
-              onChange={photoUpload}
-            />
-          </div>
+
           {image ? (
-            <div className={styles["limited-image-container"]}>
-              <img alt="Prompt Preview" src={image} />
-            </div>
+            <img
+              className={styles["limited-image-container"]}
+              alt="Prompt Preview"
+              src={image}
+            />
           ) : (
-            <></>
+            <div className={styles["item-form-image"]}>
+              <Button
+                className={
+                  styles["image-upload-button"] +
+                  (supportsEmoji()
+                    ? " " + styles["image-upload-button-emoji"]
+                    : "")
+                }
+                onClick={uploadImagePromptClick}
+              >
+                {supportsEmoji() ? "📷" : "Upload an image"}
+              </Button>
+              <input
+                hidden
+                className={styles["image-input"]}
+                type="file"
+                id="img"
+                name="img"
+                accept="image/*"
+                ref={inputPromptImageRef}
+                onChange={promptPhotoUpload}
+              />
+            </div>
           )}
         </div>
         <div className={styles["spacer"]} />
 
         <div className={styles["item-form-answer"]}>
-          <div>Add the answer here:</div>
-          <textarea
-            className={styles["answer-text-input"]}
-            type="text"
-            required={false}
-            placeholder="Type the answer to the prompt here"
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-            onKeyDown={(e) => keyDown(e)}
-          />
+          <div className={styles["item-form-answer-text"]}>
+            <div>Add the answer here:</div>
+            <textarea
+              className={styles["answer-text-input"]}
+              type="text"
+              required={false}
+              placeholder="Type the answer to the prompt here"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              onKeyDown={(e) => keyDown(e)}
+              ref={inputAnswerRef}
+            />
+          </div>
+
+          {answerImage ? (
+            <img
+              className={styles["limited-image-container"]}
+              alt="Answer Preview"
+              src={answerImage}
+            />
+          ) : (
+            <div className={styles["item-form-image"]}>
+              <Button
+                className={
+                  styles["image-upload-button"] +
+                  (supportsEmoji()
+                    ? " " + styles["image-upload-button-emoji"]
+                    : "")
+                }
+                onClick={uploadImageAnswerClick}
+              >
+                {supportsEmoji() ? "📷" : "Upload an image"}
+              </Button>
+              <input
+                hidden
+                className={styles["image-input"]}
+                type="file"
+                id="img"
+                name="img"
+                accept="image/*"
+                ref={inputAnswerImageRef}
+                onChange={answerPhotoUpload}
+              />
+            </div>
+          )}
         </div>
         <div className={styles["spacer"]} />
       </div>

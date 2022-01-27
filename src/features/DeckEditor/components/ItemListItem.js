@@ -93,6 +93,7 @@ function ItemListItem({
               ref={editPromptRef}
             />
             <textarea
+              className={styles["item-answer-edit"]}
               value={innerAnswer}
               onChange={(e) => setInnerAnswer(e.target.value)}
               ref={editAnswerRef}
