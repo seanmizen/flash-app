@@ -76,7 +76,7 @@ function DeckEditor() {
 
   useEffect(() => {
     localStorage.setItem("deckName", deckName);
-    localStorage.setItem("list", JSON.stringify(list));
+    localStorage.setItem("list", JSON.stringify(list)); // this can error out if we run out of storage
     console.log("DE deckName: " + localStorage.getItem("deckName"));
   }, [list, deckName]);
 

@@ -5,7 +5,7 @@ button {
 /*vertical spacing on app pages*/
 .spacer {
   margin: 1rem;
-  padding: 0.1rem 0 0.1rem 0;
+  padding: 1px 0;
   background-color: rgb(195, 152, 255);
   opacity: 0.2;
 }
@@ -344,7 +344,6 @@ li {
 
 .itemlist-item-edit-inner .spacer {
   margin: 0.2rem 6rem;
-  padding: 0.1rem 0 0.1rem 0;
 }
 
 .itemlist-item-edit-buttons {
@@ -354,14 +353,13 @@ li {
 
 .limited-image-container {
   display: flex;
+  flex: 1 1;
   max-width: 10rem;
   max-height: auto;
-}
-
-.limited-image-container img {
   width: 100%;
   height: 100%;
   margin: 0.2rem;
+  margin-left: 1rem;
   border-radius: 0.2rem;
 }
 

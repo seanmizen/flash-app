@@ -49,8 +49,8 @@ function AddItemForm({ onAdd }) {
     setAnswerImageObject({});
     setImage("");
     setAnswerImage("");
-    inputPromptImageRef.current.value = "";
-    inputAnswerImageRef.current.value = "";
+    //inputPromptImageRef.current.value = "";
+    //inputAnswerImageRef.current.value = "";
     inputPromptRef.current.focus();
   };
 
@@ -62,6 +62,9 @@ function AddItemForm({ onAdd }) {
 
   const uploadImagePromptClick = () => {
     inputPromptImageRef.current.click();
+  };
+  const uploadImageAnswerClick = () => {
+    inputAnswerImageRef.current.click();
   };
 
   //https://dev.to/guscarpim/upload-image-base64-react-4p7j
@@ -110,35 +113,37 @@ function AddItemForm({ onAdd }) {
               ref={inputPromptRef}
             />
           </div>
-          <div className={styles["item-form-image"]}>
-            <Button
-              className={
-                styles["image-upload-button"] +
-                (supportsEmoji()
-                  ? " " + styles["image-upload-button-emoji"]
-                  : "")
-              }
-              onClick={uploadImagePromptClick}
-            >
-              {supportsEmoji() ? "📷" : "Upload an image"}
-            </Button>
-            <input
-              hidden
-              className={styles["image-input"]}
-              type="file"
-              id="img"
-              name="img"
-              accept="image/*"
-              ref={inputPromptImageRef}
-              onChange={promptPhotoUpload}
-            />
-          </div>
+
           {image ? (
-            <div className={styles["limited-image-container"]}>
-              <img alt="Prompt Preview" src={image} />
-            </div>
+            <img
+              className={styles["limited-image-container"]}
+              alt="Prompt Preview"
+              src={image}
+            />
           ) : (
-            <></>
+            <div className={styles["item-form-image"]}>
+              <Button
+                className={
+                  styles["image-upload-button"] +
+                  (supportsEmoji()
+                    ? " " + styles["image-upload-button-emoji"]
+                    : "")
+                }
+                onClick={uploadImagePromptClick}
+              >
+                {supportsEmoji() ? "📷" : "Upload an image"}
+              </Button>
+              <input
+                hidden
+                className={styles["image-input"]}
+                type="file"
+                id="img"
+                name="img"
+                accept="image/*"
+                ref={inputPromptImageRef}
+                onChange={promptPhotoUpload}
+              />
+            </div>
           )}
         </div>
         <div className={styles["spacer"]} />
@@ -157,29 +162,38 @@ function AddItemForm({ onAdd }) {
               ref={inputAnswerRef}
             />
           </div>
-          <div className={styles["item-form-image"]}>
-            <Button
-              className={
-                styles["image-upload-button"] +
-                (supportsEmoji()
-                  ? " " + styles["image-upload-button-emoji"]
-                  : "")
-              }
-              onClick={uploadImagePromptClick}
-            >
-              {supportsEmoji() ? "📷" : "Upload an image"}
-            </Button>
-            <input
-              hidden
-              className={styles["image-input"]}
-              type="file"
-              id="img"
-              name="img"
-              accept="image/*"
-              ref={inputAnswerImageRef}
-              onChange={answerPhotoUpload}
+
+          {answerImage ? (
+            <img
+              className={styles["limited-image-container"]}
+              alt="Answer Preview"
+              src={answerImage}
             />
-          </div>
+          ) : (
+            <div className={styles["item-form-image"]}>
+              <Button
+                className={
+                  styles["image-upload-button"] +
+                  (supportsEmoji()
+                    ? " " + styles["image-upload-button-emoji"]
+                    : "")
+                }
+                onClick={uploadImageAnswerClick}
+              >
+                {supportsEmoji() ? "📷" : "Upload an image"}
+              </Button>
+              <input
+                hidden
+                className={styles["image-input"]}
+                type="file"
+                id="img"
+                name="img"
+                accept="image/*"
+                ref={inputAnswerImageRef}
+                onChange={answerPhotoUpload}
+              />
+            </div>
+          )}
         </div>
         <div className={styles["spacer"]} />
       </div>
