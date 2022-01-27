@@ -14,7 +14,7 @@ const Swatch = () => {
   const [list, setList] = useState(
     JSON.parse(localStorage.getItem("list")) || []
   );
-  const [deckKey, setDeckKey] = useState(Math.random());
+  const [deckKey] = useState(Math.random());
   const ghostItemList = [
     { prompt: "Spooky ghost item", answer: "From an empty deck" },
     { prompt: "ANOTHER spooky ghost item", answer: "From the same deck" },
