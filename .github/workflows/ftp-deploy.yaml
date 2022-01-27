@@ -1,0 +1,37 @@
+# https://ridbay.medium.com/how-to-deploy-private-github-repositories-to-cpanel-ef5493df8d9f
+name: Build and Deploy to CPanel
+on:
+  push:
+    branches:
+      - main
+jobs:
+  github-and-ftp-deploy-action:
+    name: Github-and-FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Github Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: build # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
+
+      - name: Checkout build
+        uses: actions/checkout@v2
+        with:
+          ref: build #reference to build branch
+      
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
