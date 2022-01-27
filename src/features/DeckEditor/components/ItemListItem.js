@@ -68,7 +68,7 @@ function ItemListItem({
     return () => {
       window.removeEventListener("dblclick", handleDoubleClick);
     };
-  }, [setEditActive, cancelSubmit, editActive, allowEdit]);
+  });
 
   return (
     <li
