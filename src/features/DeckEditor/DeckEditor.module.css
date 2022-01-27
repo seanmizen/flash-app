@@ -193,6 +193,8 @@ form {
 }
 
 .prompt-text-input {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   margin: 0.2rem;
   height: 2rem;
 }
@@ -300,6 +302,8 @@ li {
 }
 
 .item-prompt {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,6 +319,8 @@ li {
 }
 
 .item-answer {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   display: flex;
   background-color: rgba(255, 255, 255, 0.12);
   color: white;
@@ -363,4 +369,13 @@ li {
   opacity: 0.5;
   mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
   -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
+.item-prompt-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+.item-answer-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
