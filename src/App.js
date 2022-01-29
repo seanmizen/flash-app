@@ -9,7 +9,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    //    <Router basename="/apps/flash-app">
+    //https://stackoverflow.com/questions/50250223/react-router-app-deployed-on-different-locations-subdirectories
+    <Router basename={window.location.pathname.replace(/(\/[^/]*)$/, "")}>
       <Nav />
       <div className="container">
         <Switch>
