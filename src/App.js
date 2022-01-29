@@ -10,8 +10,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     //    <Router basename="/apps/flash-app">
-    //https://stackoverflow.com/questions/50250223/react-router-app-deployed-on-different-locations-subdirectories
-    <Router basename={window.location.pathname.replace(/(\/[^/]*)$/, "")}>
+    // https://stackoverflow.com/questions/50250223/react-router-app-deployed-on-different-locations-subdirectories
+    // This below doesn't provide the functionality I'm looking for - it requires the user to start at the base URL for it to work.
+    // so for example I can't navigate directly to /apps/flash-app/swatch - I need to follow the router links for that to work.
+    // if there are no router links, that page is now inaccessible!
+    // TODO try environment variables
+    <Router basename={process.env.BASENAME}>
       <Nav />
       <div className="container">
         <Switch>
