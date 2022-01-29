@@ -2,6 +2,15 @@ import { useState, useRef } from "react";
 import styles from "../DeckEditor.module.css";
 import { Button } from "../../../components";
 
+//https://stackoverflow.com/questions/45576748/how-can-i-detect-rendering-support-for-emoji-in-javascript
+function checkSupportsEmoji() {
+  const ctx = document.createElement("canvas").getContext("2d");
+  ctx.canvas.width = ctx.canvas.height = 1;
+  ctx.fillText("😗", -4, 4);
+  return ctx.getImageData(0, 0, 1, 1).data[3] > 0; // Not a transparent pixel
+}
+const supportsEmoji = checkSupportsEmoji();
+
 function AddItemForm({ onAdd }) {
   // {} instead of props just allows us to not do props. everywhere
   // <> </> allows us to render consecutive components as siblings (and lets us fragment this component)
@@ -18,14 +27,6 @@ function AddItemForm({ onAdd }) {
   const inputAnswerImageRef = useRef();
   const formRef = useRef();
   const submitRef = useRef();
-
-  //https://stackoverflow.com/questions/45576748/how-can-i-detect-rendering-support-for-emoji-in-javascript
-  function supportsEmoji() {
-    const ctx = document.createElement("canvas").getContext("2d");
-    ctx.canvas.width = ctx.canvas.height = 1;
-    ctx.fillText("😗", -4, 4);
-    return ctx.getImageData(0, 0, 1, 1).data[3] > 0; // Not a transparent pixel
-  }
 
   const submitForm = (e) => {
     let newItem = { prompt, answer };
@@ -125,13 +126,13 @@ function AddItemForm({ onAdd }) {
               <Button
                 className={
                   styles["image-upload-button"] +
-                  (supportsEmoji()
+                  (supportsEmoji
                     ? " " + styles["image-upload-button-emoji"]
                     : "")
                 }
                 onClick={uploadImagePromptClick}
               >
-                {supportsEmoji() ? "📷" : "Upload an image"}
+                {supportsEmoji ? "📷" : "Upload an image"}
               </Button>
               <input
                 hidden
@@ -174,13 +175,13 @@ function AddItemForm({ onAdd }) {
               <Button
                 className={
                   styles["image-upload-button"] +
-                  (supportsEmoji()
+                  (supportsEmoji
                     ? " " + styles["image-upload-button-emoji"]
                     : "")
                 }
                 onClick={uploadImageAnswerClick}
               >
-                {supportsEmoji() ? "📷" : "Upload an image"}
+                {supportsEmoji ? "📷" : "Upload an image"}
               </Button>
               <input
                 hidden
