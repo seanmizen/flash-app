@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-seanmizen": "REACT_APP_BASENAME=/apps/flash-app react-scripts build"
+    "build-seanmizen": "REACT_APP_BASENAME=/apps/flash-app PUBLIC_URL=http://seanmizen.com/apps/flash-app react-scripts build"
   },
   "eslintConfig": {
     "extends": [
