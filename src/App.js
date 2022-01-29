@@ -15,7 +15,7 @@ function App() {
     // so for example I can't navigate directly to /apps/flash-app/swatch - I need to follow the router links for that to work.
     // if there are no router links, that page is now inaccessible!
     // TODO try environment variables
-    <Router basename={process.env.BASENAME}>
+    <Router basename={process.env.REACT_APP_BASENAME}>
       <Nav />
       <div className="container">
         <Switch>
