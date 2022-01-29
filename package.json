@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^1.29.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -20,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-seanmizen": "REACT_APP_BASENAME=/apps/flash-app PUBLIC_URL=http://seanmizen.com/apps/flash-app react-scripts build"
+    "build-seanmizen": "REACT_APP_BASENAME=/apps/flash-app PUBLIC_URL=http://seanmizen.com/apps/flash-app react-scripts build",
+    "build-pages": "REACT_APP_BASENAME=/ PUBLIC_URL=https://seanmizen.github.io/flash-app react-scripts build"
   },
   "eslintConfig": {
     "extends": [

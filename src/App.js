@@ -3,11 +3,16 @@ import Nav from "./core/Nav";
 import DeckEditor from "./features/DeckEditor";
 import Challenge from "./features/Challenge";
 import Swatch from "./features/Swatch";
+import GetDeck from "./services/DeckService";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import './App.css';
 //test commit
 
 function App() {
+  const a = GetDeck(1).then((deck) => {
+    console.log(deck);
+  });
+
   return (
     //    <Router basename="/apps/flash-app">
     // https://stackoverflow.com/questions/50250223/react-router-app-deployed-on-different-locations-subdirectories
@@ -20,6 +25,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route path="/deck-editor">
+            {/* /:id - route parameter. useParams() hook will pull this. */}
             <DeckEditor />
           </Route>
           <Route path="/challenge">
