@@ -18,6 +18,7 @@ function ItemList(props) {
             prompt={item.prompt}
             answer={item.answer}
             image={item.image}
+            answerImage={item.answerImage}
             editItemCallback={props.editItemCallback}
           />
         );

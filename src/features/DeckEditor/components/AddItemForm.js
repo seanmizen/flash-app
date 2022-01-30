@@ -31,13 +31,13 @@ function AddItemForm({ onAdd }) {
   const submitForm = (e) => {
     let newItem = { prompt, answer };
     if (image) {
-      newItem = { ...newItem, image: image };
+      newItem = { ...newItem, image };
       if (prompt === "") {
         setPrompt(imageObject.name);
       }
     }
     if (answerImage) {
-      newItem = { ...newItem, answerImage: answerImage };
+      newItem = { ...newItem, answerImage };
       if (answer === "") {
         setAnswer(answerImageObject.name);
       }

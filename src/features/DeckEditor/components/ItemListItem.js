@@ -8,6 +8,7 @@ function ItemListItem({
   prompt,
   answer,
   image,
+  answerImage,
   editItemCallback,
 }) {
   const [editActive, setEditActive] = useState(false);
@@ -124,6 +125,14 @@ function ItemListItem({
               </div>
             </div>
             <div className={styles["item-answer"]}>
+              {answerImage ? (
+                <div className={styles["limited-image-container"]}>
+                  <img alt="Answer Preview" src={answerImage} />
+                </div>
+              ) : (
+                <></>
+              )}
+
               <span>{innerAnswer || "\xa0"}</span>
             </div>
           </div>
