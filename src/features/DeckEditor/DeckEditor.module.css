@@ -93,7 +93,6 @@ h3 {
     flex: none;
     min-height: 5.5rem;
     margin: 0 0 0 0;
-    padding: 0.2rem 0.1rem;
     flex-direction: row;
   }
   .title-button-holder button {
