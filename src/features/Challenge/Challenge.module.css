@@ -155,6 +155,8 @@ align-content: (stretch is the default)
 }
 
 .arena-prompt {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   padding: 0.5rem;
 }
 
@@ -172,6 +174,8 @@ align-content: (stretch is the default)
 }
 
 .arena-answer {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   padding: 0.5rem;
 }
 
