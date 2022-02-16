@@ -12,9 +12,6 @@ function checkSupportsEmoji() {
 const supportsEmoji = checkSupportsEmoji();
 
 function AddItemForm({ onAdd }) {
-  // {} instead of props just allows us to not do props. everywhere
-  // <> </> allows us to render consecutive components as siblings (and lets us fragment this component)
-
   const [prompt, setPrompt] = useState(""); //pass in our default val
   const [answer, setAnswer] = useState("");
   const [imageObject, setImageObject] = useState(""); //image file object (including name, dimensions, etc)
