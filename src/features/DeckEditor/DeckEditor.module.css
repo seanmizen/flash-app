@@ -6,8 +6,12 @@ button {
 .spacer {
   margin: 1rem;
   padding: 1px 0;
-  background-color: rgb(195, 152, 255);
+  background-color: var(--highlight);
   opacity: 0.2;
+}
+
+.deck-editor-edit-area .spacer {
+  margin: 0.2rem 6rem;
 }
 
 .deck-editor {
@@ -43,7 +47,7 @@ button {
 }
 
 .title-item {
-  background-color: RGBA(60, 60, 60);
+  background-color: var(--subsection);
   padding: 0.2rem;
   display: flex;
   flex-direction: column;
@@ -68,7 +72,7 @@ h3 {
 
 .title-button-holder {
   justify-content: center;
-  background-color: RGBA(60, 60, 60);
+  background-color: var(--subsection);
   display: flex;
   align-items: center;
 }
@@ -213,7 +217,7 @@ form {
 
 .deck-editor-edit-area {
   padding: 0.5rem 0;
-  background-color: RGBA(60, 60, 60);
+  background-color: var(--subsection);
   flex: 1;
   display: flex;
   flex-direction: column;

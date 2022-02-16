@@ -5,7 +5,7 @@ import styles from "./Nav.module.css";
 class Nav extends Component {
   render() {
     return (
-      <nav className={styles["nav"]}>
+      <nav className="nav-holder">
         <div className="nav">
           <ul className={styles["nav-list"]}>
             <li className={styles["nav-list-item"]}>
