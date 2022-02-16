@@ -1,5 +1,5 @@
-import ItemListItem from "./ItemListItem";
-import styles from "../DeckEditor.module.css";
+import ItemListItem from "./components/ItemListItem";
+import styles from "./ItemList.module.css";
 
 function ItemList(props) {
   return (

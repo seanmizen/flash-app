@@ -97,7 +97,7 @@ function AddItemForm({ onAdd }) {
       onSubmit={submitForm}
       ref={formRef}
     >
-      <div className={styles["itemlist-item-edit-inner"]}>
+      <div className={styles["item-form-inner"]}>
         <div className={styles["item-form-prompt"]}>
           <div className={styles["item-form-prompt-text"]}>
             <div>Add a text prompt:</div>

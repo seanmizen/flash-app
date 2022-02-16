@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import ItemList from "./components/ItemList";
 import AddItemForm from "./components/AddItemForm";
 import SaveDeckToFile from "./components/SaveDeckToFile";
 import LoadDeckFromFile from "./components/LoadDeckFromFile";
 import styles from "./DeckEditor.module.css";
-import { Button } from "../../components";
+import { Button, ItemList } from "../../components";
 import { v4 as uuidv4 } from "uuid";
 
 //Adapted from Tiff In Tech's React tutorial (Todo List)

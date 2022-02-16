@@ -1,0 +1,239 @@
+/*
+item-list
+ghost
+no-bullets
+itemlist-item
+itemlist-item-edit-inner
+limited-image-container
+item-prompt-edit
+item-answer-edit
+itemlist-item-edit-buttons
+itemlist-item-inner
+item-prompt
+limited-image-container
+item-answer
+itemlist-item-delete-button
+*/
+
+li {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemlist-item {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  /* box-shadow: 4px 4px 4px #353b5e; */
+  box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  display: flex;
+  padding: 0px;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  /*flex-direction: row;*/
+}
+
+.itemlist-item form {
+  flex: 1;
+}
+
+.itemlist-item-inner {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.itemlist-item-delete-button {
+  position: absolute;
+  padding: 0.3rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 0 0.2rem;
+}
+
+.item-prompt {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-prompt .limited-image-container {
+  margin: 0.2rem;
+}
+
+.item-prompt div {
+  flex: 1;
+  margin: 0.4rem;
+}
+
+.item-answer {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.item-answer span {
+  margin: 0.4rem;
+}
+
+.itemlist-item-edit-inner {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.itemlist-item-edit-inner textarea {
+  resize: vertical;
+}
+
+.itemlist-item-edit-inner .spacer {
+  margin: 0.2rem 6rem;
+}
+
+.itemlist-item-edit-buttons {
+  flex: 0;
+  padding: 0.1rem;
+}
+
+.limited-image-container {
+  display: flex;
+  flex: 1 1;
+  max-width: 10rem;
+  max-height: auto;
+  width: 100%;
+  height: 100%;
+  margin: 0.2rem;
+  margin-left: 1rem;
+  border-radius: 0.2rem;
+}
+
+.ghost {
+  opacity: 0.5;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
+.item-prompt-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+.item-answer-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.item-list {
+  background-color: RGBA(60, 60, 60);
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+  max-height: 350px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.itemlist-item {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  /* box-shadow: 4px 4px 4px #353b5e; */
+  box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  display: flex;
+  padding: 0px;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  /*flex-direction: row;*/
+}
+
+.itemlist-item form {
+  flex: 1;
+}
+
+.itemlist-item-inner {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.itemlist-item-delete-button {
+  position: absolute;
+  padding: 0.3rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 0 0.2rem;
+}
+
+.item-prompt {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-prompt .limited-image-container {
+  margin: 0.2rem;
+}
+
+.item-answer {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.itemlist-item-edit-inner textarea {
+  resize: vertical;
+}
+
+.itemlist-item-edit-inner .spacer {
+  margin: 0.2rem 6rem;
+}
+
+.itemlist-item-edit-buttons {
+  flex: 0;
+  padding: 0.1rem;
+}
+
+.limited-image-container {
+  display: flex;
+  flex: 1 1;
+  max-width: 10rem;
+  max-height: auto;
+  width: 100%;
+  height: 100%;
+  margin: 0.2rem;
+  margin-left: 1rem;
+  border-radius: 0.2rem;
+}
+
+.ghost {
+  opacity: 0.5;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
+.item-prompt-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+.item-answer-edit {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}

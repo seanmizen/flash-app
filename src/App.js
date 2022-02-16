@@ -1,7 +1,6 @@
 import React from "react";
 import Nav from "./core/Nav";
-import DeckEditor from "./features/DeckEditor";
-import Challenge from "./features/Challenge";
+import { DeckEditor, Challenge } from "./features";
 import Swatch from "./features/Swatch";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import './App.css';
