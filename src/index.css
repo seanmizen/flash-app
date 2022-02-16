@@ -23,10 +23,10 @@ body {
 }
 
 /*
-    below settings are Mark settings
-    trust them
-    centre div is in here somehow
-*/
+      below settings are Mark settings
+      trust them
+      centre div is in here somehow
+  */
 .nav {
   max-width: 100%;
   width: 36rem;
@@ -57,9 +57,9 @@ h3 {
 }
 
 /*
-    rem = fraction of font-size in the root element
-    has nothing to do with "Root EleMent" - but it sounds close enough
-*/
+      rem = fraction of font-size in the root element
+      has nothing to do with "Root EleMent" - but it sounds close enough
+  */
 
 button {
   margin: 0.2rem;

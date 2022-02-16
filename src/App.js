@@ -1,10 +1,8 @@
 import React from "react";
 import Nav from "./core/Nav";
-import { DeckEditor, Challenge } from "./features";
-import Swatch from "./features/Swatch";
+import { DeckEditor, Challenge, Swatch } from "./features";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-//import './App.css';
-//test commit
+import "./index.css";
 
 function App() {
   return (
