@@ -11,7 +11,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  padding: 0.5rem 2rem;
+  padding: 1.6rem 2rem;
 }
 
 .theme-toggle-inner button {
@@ -34,4 +34,11 @@
   transition: opacity 0.5s;
   -webkit-transition: opacity 0.5s;
   opacity: 1 !important;
+}
+
+/* enforce auto color theme for mobile users */
+@media only screen and (max-width: 440px) {
+  .theme-toggle-outer {
+    display: none;
+  }
 }
