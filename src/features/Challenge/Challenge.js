@@ -22,9 +22,7 @@ function Challenge() {
     setDeckKey(Math.random()); //forces Arena to fully reset when loading a new deck
   };
 
-  useEffect(() => {
-    console.log("Ch deckName: " + localStorage.getItem("deckName"));
-  }, [list, deckName]);
+  useEffect(() => {}, [list, deckName]);
 
   return (
     <div className={styles["challenge"]}>

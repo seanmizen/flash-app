@@ -29,8 +29,6 @@ function SaveDeckToFile({ deck }) {
     var blob = new Blob([json], { type: "application/json" });
     var url = URL.createObjectURL(blob);
 
-    console.log(url);
-
     var a = document.createElement("a"); //orphaned element - does not exist in the dom
     a.download = deck.deckName + ".json";
     a.href = url;

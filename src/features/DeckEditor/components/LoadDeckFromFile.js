@@ -21,12 +21,10 @@ function LoadDeckFromFile({ onDeckLoad }) {
 
   const validateDeckAndPassUp = (deck) => {
     if (deck.deckName === "" || deck.list.length === 0) {
-      console.log("deck import failed");
       return;
     }
     //if any IDs are duplicated, generate a completely new set of IDs (Older versions of code had bad ID generation)
     if (duplicateIdsExist(deck.list.map((item) => item.id))) {
-      console.log("duplicate IDs found  - generating new IDs");
       let i = 0;
       let newID = "0";
       for (i = 0; i < deck.list.length; i++) {
@@ -34,13 +32,11 @@ function LoadDeckFromFile({ onDeckLoad }) {
         const getID = (item) => item.id;
         while (newID === 0 || deck.list.map(getID).includes(newID)) {
           newID = uuidv4();
-          console.log("generating new ID: " + newID);
         }
         deck.list[i].id = newID;
       }
     }
 
-    console.log("importing deck '" + deck.deckName + "'");
     onDeckLoad(deck);
   };
 

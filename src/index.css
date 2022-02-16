@@ -1,12 +1,5 @@
-/*
-Main color: #6874b9
-shadow: #353b5e
-light: #d9d9f5
-*/
-
 :root {
   color-scheme: light dark;
-  /* background: #323232; */
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
@@ -37,17 +30,14 @@ body {
   --color: #111;
   --nav-background: #ddd;
   --nav-box-shadow: #2d006d;
+  /* TODO: */
+  --highlight: #70fb;
+  --subsection: #ddd;
+  --subsection-2: #ccc;
+  --subsection-3: #bbb;
+  --arena-item-shadow: #05050511;
 }
 .dark {
-  --background: #333;
-  --color: #eee;
-  --nav-background: #202020;
-  --nav-box-shadow: #2d006d;
-  --highlight: #c398ff;
-}
-
-* {
-  /* Below are copies of .dark */
   --background: #333;
   --color: #eee;
   --nav-background: #202020;
@@ -57,13 +47,16 @@ body {
   --subsection-2: #4d4d4d;
   --subsection-3: #5e5e5e;
   --arena-item-shadow: #ffffff1a;
+}
+
+* {
   box-sizing: border-box;
 }
 
 /*
-      below settings are Mark settings
-      trust them
-      centre div is in here somehow
+  below settings are Mark settings
+  trust them
+  centre div is in here somehow
 */
 
 .container {

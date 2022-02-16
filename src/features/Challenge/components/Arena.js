@@ -100,7 +100,6 @@ function Arena({ deck }) {
   }
 
   function shuffleDeck() {
-    console.log("Shuffling deck");
     setShuffledList(shuffleArray([...shuffledList]));
     setCurrentItem(0);
     manSetRevealAnswer(false);

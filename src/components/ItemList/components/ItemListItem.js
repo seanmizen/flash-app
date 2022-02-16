@@ -50,7 +50,6 @@ function ItemListItem({
   //handle doubleclicks
   useEffect(() => {
     const handleDoubleClick = (e) => {
-      console.log(e.composedPath().includes(liRef.current));
       if (e.composedPath().includes(liRef.current) && allowEdit) {
         //clicked inside li
         setEditActive(true);
@@ -140,7 +139,6 @@ function ItemListItem({
             <div
               className={styles["itemlist-item-delete-button"]}
               onClick={() => {
-                console.log("Deleting " + id);
                 onDeleted(id);
               }}
             >

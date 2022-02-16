@@ -195,7 +195,7 @@ function AddItemForm({ onAdd }) {
         </div>
         <div className={styles["spacer"]} />
       </div>
-      <Button type="submit" ref={submitRef}>
+      <Button type="submit" innerRef={submitRef}>
         Add to deck
       </Button>
     </form>
