@@ -15,22 +15,5 @@ Nothing here really
 
 ## TODO:
 
-### CSS / UI enhancements:
-
--desktop res: side-by-side prompt / picture
-
--mobile res: top/bottom
-
--Deck Editor page structure:
-
--Add mobile vs. desktop view
-
--Challenge "Load Deck" area - make it pretty
-
--Make challenge screen work for mobile (NO swipe down - this is easily confused with refresh and will break mobile websites)
-
-### Animations + funky features:
-
--Item added + item removed animation
-
--ItemList: Reorder deck items by clicking and dragging
+- Add light / dark theme
+- Convert ItemList into a drag-and-drop using react-dnd
