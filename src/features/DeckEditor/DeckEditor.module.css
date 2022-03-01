@@ -134,14 +134,20 @@ form {
 }
 
 .item-form-prompt {
-  margin: 0.5rem 0.2rem;
+  /* margin: 0.5rem 0.2rem; */
+  padding: 0.4rem 0.15rem;
+  margin: 0.1rem 0.05rem;
+  background-color: var(--subsection-2);
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
 }
 .item-form-answer {
-  margin: 0.5rem 0.2rem;
+  /* margin: 0.5rem 0.2rem; */
+  padding: 0.4rem 0.15rem;
+  margin: 0.1rem 0.05rem;
+  background-color: var(--subsection-2);
   display: flex;
   flex: 1;
   flex-direction: column;
