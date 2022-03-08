@@ -5,8 +5,8 @@ import styles from "./Nav.module.css";
 class Nav extends Component {
   render() {
     return (
-      <nav className="nav-holder">
-        <div className="nav">
+      <nav className={styles["nav-holder"]}>
+        <div className={styles["nav"]}>
           <ul className={styles["nav-list"]}>
             <li className={styles["nav-list-item"]}>
               <Link to="/deck-editor">Deck Builder</Link>
