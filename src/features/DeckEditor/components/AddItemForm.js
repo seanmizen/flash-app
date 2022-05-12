@@ -101,7 +101,7 @@ function AddItemForm({ onAdd }) {
         <div className={styles["item-form-prompt"]}>
           <div className={styles["item-form-prompt-text"]}>
             <div>Add a text prompt:</div>
-            <input
+            <textarea
               className={styles["prompt-text-input"]}
               type="text"
               required={image === ""}

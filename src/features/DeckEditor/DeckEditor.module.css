@@ -214,9 +214,9 @@ form {
 .item-form-answer textarea {
   display: block;
   flex: 1;
-  width: 100%;
-  overflow: hidden;
-  resize: vertical;
+  /* width: 100%; */
+  /* overflow: hidden; */
+  resize:both;
   min-height: 70px;
   line-height: 20px;
 }
