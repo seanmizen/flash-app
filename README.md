@@ -9,6 +9,8 @@ Tiff In Tech "todo list" video was the boilerplate.
 
 Start the app with `npm start` or build the project with `npm run build`
 
+deployment workflows are included, but will only work for seanmizen for now. useful as boilerplate.
+
 ## TODO:
 
 - Fix light / dark theme. currently hardcoded to auto/system with a dysfunctional button.
