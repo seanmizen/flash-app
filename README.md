@@ -1,19 +1,17 @@
 # Flash App
 
-React training project by smizzle-probably. Create, save, load decks and test yourself out on them.
+React training project by Sean Mizen. Create, save, load decks and test yourself out on them.
 
 Bootstrapped via [Create React App](https://github.com/facebook/create-react-app).
 Tiff In Tech "todo list" video was the boilerplate.
 
-## Header 2
+## Running the app
 
-Start the app with `npm start`.
-
-### H3
-
-Nothing here really
+Start the app with `npm start` or build the project with `npm run build`
 
 ## TODO:
 
-- Add light / dark theme
+- Fix light / dark theme. currently hardcoded to auto/system with a dysfunctional button.
 - Convert ItemList into a drag-and-drop using react-dnd
+- improve UI - use Material Design guides, improve and de-grey the palette.
+- improve UX - find some inspo for a better Challenge screen.
